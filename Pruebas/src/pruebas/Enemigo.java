@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package videojuegorpg;
 
-/**
- *
- * @author Alumno
- */
+package pruebas;
+
 import java.lang.Math;
 
 public class Enemigo {
@@ -103,13 +96,13 @@ public class Enemigo {
 
     @Override
     public String toString() {
-        String texto = "------------------------------------------" + "\n";
-        texto += "JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
-        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "ATK: " + PA +
+        String texto = "                        ------------------------------------------" + "\n";
+        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
+        texto += "                        HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
+        texto += "                        ATK: " + PA +
                  "   DEF: " + armor +
                  "   VEL: " + vel + "\n";
-        texto += "------------------------------------------" + "\n";
+        
         return texto;
     }
 
@@ -130,13 +123,13 @@ public class Enemigo {
         gold = goldRandom;
     }
 
-    public void atacar(Jugador j1) {
+    public void atacar(JugadorPrueba j1) {
 
         System.out.println(nombre + " ha usado 'ataque basico' ");
-        int j1PS = j1.getPS();
+        int j1PS = j1.getPs();
 
         j1PS -= PA;
-        j1.setPS(j1PS);
+        j1.setPs(j1PS);
 
     }
 

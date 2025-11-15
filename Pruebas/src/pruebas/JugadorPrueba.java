@@ -27,6 +27,94 @@ public class JugadorPrueba {
         this.armor = armor;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getClase() {
+        return clase;
+    }
+
+    public void setClase(String clase) {
+        this.clase = clase;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
+    public int getPs() {
+        return ps;
+    }
+
+    public void setPs(int ps) {
+        this.ps = ps;
+    }
+
+    public int getPsMax() {
+        return psMax;
+    }
+
+    public void setPsMax(int psMax) {
+        this.psMax = psMax;
+    }
+
+    public int getPa() {
+        return pa;
+    }
+
+    public void setPa(int pa) {
+        this.pa = pa;
+    }
+
+    public int getPm() {
+        return pm;
+    }
+
+    public void setPm(int pm) {
+        this.pm = pm;
+    }
+
+    public int getPmMax() {
+        return pmMax;
+    }
+
+    public void setPmMax(int pmMax) {
+        this.pmMax = pmMax;
+    }
+
+    public int getVel() {
+        return vel;
+    }
+
+    public void setVel(int vel) {
+        this.vel = vel;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public int getArmor() {
+        return armor;
+    }
+
+    public void setArmor(int armor) {
+        this.armor = armor;
+    }
+
    // Método para generar una barra tipo Pokémon
     private String generarBarra(int actual, int max, int longitud) {
         if (max <= 0) max = 1;  // evitar división por cero
@@ -48,14 +136,14 @@ public class JugadorPrueba {
 
     @Override
     public String toString() {
-        String texto = "------------------------------------------" + "\n";
-        texto += "JUGADOR: " + nombre + " (" + clase + ")   Nv. " + nivel + "         |" + "\n" ;
-        texto += "HP " + generarBarra(ps, psMax, 25) + " " + ps + "/" + psMax + "    |" + "\n";
-        texto += "MP " + generarBarra(pm, pmMax, 25) + " " + pm + "/" + pmMax + "     |" + "\n";
+        
+        String texto = "JUGADOR: " + nombre + " (" + clase + ")   Nv. " + nivel + "\n" ;
+        texto += "HP " + generarBarra(ps, psMax, 25) + " " + ps + "/" + psMax  + "\n";
+        texto += "MP " + generarBarra(pm, pmMax, 25) + " " + pm + "/" + pmMax  + "\n";
         texto += "ATK: " + pa +
                  "   DEF: " + armor +
                  "   VEL: " + vel +
-                 "   GOLD: " + gold + "  |" + "\n";
+                 "   GOLD: " + gold  + "\n";
         texto += "------------------------------------------" + "\n";
         return texto;
     }
