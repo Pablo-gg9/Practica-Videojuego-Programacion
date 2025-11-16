@@ -20,16 +20,92 @@ public class Videojuegorpg {
         Jugador j1 = new Jugador("Javi" , "Mago");
         j1.iniciarClase();
         e.calcularEstadisticasEnemigo();
-     
         
        
+        do{
+            
+            mostrarCombate(j1, e);
+            e.atacar(j1);
+            
+        }while(j1.getPS() > 0);
+            mostrarCombate(j1, e);
         
-        System.out.println(j1);
-        System.out.println(e);
-        e.atacar(j1);
-        
-        System.out.println(j1);
         // TODO code application logic here
     }
+    
+    
+    
+    
+    
+    public static void mostrarCombate(Jugador jugador, Enemigo enemigo) {
+
+    
+
+    System.out.println();
+    System.out.println("==================================================================");
+
+    // ENEMIGO (arriba derecha)
+   
+    System.out.println(enemigo.toString());
+    System.out.println("                           O");
+    System.out.println("                          /|\\");
+    System.out.println("                          / \\");
+    System.out.println("                        ------------------------------------------");
+    
+    System.out.println();
+    System.out.println("--------------------------------------------------");
+    System.out.println();
+
+    // JUGADOR (abajo izquierda)
+        System.out.println("------------------------------------------");
+    System.out.println("   O");
+    System.out.println("  /|\\");
+    System.out.println("  / \\");
+    System.out.println(jugador.toString());
+    
+
+        System.out.println("==================================================================");
+    System.out.println();
+}
+    
+    public static void mostrarCombateDerrotaEnemigo(Jugador jugador, Enemigo enemigo) {
+
+    System.out.println();
+    System.out.println("==================================================");
+
+    System.out.println(enemigo.toString());
+    System.out.println("                           .-.");
+    System.out.println("                          (X X)");
+    System.out.println("                           \\_/");
+    System.out.println("                        ------------------------------------------");
+   
+    
+    System.out.println();
+    System.out.println("--------------------------------------------------");
+    System.out.println();
+
+
+    System.out.println("------------------------------------------");
+    System.out.println("   O");
+    System.out.println("  /|\\");
+    System.out.println("  / \\");
+    System.out.println(jugador.toString());
+
+    System.out.println("==================================================");
+    System.out.println();
+}
+    
+    public static void mostrarGameOver() {
+    System.out.println();
+    System.out.println("   _____          __  __ ______    ______      ________ _____  ");
+    System.out.println("  / ____|   /\\   |  \\/  |  ____|  / __ \\ \\    / /  ____|  __ \\ ");
+    System.out.println(" | |  __   /  \\  | \\  / | |__    | |  | \\ \\  / /| |__  | |__) |");
+    System.out.println(" | | |_ | / /\\ \\ | |\\/| |  __|   | |  | |\\ \\/ / |  __| |  _  / ");
+    System.out.println(" | |__| |/ ____ \\| |  | | |____  | |__| | \\  /  | |____| | \\ \\ ");
+    System.out.println("  \\_____/_/    \\_\\_|  |_|______|  \\____/   \\/   |______|_|  \\_\\");
+    System.out.println();
+}
+
+
     
 }

@@ -103,20 +103,21 @@ public class Enemigo {
 
     @Override
     public String toString() {
-        String texto = "------------------------------------------" + "\n";
-        texto += "JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
-        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "ATK: " + PA +
+        String texto = "                        ------------------------------------------" + "\n";
+        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
+        texto += "                        HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
+        texto += "                        ATK: " + PA +
                  "   DEF: " + armor +
                  "   VEL: " + vel + "\n";
-        texto += "------------------------------------------" + "\n";
+        
         return texto;
     }
 
    
 
     public void calcularEstadisticasEnemigo() {
-        int PARandom = (int) (Math.random() * 10) * nivel;
+        
+        int PARandom = (int) (Math.random() * 10) + 2 * nivel;
         int PSMaxRandom = (int) (Math.random() * 11) + 10 * nivel / 2;
         int velRandom = (int) (Math.random() * 10) * nivel;
         int armorRandom = (int) (Math.random() * 4) + nivel;
@@ -131,7 +132,7 @@ public class Enemigo {
     }
 
     public void atacar(Jugador j1) {
-
+        
         System.out.println(nombre + " ha usado 'ataque basico' ");
         int j1PS = j1.getPS();
 

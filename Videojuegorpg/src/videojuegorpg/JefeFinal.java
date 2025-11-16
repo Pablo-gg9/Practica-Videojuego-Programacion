@@ -82,13 +82,13 @@ public class JefeFinal {
 
     @Override
     public String toString() {
-        String texto = "------------------------------------------" + "\n";
-        texto += "JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
-        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "ATK: " + PA +
+        String texto = "                        ------------------------------------------" + "\n";
+        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
+        texto += "                        HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
+        texto += "                        ATK: " + PA +
                  "   DEF: " + armor +
                  "   VEL: " + vel + "\n";
-        texto += "------------------------------------------" + "\n";
+        
         return texto;
     }
 
@@ -115,7 +115,7 @@ public class JefeFinal {
 
                 System.out.println("Dueñas ha usado 'x + 2' ");
                 
-                j1PS -= PA;
+                j1PS -= PA + 2;
                 j1.setPS(j1PS);
                 break;
 

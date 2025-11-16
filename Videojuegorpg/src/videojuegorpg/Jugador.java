@@ -161,14 +161,14 @@ public class Jugador {
 
     @Override
     public String toString() {
-        String texto = "------------------------------------------" + "\n";
-        texto += "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n" ;
-        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "\n";
+        
+        String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n" ;
+        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax  + "\n";
+        texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax  + "\n";
         texto += "ATK: " + PA +
                  "   DEF: " + armor +
                  "   VEL: " + vel +
-                 "   GOLD: " + gold + "\n";
+                 "   GOLD: " + gold  + "\n";
         texto += "------------------------------------------" + "\n";
         return texto;
     }
