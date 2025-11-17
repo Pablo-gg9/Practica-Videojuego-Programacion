@@ -139,7 +139,6 @@ public class Videojuegorpg {
                             }
                         }
 
-                        mostrarCombate(j1, e);
 
                     } while (j1.getPS() > 0 && e.getPS() > 0);
 
