@@ -11,12 +11,12 @@ package videojuegorpg;
 public class JefeFinal {
 
     private String nombre;
-    private int PS, PSMax , PA, vel, armor, nivel;
+    private int PS, PSMax, PA, vel, armor, nivel;
 
     public JefeFinal() {
         nombre = "Javier Dueñas";
         PS = 200;
-        PSMax= 200;
+        PSMax = 200;
         vel = 90;
         armor = 10;
         nivel = 10;
@@ -63,10 +63,16 @@ public class JefeFinal {
     }
 
     private String generarBarra(int actual, int max, int longitud) {
-        if (max <= 0) max = 1;  // evitar división por cero
+        if (max <= 0) {
+            max = 1;  // evitar división por cero
+        }
         int llenos = (int) ((double) actual / max * longitud);
-        if (llenos < 0) llenos = 0;
-        if (llenos > longitud) llenos = longitud;
+        if (llenos < 0) {
+            llenos = 0;
+        }
+        if (llenos > longitud) {
+            llenos = longitud;
+        }
 
         String barra = "[";
         for (int i = 0; i < longitud; i++) {
@@ -83,12 +89,12 @@ public class JefeFinal {
     @Override
     public String toString() {
         String texto = "                        ------------------------------------------" + "\n";
-        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
+        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n";
         texto += "                        HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "                        ATK: " + PA +
-                 "   DEF: " + armor +
-                 "   VEL: " + vel + "\n";
-        
+        texto += "                        ATK: " + PA
+                + "   DEF: " + armor
+                + "   VEL: " + vel + "\n";
+
         return texto;
     }
 
@@ -108,13 +114,12 @@ public class JefeFinal {
     public void habilidades(int opcion, Jugador j1) {
         int j1PS = j1.getPS();
         boolean j1Quemado = j1.isQuemado();
-        boolean j1Confuso = j1.isConfuso();
-        
+
         switch (opcion) {
             case 1:
 
                 System.out.println("Dueñas ha usado 'x + 2' ");
-                
+
                 j1PS -= PA + 2;
                 j1.setPS(j1PS);
                 break;
@@ -122,40 +127,38 @@ public class JefeFinal {
             case 2:
 
                 System.out.println("Dueñas ha usado 'Tetraedro del Fuego' ");
-                
+
                 j1PS -= PA - 5;
                 j1.setPS(j1PS);
-                
+
                 int quemadoRandom = (int) (Math.random() * 5);
-                if(quemadoRandom == 3)
-                {
-                    j1Quemado = true; 
+                if (quemadoRandom == 3) {
+                    j1Quemado = true;
                     j1.setQuemado(j1Quemado);
+                    System.out.println("Has sido quemado");
                 }
-                
-                
+
                 break;
 
             case 3:
 
                 System.out.println("Dueñas ha usado 'Se va pudiendo' ");
-                
+                System.out.println("");
+                System.out.println("Dueñas ha aumentado su armadura");
+                armor += 3;
 
                 break;
 
             case 4:
 
                 System.out.println("Dueñas ha usado '¿Sabes lo que es un videojuego, verdad?' ");
-                
+
                 j1PS -= PA % 10;
                 j1.setPS(j1PS);
                 int confusoRandom = (int) (Math.random() * 3);
-                if(confusoRandom == 2)
-                {
-                    j1Confuso = true;
-                    j1.setConfuso(j1Confuso);
+                if (confusoRandom == 2) {
+                    
                 }
-                
 
                 break;
         }

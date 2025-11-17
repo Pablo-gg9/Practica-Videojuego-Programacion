@@ -13,7 +13,7 @@ import java.lang.Math;
 public class Enemigo {
 
     private String nombre;
-    private int PS, PSMax , armor, PA, vel, gold, nivel;
+    private int PS, PSMax, armor, PA, vel, gold, nivel;
 
     public Enemigo(String nombre, int nivel) {
         this.nombre = nombre;
@@ -27,7 +27,8 @@ public class Enemigo {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-     public int getPSMax() {
+
+    public int getPSMax() {
         return PSMax;
     }
 
@@ -84,10 +85,16 @@ public class Enemigo {
     }
 
     private String generarBarra(int actual, int max, int longitud) {
-        if (max <= 0) max = 1;  // evitar división por cero
+        if (max <= 0) {
+            max = 1;  // evitar división por cero
+        }
         int llenos = (int) ((double) actual / max * longitud);
-        if (llenos < 0) llenos = 0;
-        if (llenos > longitud) llenos = longitud;
+        if (llenos < 0) {
+            llenos = 0;
+        }
+        if (llenos > longitud) {
+            llenos = longitud;
+        }
 
         String barra = "[";
         for (int i = 0; i < longitud; i++) {
@@ -104,19 +111,17 @@ public class Enemigo {
     @Override
     public String toString() {
         String texto = "                        ------------------------------------------" + "\n";
-        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n" ;
+        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n";
         texto += "                        HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "                        ATK: " + PA +
-                 "   DEF: " + armor +
-                 "   VEL: " + vel + "\n";
-        
+        texto += "                        ATK: " + PA
+                + "   DEF: " + armor
+                + "   VEL: " + vel + "\n";
+
         return texto;
     }
 
-   
-
     public void calcularEstadisticasEnemigo() {
-        
+
         int PARandom = (int) (Math.random() * 10) + 2 * nivel;
         int PSMaxRandom = (int) (Math.random() * 11) + 10 * nivel / 2;
         int velRandom = (int) (Math.random() * 10) * nivel;
@@ -132,13 +137,22 @@ public class Enemigo {
     }
 
     public void atacar(Jugador j1) {
-        
+
+        int PARandom = (int) (Math.random() * 6) + PA;
         System.out.println(nombre + " ha usado 'ataque basico' ");
         int j1PS = j1.getPS();
 
-        j1PS -= PA;
+        j1PS -= PARandom;
         j1.setPS(j1PS);
 
+    }
+    
+    public void dropGold(Jugador j1){
+        
+        int j1Gold = j1.getGold();
+        System.out.println( nombre + "ha soltado " + gold + " de oro");
+        j1Gold += gold;
+        j1.setGold(j1Gold);
     }
 
 }

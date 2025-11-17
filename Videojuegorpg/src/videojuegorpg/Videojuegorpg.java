@@ -25,10 +25,14 @@ public class Videojuegorpg {
         do{
             
             mostrarCombate(j1, e);
-            e.atacar(j1);
+            if(e.getPS() > 0)e.atacar(j1);
+            mostrarCombate(j1,e);
+            if(j1.getPS() > 0) j1.atacarEnemigo(e, false);
             
-        }while(j1.getPS() > 0);
+        }while(j1.getPS() > 0 && e.getPS() > 0);
             mostrarCombate(j1, e);
+            if(j1.getPS() <= 0)  mostrarGameOver();
+            else mostrarCombateDerrotaEnemigo(j1, e);
         
         // TODO code application logic here
     }
