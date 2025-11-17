@@ -170,14 +170,13 @@ public class Jugador {
 
     @Override
     public String toString() {
-        String texto = "------------------------------------------" + "\n";
-        texto += "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "         |" + "\n";
-        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "    |" + "\n";
-        texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "     |" + "\n";
+        String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n";
+        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
+        texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "\n";
         texto += "ATK: " + PA
                 + "   DEF: " + armor
                 + "   VEL: " + vel
-                + "   GOLD: " + gold + "  |" + "\n";
+                + "   GOLD: " + gold + "\n";
         texto += "------------------------------------------" + "\n";
         return texto;
     }
@@ -236,7 +235,12 @@ public class Jugador {
         switch (clases) {
 
             case "Mago":
-                if (a1) {
+                if (a1 || PM < 10) {
+                    if(PM < 10 && a1 == false) 
+                    {
+                        System.out.println("No tienes suficiente mana");
+                    }
+                    
                     System.out.println("Has usado ATAQUE BASICO");
                     psEnemigo = e1.getPS();
                     psEnemigo -= PARandom;
@@ -253,7 +257,12 @@ public class Jugador {
                 }
                 break;
             case "Guerrero":
-                if (a1) {
+                if (a1 || PM < 10) {
+                     if(PM < 10 && a1 == false) 
+                    {
+                        System.out.println("No tienes suficiente mana");
+                    }
+                     
                     System.out.println("Has usado ATAQUE BASICO");
                     psEnemigo = e1.getPS();
                     psEnemigo -= PARandom;
@@ -267,12 +276,16 @@ public class Jugador {
                     psEnemigo = e1.getPS();
                     psEnemigo -= PARandom + tirada;
                     e1.setPS(psEnemigo);
-
                 }
                 break;
 
             case "Tanque":
-                if (a1) {
+                if (a1 || PM < 10) {
+                     if(PM < 10 && a1 == false) 
+                    {
+                        System.out.println("No tienes suficiente mana");
+                    }
+                     
                     System.out.println("Has usado ATAQUE BASICO");
                     psEnemigo = e1.getPS();
                     psEnemigo -= PA;
@@ -283,11 +296,17 @@ public class Jugador {
                     PM -= 10;
 
                     armor += 3;
+                    
 
                 }
                 break;
             case "Picaro":
-                if (a1) {
+                if (a1 || PM < 30) {
+                     if(PM < 30 && a1 == false) 
+                    {
+                        System.out.println("No tienes suficiente mana");
+                    }
+                     
                     System.out.println("Has usado ATAQUE BASICO");
                     psEnemigo = e1.getPS();
                     psEnemigo -= PA;
@@ -303,7 +322,12 @@ public class Jugador {
 
                 }
             case "Clerigo":
-                if (a1) {
+                if (a1 || PM < 10) {
+                     if(PM < 10 && a1 == false) 
+                    {
+                        System.out.println("No tienes suficiente mana");
+                    }
+                     
                     System.out.println("Has usado ATAQUE BASICO");
                     psEnemigo = e1.getPS();
                     psEnemigo -= PA;
@@ -314,6 +338,7 @@ public class Jugador {
                     PM -= 10;
 
                     PS += 5;
+                    
 
                 }
                 break;
@@ -333,6 +358,7 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= PARandom;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 } else {
                     System.out.println("Has usado BOLA DE FUEGO");
@@ -341,6 +367,7 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= 20 * nivel / 2;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 }
                 break;
@@ -350,6 +377,7 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= PARandom;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 } else {
                     System.out.println("Has usado TAJO GITANO");
@@ -359,6 +387,7 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= PARandom + tirada;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 }
                 break;
@@ -369,12 +398,14 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= PA;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 } else {
                     System.out.println("Has usado PERSE");
                     PM -= 10;
 
                     armor += 3;
+                    estarQuemado(quemado);
 
                 }
                 break;
@@ -384,6 +415,7 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= PA;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 } else {
                     System.out.println("Has usado GANG");
@@ -392,6 +424,7 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= PA * 2;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 }
             case "Clerigo":
@@ -400,12 +433,15 @@ public class Jugador {
                     psJefe = e1.getPS();
                     psJefe -= PA;
                     e1.setPS(psJefe);
+                    estarQuemado(quemado);
 
                 } else {
                     System.out.println("Has usado SIRI CURAME");
                     PM -= 10;
 
                     PS += 5;
+                    
+                    estarQuemado(quemado);
 
                 }
                 break;
@@ -416,7 +452,7 @@ public class Jugador {
 
     
     public void lvlUP(int opcion){
-        int subidaStats = (int) (Math.random() * 6) + PA;
+        int subidaStats = (int) (Math.random() * nivel);
 
         switch (opcion){
             case 1:
@@ -441,5 +477,12 @@ public class Jugador {
         }
     
     
+    }
+    public void estarQuemado(boolean quemado){
+        int dañoQuemado = (int) (Math.random() * 5) + PSMax/5;
+        if(quemado == true){
+            PS -= dañoQuemado;
+        }
+
     }
 }
