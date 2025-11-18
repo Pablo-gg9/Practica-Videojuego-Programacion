@@ -19,6 +19,7 @@ public class Videojuegorpg {
 
     public static void main(String[] args) {
         int opcion;
+        int compra;
         int ataque;
         String nombreJ;
         String[] nombresE = {"Yasi", "Guille", "Cham", "Javi", "Pablo", "Katherine", "Tomas", "Fernando"};
@@ -31,6 +32,7 @@ public class Videojuegorpg {
             System.out.println("----MENU DE OPCIONES----");
             System.out.println("1. Luchar con un enemigo");
             System.out.println("2. Mostrar Estadisticas");
+            System.out.println("3. Tienda der Yaser");
 
             opcion = teclado.nextInt();
 
@@ -45,9 +47,9 @@ public class Videojuegorpg {
 
                     do {
                         mostrarCombate(j1, e);
-                            
+
                         //Depende de la velocidad pegara uno antes u otro
-                        if (j1.getVel() > e.getVel()) { 
+                        if (j1.getVel() > e.getVel()) {
 
                             // --- JUGADOR ATACA PRIMERO ---
                             if (j1.getPS() > 0) {
@@ -139,7 +141,6 @@ public class Videojuegorpg {
                             }
                         }
 
-
                     } while (j1.getPS() > 0 && e.getPS() > 0);
 
                     if (j1.getPS() <= 0) {
@@ -152,6 +153,53 @@ public class Videojuegorpg {
                     break;
                 case 2:
                     System.out.println(j1);
+                    break;
+                case 3:
+                    System.out.println("===============================================");
+                    System.out.println("                 TIENDA DER YASER");
+                    System.out.println("===============================================\n");
+
+                    // Stickman
+                    System.out.println("                  O");
+                    System.out.println("                 /|\\   <- YASI");
+                    System.out.println("                 / \\ \n");
+
+                    System.out.println("Objetos disponibles:\n");
+
+                    // ===========================
+                    // FILA 1: ESPADA - ARMADURA - BOTAS
+                    // ===========================
+                    System.out.println(
+                            "   ESPADA                     ARMADURA                     BOTAS\n"
+                            + "     />                      /========\\                ___     ___\n"
+                            + " (====(=================>   |  [____]  |              |   |   |   |\n"
+                            + "     \\>                     |  |    |  |              |___|   |___|\n"
+                            + "                            |  |____|  |              (___)   (___)\n"
+                            + "                             \\________/                      \n"
+                    );
+
+                    // ===========================
+                    // FILA 2: ANILLO - COLLAR - (vacío)
+                    // ===========================
+                    System.out.println(
+                            "   ANILLO                      COLLAR (corazón)               \n"
+                            + "     ____                        __\\/__                         \n"
+                            + "   /      \\                    /       \\                       \n"
+                            + "  |  (  )  |                  |   <3   |                      \n"
+                            + "   \\______/                    \\______ /                       \n"
+                    );
+
+                    
+                    
+                    compra = teclado.nextInt();
+                    
+                    j1.comprar(compra);
+                    
+                    System.out.println("===============================================");
+                    System.out.println("     ¡Gracias por visitar la tienda de YASER!");
+                    System.out.println("===============================================");
+                    
+
                     break;
 
             }
