@@ -21,6 +21,7 @@ public class Videojuegorpg {
         int opcion;
         int compra;
         int ataque;
+        int objeto;
         String nombreJ;
         String[] nombresE = {"Yasi", "Guille", "Cham", "Javi", "Pablo", "Katherine", "Tomas", "Fernando"};
         JefeFinal j = new JefeFinal();
@@ -55,6 +56,7 @@ public class Videojuegorpg {
                             if (j1.getPS() > 0) {
                                 System.out.print("1. Ataque Basico");
                                 System.out.println("   2. Ataque Especial");
+                                System.out.println("3. Usar Objetos");
                                 ataque = teclado.nextInt();
                                 switch (ataque) {
                                     case 1:
@@ -62,6 +64,9 @@ public class Videojuegorpg {
                                         break;
                                     case 2:
                                         j1.atacarEnemigo(e, false);
+                                        break;
+                                    case 3:
+                                        j1.usarObjeto();
                                         break;
                                 }
                                 mostrarCombate(j1, e);
@@ -82,6 +87,7 @@ public class Videojuegorpg {
                             if (j1.getPS() > 0) {
                                 System.out.print("1. Ataque Basico");
                                 System.out.println("   2. Ataque Especial");
+                                System.out.println("3. Usar Objetos");
                                 ataque = teclado.nextInt();
                                 switch (ataque) {
                                     case 1:
@@ -89,6 +95,9 @@ public class Videojuegorpg {
                                         break;
                                     case 2:
                                         j1.atacarEnemigo(e, false);
+                                        break;
+                                    case 3:
+                                        j1.usarObjeto();
                                         break;
                                 }
                             }
@@ -101,6 +110,7 @@ public class Videojuegorpg {
                                 if (j1.getPS() > 0) {
                                     System.out.print("1. Ataque Basico");
                                     System.out.println("   2. Ataque Especial");
+                                    System.out.println("3. Usar Objetos");
                                     ataque = teclado.nextInt();
                                     switch (ataque) {
                                         case 1:
@@ -108,6 +118,9 @@ public class Videojuegorpg {
                                             break;
                                         case 2:
                                             j1.atacarEnemigo(e, false);
+                                            break;
+                                        case 3:
+                                            j1.usarObjeto();
                                             break;
                                     }
                                 }
@@ -128,6 +141,7 @@ public class Videojuegorpg {
                                 if (j1.getPS() > 0) {
                                     System.out.print("1. Ataque Basico");
                                     System.out.println("   2. Ataque Especial");
+                                    System.out.println("3. Usar Objetos");
                                     ataque = teclado.nextInt();
                                     switch (ataque) {
                                         case 1:
@@ -136,6 +150,12 @@ public class Videojuegorpg {
                                         case 2:
                                             j1.atacarEnemigo(e, false);
                                             break;
+                                        case 3:
+                                            j1.usarObjeto();
+                                            break;
+                                        default:
+                                            System.out.println("");
+                                           
                                     }
                                 }
                             }
@@ -166,7 +186,6 @@ public class Videojuegorpg {
 
                     System.out.println("Objetos disponibles:\n");
                     System.out.println("Illo si no quieres na vete. (pulsa 0)\n");
-     
 
                     System.out.println(
                             "   1.ESPADA             2.COLLAR VIDA               3.ARMADURA                  4.BOTAS\n"
@@ -185,11 +204,10 @@ public class Videojuegorpg {
                             + "   \\______/                (____)                    (____)                       (____)\n"
                     );
 
-                    do{
-                    compra = teclado.nextInt();
-                    j1.comprar(compra);
-                    }while(compra != 0);
-                    
+                    do {
+                        compra = teclado.nextInt();
+                        j1.comprar(compra);
+                    } while (compra != 0);
 
                     System.out.println("===============================================");
                     System.out.println("     ¡Gracias por visitar la tienda de YASER!");

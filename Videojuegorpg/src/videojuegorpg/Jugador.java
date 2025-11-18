@@ -5,6 +5,7 @@
 package videojuegorpg;
 
 import java.lang.Math;
+import java.util.Scanner;
 
 /**
  *
@@ -142,6 +143,8 @@ public class Jugador {
     public void setQuemado(boolean quemado) {
         this.quemado = quemado;
     }
+    
+    public static Scanner teclado = new Scanner(System.in);
 
     private String generarBarra(int actual, int max, int longitud) {
         if (max <= 0) {
@@ -168,17 +171,26 @@ public class Jugador {
     }
 
     @Override
-    public String toString() {
-        String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n";
-        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "\n";
-        texto += "ATK: " + PA
-                + "   DEF: " + armor
-                + "   VEL: " + vel
-                + "   GOLD: " + gold + "\n";
-        texto += "------------------------------------------" + "\n";
-        return texto;
-    }
+public String toString() {
+    String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n";
+    texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
+    texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "\n";
+
+    texto += "ATK: " + PA
+            + "   ARMOR: " + armor
+            + "   VEL: " + vel
+            + "   GOLD: " + gold + "\n";
+
+    // 👉 Pociones integradas justo debajo, como parte del bloque de stats
+    texto += "POTIONS → VIDA: x" + inventario[0]
+            + "   MANÁ: x" + inventario[1]
+            + "   FUEGO: x" + inventario[2] + "\n";
+
+    texto += "------------------------------------------\n";
+
+    return texto;
+}
+
 
     public void iniciarClase() {
         if ("Mago".equals(clases)) {
@@ -505,20 +517,37 @@ public class Jugador {
 
     }
 
-    public void usarObjeto(int opcion) {
+    public void usarObjeto() {
 
-        switch (opcion) {
+        System.out.println("===============================================");
+        System.out.println("              *** INVENTARIO ***");
+        System.out.println("===============================================\n");
+        System.out.println(
+                " [1] POCIÓN DE VIDA           [2] POCIÓN DE MANÁ          [3] POCIÓN ANTIQUEMADURAS\n"
+                + "       (~~)                         (~~)                           (~~)\n"
+                + "      (    )                       (    )                         (    )\n"
+                + "      ( VV )                       ( MM )                         ( FF )\n"
+                + "      (____)                       (____)                         (____)\n"
+        );
+        int objeto = teclado.nextInt();
+        
+        switch (objeto) {
             case 1:
-                System.out.println("Te has bebido una pocion de vida");
-                if (PS + 10 > PSMax) {
-                    PS = PSMax;
+                if (inventario[1] > 0) {
+                    System.out.println("Te has bebido una pocion de vida");
+                    if (PS + 10 > PSMax) {
+                        PS = PSMax;
+                    } else {
+                        PS += 10;
+                    }
+                    inventario[1]--;
                 } else {
-                    PS += 10;
+                    System.out.println("No tienes pociones de vida");
                 }
-                inventario[1] --;
-                
+
                 break;
             case 2:
+                if(inventario[2] > 0){
                 System.out.println("Te has bebido una pocion de mana");
                 if (PM + 15 > PMMax) {
                     PM = PMMax;
@@ -526,19 +555,29 @@ public class Jugador {
                 } else {
                     PM += 15;
                 }
-                inventario[2] --;
-                
+                inventario[2]--;
+                }
+                else{
+                    System.out.println("No tienes pociones de vida");
+                }
+
                 break;
 
             case 3:
+                if(inventario[3] > 0){
                 System.out.println("Te has bebido una pocion antiquemaduras");
                 quemado = false;
-                inventario[3] --;
-                
+                inventario[3]--;
+                }
+                else{
+                    System.out.println("No tienes pociones antiquemaduras");
+                }
+
                 break;
+                
             default:
                 System.out.println("Eso no es una pocion, es una monster vacia");
-                
+
                 break;
 
         }
