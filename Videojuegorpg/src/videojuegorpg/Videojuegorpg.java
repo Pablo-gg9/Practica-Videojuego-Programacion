@@ -147,6 +147,7 @@ public class Videojuegorpg {
                         mostrarGameOver();
                     } else if (e.getPS() <= 0) {
                         mostrarCombateDerrotaEnemigo(j1, e);
+                        e.dropGold(j1);
                         break;
                     }
 
@@ -159,46 +160,40 @@ public class Videojuegorpg {
                     System.out.println("                 TIENDA DER YASER");
                     System.out.println("===============================================\n");
 
-                    // Stickman
                     System.out.println("                  O");
                     System.out.println("                 /|\\   <- YASI");
                     System.out.println("                 / \\ \n");
 
                     System.out.println("Objetos disponibles:\n");
+                    System.out.println("Illo si no quieres na vete. (pulsa 0)\n");
+     
 
-                    // ===========================
-                    // FILA 1: ESPADA - ARMADURA - BOTAS
-                    // ===========================
                     System.out.println(
-                            "   ESPADA                     ARMADURA                     BOTAS\n"
-                            + "     />                      /========\\                ___     ___\n"
-                            + " (====(=================>   |  [____]  |              |   |   |   |\n"
-                            + "     \\>                     |  |    |  |              |___|   |___|\n"
-                            + "                            |  |____|  |              (___)   (___)\n"
-                            + "                             \\________/                      \n"
+                            "   1.ESPADA             2.COLLAR VIDA               3.ARMADURA                  4.BOTAS\n"
+                            + "     />                   __\\/__                    /========\\                ___     ___\n"
+                            + " (===(============>      /      \\                  |  [____]  |              |   |   |   |\n"
+                            + "     \\>                 |   <3   |                 |  |    |  |              |___|   |___|\n"
+                            + "                         \\______/                  |  |____|  |              (___)   (___)\n"
+                            + "                                                    \\________/                      \n"
                     );
 
-                    // ===========================
-                    // FILA 2: ANILLO - COLLAR - (vacío)
-                    // ===========================
                     System.out.println(
-                            "   ANILLO                      COLLAR (corazón)               \n"
-                            + "     ____                        __\\/__                         \n"
-                            + "   /      \\                    /       \\                       \n"
-                            + "  |  (  )  |                  |   <3   |                      \n"
-                            + "   \\______/                    \\______ /                       \n"
+                            "   5.ANILLO MAGICO        6.POCION VIDA            7.POCION MANA              8.POCION RESIST. FUEGO\n"
+                            + "     ____                   (~~)                      (~~)                         (~~)\n"
+                            + "   /      \\                (    )                    (    )                       (    )\n"
+                            + "  |  (  )  |               ( VV )                    ( MM )                       ( FF )\n"
+                            + "   \\______/                (____)                    (____)                       (____)\n"
                     );
 
-                    
-                    
+                    do{
                     compra = teclado.nextInt();
-                    
                     j1.comprar(compra);
+                    }while(compra != 0);
                     
+
                     System.out.println("===============================================");
                     System.out.println("     ¡Gracias por visitar la tienda de YASER!");
-                    System.out.println("===============================================");
-                    
+                    System.out.println("===============================================\n");
 
                     break;
 

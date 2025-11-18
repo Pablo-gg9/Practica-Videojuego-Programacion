@@ -331,8 +331,7 @@ public class Jugador {
 
                         if (PS + 10 > PSMax) {
                             PS = PSMax;
-                        }
-                        else{
+                        } else {
                             PS += 10;
                         }
                     } else {
@@ -388,7 +387,7 @@ public class Jugador {
                         System.out.println("Has usado TAJO GITANO");
                         PM -= 10;
                         int tirada = (int) (Math.random() * 6) + PA;
-                        
+
                         psJefe -= PARandom - tirada + armorJefe;
                         e1.setPS(psJefe);
                         estarQuemado();
@@ -462,8 +461,7 @@ public class Jugador {
                         if (PS + 10 > PSMax) {
                             PS = PSMax;
                             estarQuemado();
-                        }
-                        else{
+                        } else {
                             PS += 10;
                             estarQuemado();
                         }
@@ -517,6 +515,9 @@ public class Jugador {
                 } else {
                     PS += 10;
                 }
+                inventario[1] --;
+                
+                break;
             case 2:
                 System.out.println("Te has bebido una pocion de mana");
                 if (PM + 15 > PMMax) {
@@ -525,10 +526,20 @@ public class Jugador {
                 } else {
                     PM += 15;
                 }
+                inventario[2] --;
+                
+                break;
 
             case 3:
                 System.out.println("Te has bebido una pocion antiquemaduras");
                 quemado = false;
+                inventario[3] --;
+                
+                break;
+            default:
+                System.out.println("Eso no es una pocion, es una monster vacia");
+                
+                break;
 
         }
 
@@ -541,62 +552,81 @@ public class Jugador {
         }
 
     }
-    
-    public void comprar(int opcion){
-        switch(opcion){
+
+    public void comprar(int opcion) {
+        switch (opcion) {
             case 1:
-                if(gold > 5){
-                System.out.println("Compraste una espada");
-                PA += inventario[opcion];
-                }
-                else{
+                if (gold > 5) {
+                    System.out.println("Compraste una espada");
+                    PA += inventario[opcion];
+                } else {
                     System.out.println("Te fartan pollas de moneas");
                 }
                 break;
-                
+
             case 2:
-                if(gold > 7){
-                System.out.println("Compraste un colgante con forma de corazon");
-                PSMax += 3 + inventario[opcion];
-                }
-                else{
+                if (gold > 7) {
+                    System.out.println("Compraste un colgante con forma de corazon");
+                    PSMax += 3 + inventario[opcion];
+                } else {
                     System.out.println("Te fartan pollas de moneas");
                 }
                 break;
-                
+
             case 3:
-                if(gold > 10){
-                System.out.println("Compraste una armadura");
-                armor += inventario[opcion];
-                }
-                else{
+                if (gold > 10) {
+                    System.out.println("Compraste una armadura");
+                    armor += inventario[opcion];
+                } else {
                     System.out.println("Te fartan pollas de moneas");
                 }
                 break;
-                
+
             case 4:
-                if(gold > 6){
-                System.out.println("Compraste unas botas");
-                vel += 2 + inventario[opcion];
-                }
-                else{
+                if (gold > 6) {
+                    System.out.println("Compraste unas botas");
+                    vel += 2 + inventario[opcion];
+                } else {
                     System.out.println("Te fartan pollas de moneas");
                 }
                 break;
             case 5:
-                if(gold > 10){
-                System.out.println("Compraste un anillo magico");
-                PMMax += 5 + inventario[opcion];
-                }
-                else{
+                if (gold > 10) {
+                    System.out.println("Compraste un anillo magico");
+                    PMMax += 5 + inventario[opcion];
+                } else {
                     System.out.println("Te fartan pollas de moneas");
                 }
                 break;
-            default:
-                System.out.println("¿Tu ereh tonto amego o que te pasa?");
+            case 6:
+                if (gold > 8) {
+                    System.out.println("Compraste una pocion de vida");
+                    inventario[1]++;
+                } else {
+                    System.out.println("Te fartan pollas de moneas");
+                }
+            case 7:
+                if (gold > 12) {
+                    System.out.println("Compraste una pocion de mana");
+                    inventario[2]++;
+                } else {
+                    System.out.println("Te fartan pollas de moneas");
+                }
+            case 8:
+                if (gold > 15) {
+                    System.out.println("Compraste una pocion de resistencia al fuego");
+                    inventario[3]++;
+                } else {
+                    System.out.println("Te fartan pollas de moneas");
+                }
+
                 break;
+            default:
+                System.out.println("Tu ereh tonto amego o que te pasa? \n");
+                break;
+
         }
-        
+
     }
 
 }
