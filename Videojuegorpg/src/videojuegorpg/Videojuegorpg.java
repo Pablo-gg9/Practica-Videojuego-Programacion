@@ -31,7 +31,7 @@ public class Videojuegorpg {
         j1.iniciarClase();
 
         do {
-            musica1.reproducirMusicaFondo("/Sonidos/Fondo.wav");
+            musica1.reproducirMusicaFondo("Sonidos/Fondo.wav");
             System.out.println("----MENU DE OPCIONES----");
             System.out.println("1. Luchar con un enemigo");
             System.out.println("2. Mostrar Estadisticas");
@@ -74,6 +74,9 @@ public class Videojuegorpg {
                                     case 4: 
                                             j1.escapar(e);
                                         break;
+                                    default:
+                                            System.out.println("Esta opcion no esta disponible");
+                                        break;
                                 }
                                 mostrarCombate(j1, e);
                             }
@@ -109,6 +112,9 @@ public class Videojuegorpg {
                                     case 4: 
                                             j1.escapar(e);
                                         break;
+                                    default:
+                                            System.out.println("Esta opcion no esta disponible");
+                                        break;
                                 }
                             }
 
@@ -135,6 +141,9 @@ public class Videojuegorpg {
                                             break;
                                         case 4: 
                                             j1.escapar(e);
+                                        break;
+                                        default:
+                                            System.out.println("Esta opcion no esta disponible");
                                         break;
                                     }
                                 }
@@ -172,7 +181,8 @@ public class Videojuegorpg {
                                             j1.escapar(e);
                                         break;
                                         default:
-                                            System.out.println("");
+                                            System.out.println("Esta opcion no esta disponible");
+                                        break;
                                            
                                     }
                                 }
