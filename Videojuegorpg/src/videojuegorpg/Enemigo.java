@@ -141,8 +141,9 @@ public class Enemigo {
         int PARandom = (int) (Math.random() * 6) + PA;
         System.out.println(nombre + " ha usado 'ataque basico' ");
         int j1PS = j1.getPS();
+        int j1Armor = j1.getArmor();
 
-        j1PS -= PARandom;
+        j1PS -= PARandom + j1Armor;
         j1.setPS(j1PS);
 
     }

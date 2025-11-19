@@ -180,10 +180,9 @@ public String toString() {
             + "   ARMOR: " + armor
             + "   VEL: " + vel
             + "   GOLD: " + gold + "\n";
-
-    // 👉 Pociones integradas justo debajo, como parte del bloque de stats
-    texto += "POTIONS → VIDA: x" + inventario[0]
-            + "   MANÁ: x" + inventario[1]
+    
+    texto += "POTIONS:   VIDA: x" + inventario[0]
+            + "   MANA: x" + inventario[1]
             + "   FUEGO: x" + inventario[2] + "\n";
 
     texto += "------------------------------------------\n";
@@ -588,6 +587,7 @@ public String toString() {
         int dañoQuemado = (int) (Math.random() * 5) + PSMax / 5;
         if (quemado == true) {
             PS -= dañoQuemado;
+            System.out.println("Has sufrido " + dañoQuemado + " de daño por quemadura");
         }
 
     }
