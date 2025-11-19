@@ -18,6 +18,7 @@ public class Videojuegorpg {
     public static Scanner teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Musica musica1 = new Musica();
         int opcion;
         int compra;
         int ataque;
@@ -30,6 +31,7 @@ public class Videojuegorpg {
         j1.iniciarClase();
 
         do {
+            musica1.reproducirMusicaFondo("/Sonidos/Fondo.wav");
             System.out.println("----MENU DE OPCIONES----");
             System.out.println("1. Luchar con un enemigo");
             System.out.println("2. Mostrar Estadisticas");
@@ -57,6 +59,7 @@ public class Videojuegorpg {
                                 System.out.print("1. Ataque Basico");
                                 System.out.println("   2. Ataque Especial");
                                 System.out.println("3. Usar Objetos");
+                                System.out.println("   4. Huir");
                                 ataque = teclado.nextInt();
                                 switch (ataque) {
                                     case 1:
@@ -67,6 +70,9 @@ public class Videojuegorpg {
                                         break;
                                     case 3:
                                         j1.usarObjeto();
+                                        break;
+                                    case 4: 
+                                            j1.escapar(e);
                                         break;
                                 }
                                 mostrarCombate(j1, e);
@@ -88,6 +94,7 @@ public class Videojuegorpg {
                                 System.out.print("1. Ataque Basico");
                                 System.out.println("   2. Ataque Especial");
                                 System.out.println("3. Usar Objetos");
+                                System.out.println("   4. Huir");
                                 ataque = teclado.nextInt();
                                 switch (ataque) {
                                     case 1:
@@ -98,6 +105,9 @@ public class Videojuegorpg {
                                         break;
                                     case 3:
                                         j1.usarObjeto();
+                                        break;
+                                    case 4: 
+                                            j1.escapar(e);
                                         break;
                                 }
                             }
@@ -111,6 +121,7 @@ public class Videojuegorpg {
                                     System.out.print("1. Ataque Basico");
                                     System.out.println("   2. Ataque Especial");
                                     System.out.println("3. Usar Objetos");
+                                    System.out.println("   4. Huir");
                                     ataque = teclado.nextInt();
                                     switch (ataque) {
                                         case 1:
@@ -122,6 +133,9 @@ public class Videojuegorpg {
                                         case 3:
                                             j1.usarObjeto();
                                             break;
+                                        case 4: 
+                                            j1.escapar(e);
+                                        break;
                                     }
                                 }
                                 mostrarCombate(j1, e);
@@ -142,6 +156,7 @@ public class Videojuegorpg {
                                     System.out.print("1. Ataque Basico");
                                     System.out.println("   2. Ataque Especial");
                                     System.out.println("3. Usar Objetos");
+                                    System.out.println("   4. Huir");
                                     ataque = teclado.nextInt();
                                     switch (ataque) {
                                         case 1:
@@ -153,6 +168,9 @@ public class Videojuegorpg {
                                         case 3:
                                             j1.usarObjeto();
                                             break;
+                                        case 4: 
+                                            j1.escapar(e);
+                                        break;
                                         default:
                                             System.out.println("");
                                            
@@ -168,6 +186,12 @@ public class Videojuegorpg {
                     } else if (e.getPS() <= 0) {
                         mostrarCombateDerrotaEnemigo(j1, e);
                         e.dropGold(j1);
+                        break;
+                        
+                    }
+                    else if (j1.escapar(e))
+                    {
+                        System.out.println("Has escapado");
                         break;
                     }
 

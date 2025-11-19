@@ -665,7 +665,22 @@ public String toString() {
                 break;
 
         }
+        
 
+    }
+    
+    public boolean escapar(Enemigo e1){
+        
+        if(vel > e1.getVel()){
+            
+            return true;
+        }
+        else{
+            
+            return false;
+        }
+        
+        
     }
 
 }
