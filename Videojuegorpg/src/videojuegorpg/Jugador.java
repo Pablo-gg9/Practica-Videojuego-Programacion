@@ -28,7 +28,7 @@ public class Jugador {
         this.PSMax = 20;
         this.turno = false;
         this.quemado = false;
-        this.inventario = new int[3];
+        this.inventario = new int[10];
 
     }
 
@@ -173,8 +173,8 @@ public class Jugador {
     @Override
     public String toString() {
         String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n";
-        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-        texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "\n";
+        texto += "HP " + generarBarra(PS, PSMax, 60) + " " + PS + "/" + PSMax + "\n";
+        texto += "MP " + generarBarra(PM, PMMax, 60) + " " + PM + "/" + PMMax + "\n";
 
         texto += "ATK: " + PA
                 + "   ARMOR: " + armor
@@ -613,7 +613,7 @@ public class Jugador {
                         PSMax += 5;
                         PS = PSMax;
                         subidaStats--;
-                        
+
                         System.out.println(j1 + "\n");;
                         break;
                     } else {
@@ -683,31 +683,32 @@ public class Jugador {
                 + "                                                 ");
         System.out.println("===============================================\n");
         System.out.println(
-                " [1] POCIÓN DE VIDA           [2] POCIÓN DE MANÁ          [3] POCIÓN ANTIQUEMADURAS\n"
+                " [1] POCION DE VIDA(" + inventario[0] + ")         [2] POCION DE MANA(" + inventario[1] + ")          [3] POCION ANTIQUEMADURAS(" + inventario[2] + ")\n"
                 + "       (~~)                         (~~)                           (~~)\n"
                 + "      (    )                       (    )                         (    )\n"
                 + "      ( VV )                       ( MM )                         ( FF )\n"
                 + "      (____)                       (____)                         (____)\n"
+                + "                                                              \n"
         );
         int objeto = teclado.nextInt();
 
         switch (objeto) {
             case 1:
-                if (inventario[1] > 0) {
+                if (inventario[0] > 0) {
                     System.out.println("Te has bebido una pocion de vida \n");
                     if (PS + 10 > PSMax) {
                         PS = PSMax;
                     } else {
                         PS += 10;
                     }
-                    inventario[1]--;
+                    inventario[0]--;
                 } else {
                     System.out.println("No tienes pociones de vida \n");
                 }
 
                 break;
             case 2:
-                if (inventario[2] > 0) {
+                if (inventario[1] > 0) {
                     System.out.println("Te has bebido una pocion de mana \n");
                     if (PM + 15 > PMMax) {
                         PM = PMMax;
@@ -715,7 +716,7 @@ public class Jugador {
                     } else {
                         PM += 15;
                     }
-                    inventario[2]--;
+                    inventario[1]--;
                 } else {
                     System.out.println("No tienes pociones de vida \n");
                 }
@@ -723,10 +724,10 @@ public class Jugador {
                 break;
 
             case 3:
-                if (inventario[3] > 0) {
+                if (inventario[2] > 0) {
                     System.out.println("Te has bebido una pocion antiquemaduras \n");
                     quemado = false;
-                    inventario[3]--;
+                    inventario[2]--;
                 } else {
                     System.out.println("No tienes pociones antiquemaduras \n");
                 }
@@ -754,87 +755,97 @@ public class Jugador {
     public void comprar(int opcion) {
         switch (opcion) {
             case 1:
-                if (gold > 5 + nivel) {
-                    System.out.println("Compraste una espada (Gold: " + gold + ")");
-                    System.out.println("ATK(" + PA + "+" + inventario[4] + ")\n" );
+                if (gold > (5 + nivel)) {
+                    inventario[4]++;
                     PA += inventario[4];
-                    gold -= 5;
-                    inventario[4] ++;
+                    gold -= (5 + nivel);
+                    System.out.println("Compraste una espada (Gold: " + gold + ")");
+                    System.out.println("ATK(" + PA + "+" + inventario[4] + ")\n");
+                    
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
 
             case 2:
-                if (gold > 7 + nivel) {
-                    System.out.println("Compraste un colgante con forma de corazon (Gold: " + gold + ")");
-                    System.out.println("PSMax(" + PSMax + "+" + inventario[5] + ")\n" );
+                if (gold > (7 + nivel)) {
+
+                    inventario[5]++;
                     PSMax += 3 + inventario[5];
-                    gold -= 7;
-                    inventario[5] ++;
+                    gold -= (7 + nivel);
+                    System.out.println("Compraste un colgante con forma de corazon (Gold: " + gold + ")");
+                    System.out.println("PSMax(" + PSMax + "+" + inventario[5] + ")\n");
+
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
 
             case 3:
-                if (gold > 10 + nivel) {
-                    System.out.println("Compraste una armadura (Gold: " + gold + ")");
-                    System.out.println("Armor(" + armor + "+" + inventario[6] + ")\n" );
+                if (gold > (10 + nivel)) {
+
+                    inventario[6]++;
                     armor += inventario[6];
-                    gold -= 10;
-                    inventario[6] ++;
+                    gold -= (10 + nivel);
+                    System.out.println("Compraste una armadura (Gold: " + gold + ")");
+                    System.out.println("Armor(" + armor + "+" + inventario[6] + ")\n");
+
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
 
             case 4:
-                if (gold > 6 + nivel) {
-                    System.out.println("Compraste unas botas (Gold: " + gold + ")");
-                    System.out.println("VEL(" + vel + "+" + inventario[7] + ")\n" );
+                if (gold > (6 + nivel)) {
+
+                    inventario[7]++;
                     vel += 2 + inventario[7];
-                    gold -= 6;
-                    inventario[7] ++;
+                    gold -= (6 + nivel);
+                    System.out.println("Compraste unas botas (Gold: " + gold + ")");
+                    System.out.println("VEL(" + vel + "+" + inventario[7] + ")\n");
+
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
             case 5:
-                if (gold > 10 + nivel) {
-                    System.out.println("Compraste un anillo magico (Gold: " + gold + ")");
-                    System.out.println("PMMax(" + PMMax + "+" + inventario[8] + ")\n" );
+                if (gold > (10 + nivel)) {
+
+                    inventario[8]++;
                     PMMax += 5 + inventario[8];
-                    gold -= 10;
-                    inventario[8] ++;
+                    gold -= (10 + nivel);
+                    System.out.println("Compraste un anillo magico (Gold: " + gold + ")");
+                    System.out.println("PMMax(" + PMMax + "+" + inventario[8] + ")\n");
+
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
             case 6:
-                if (gold > 8 + nivel) {
+                if (gold > (8 + nivel)) {
+                    inventario[0]++;
+                    gold -= (8 + nivel);
                     System.out.println("Compraste una pocion de vida (Gold: " + gold + ")");
-                    inventario[1]++;
-                    gold -= 8;
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
             case 7:
-                if (gold > 12 + nivel) {
+                if (gold > (12 + nivel)) {
+                    inventario[1]++;
+                    gold -= (12 + nivel);
                     System.out.println("Compraste una pocion de mana (Gold: " + gold + ")");
-                    inventario[2]++;
-                    gold -= 12;
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n" );
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
 
             case 8:
-                if (gold > 15 + nivel) {
+                if (gold > (15 + nivel)) {
+
+                    inventario[2]++;
+                    gold -= (15 + nivel);
                     System.out.println("Compraste una pocion de resistencia al fuego (Gold: " + gold + ")");
-                    inventario[3]++;
-                    gold -= 15;
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }

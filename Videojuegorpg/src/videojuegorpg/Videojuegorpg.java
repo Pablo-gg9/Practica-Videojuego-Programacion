@@ -17,22 +17,32 @@ public class Videojuegorpg {
      */
     public static Scanner teclado = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Musica musica1 = new Musica();
         int opcion;
         int compra;
         int ataque;
+        int ataqueJefe;
         int objeto;
         String nombreJ;
         boolean escapar = false;
         int contadorCombates = 1;
 
         String[] nombresE = {"Yasi", "Guille", "Cham", "Javi", "Pablo", "Katherine", "Tomas", "Fernando"};
-        JefeFinal j = new JefeFinal();
 
+        System.out.println(" ___       ________  ________  ________          ________  ________      _________  ___  ___  _______           ___       ________  ___       __   ________      \n"
+                + "|\\  \\     |\\   __  \\|\\   __  \\|\\   ___ \\        |\\   __  \\|\\  _____\\    |\\___   ___\\\\  \\|\\  \\|\\  ___ \\         |\\  \\     |\\   __  \\|\\  \\     |\\  \\|\\   ____\\     \n"
+                + "\\ \\  \\    \\ \\  \\|\\  \\ \\  \\|\\  \\ \\  \\_|\\ \\       \\ \\  \\|\\  \\ \\  \\__/     \\|___ \\  \\_\\ \\  \\\\\\  \\ \\   __/|        \\ \\  \\    \\ \\  \\|\\  \\ \\  \\    \\ \\  \\ \\  \\___|_    \n"
+                + " \\ \\  \\    \\ \\  \\\\\\  \\ \\   _  _\\ \\  \\ \\\\ \\       \\ \\  \\\\\\  \\ \\   __\\         \\ \\  \\ \\ \\   __  \\ \\  \\_|/__       \\ \\  \\    \\ \\   __  \\ \\  \\  __\\ \\  \\ \\_____  \\   \n"
+                + "  \\ \\  \\____\\ \\  \\\\\\  \\ \\  \\\\  \\\\ \\  \\_\\\\ \\       \\ \\  \\\\\\  \\ \\  \\_|          \\ \\  \\ \\ \\  \\ \\  \\ \\  \\_|\\ \\       \\ \\  \\____\\ \\  \\ \\  \\ \\  \\|\\__\\_\\  \\|____|\\  \\  \n"
+                + "   \\ \\_______\\ \\_______\\ \\__\\\\ _\\\\ \\_______\\       \\ \\_______\\ \\__\\            \\ \\__\\ \\ \\__\\ \\__\\ \\_______\\       \\ \\_______\\ \\__\\ \\__\\ \\____________\\____\\_\\  \\ \n"
+                + "    \\|_______|\\|_______|\\|__|\\|__|\\|_______|        \\|_______|\\|__|             \\|__|  \\|__|\\|__|\\|_______|        \\|_______|\\|__|\\|__|\\|____________|\\_________\\\n"
+                + "                                                                                                                                                     \\|_________|\n"
+                + "                                                                                                                                                                 \n"
+                + "                                                                                                                                                                 ");
         Jugador j1 = new Jugador("Javi", "Mago");
         j1.iniciarClase();
-
+        JefeFinal d = new JefeFinal();
         do {
             //musica1.reproducirMusicaFondo("Sonidos/Gracias_yasi.wav");
             System.out.println("==================================================================================");
@@ -62,6 +72,25 @@ public class Videojuegorpg {
                     + "|_  |_     | | | | -_|   | . | .'|  | . | -_|  |_   _|     |__   |   __|    -|\n"
                     + "|___|_|    |_| |_|___|_|_|___|__,|  |___|___|    |_| |__|__|_____|_____|__|__|\n"
                     + "                                                                              ");
+            System.out.println("                                                  \n"
+                    + " ___      _____                 _           _     \n"
+                    + "| | |    |     |___ _ _ ___ ___| |_ ___ ___|_|___ \n"
+                    + "|_  |_   |-   -|   | | | -_|   |  _| .'|  _| | . |\n"
+                    + "  |_|_|  |_____|_|_|\\_/|___|_|_|_| |__,|_| |_|___|\n"
+                    + "                                                  "
+                    + "                                         ");
+            System.out.println("                                                                                                        _                            _   \n"
+                    + " ___      __            _                          _                  _       __ _____ _____ _____    _|_|    _         _    ___ ___|_|_ \n"
+                    + "|  _|    |  |   _ _ ___| |_ ___ ___    ___ ___ ___| |_ ___ ___    ___| |   __|  |   __|   __|   __|  | |  ___|_|_ _ ___| |  |_  |   | | |\n"
+                    + "|_  |_   |  |__| | |  _|   | .'|  _|  |  _| . |   |  _|  _| .'|  | -_| |  |  |  |   __|   __|   __|  | | |   | | | | -_| |  |  _| | | | |\n"
+                    + "|___|_|  |_____|___|___|_|_|__,|_|    |___|___|_|_|_| |_| |__,|  |___|_|  |_____|_____|__|  |_____|  |_|_|_|_|_|\\_/|___|_|  |___|___|_|_|\n"
+                    + "                                                                                                       |_|                          |_|  ");
+            System.out.println("                            \n"
+                    + " ___      _____     _ _     \n"
+                    + "|  _|    |   __|___| |_|___ \n"
+                    + "| . |_   |__   | .'| | |  _|\n"
+                    + "|___|_|  |_____|__,|_|_|_|  \n"
+                    + "                            ");
 
             int enemigoRandom = (int) (Math.random() * 7);
             Enemigo e = new Enemigo(nombresE[enemigoRandom], 1);
@@ -70,47 +99,59 @@ public class Videojuegorpg {
             switch (opcion) {
 
                 case 1:
-                    System.out.println("");
+                    System.out.println();
                     System.out.println("--------------------------------------------");
                     System.out.println("Has iniciado un nuevo combate contra " + e.getNombre());
-                    System.out.println("");
+                    System.out.println();
+                    Thread.sleep(1500);
+
                     e.calcularEstadisticasEnemigo(j1);
 
                     do {
                         mostrarCombate(j1, e);
+                        Thread.sleep(1500);
 
-                        //Depende de la velocidad pegara uno antes u otro
                         if (j1.getVel() > e.getVel()) {
 
                             // --- JUGADOR ATACA PRIMERO ---
                             if (j1.getPS() > 0) {
+
                                 System.out.print("1. Ataque Basico");
                                 System.out.println("   2. Ataque Especial");
                                 System.out.print("3. Usar Objetos");
                                 System.out.println("    4. Huir");
                                 ataque = teclado.nextInt();
+
                                 switch (ataque) {
                                     case 1:
                                         j1.atacarEnemigo(e, true);
+                                        Thread.sleep(2000);
                                         break;
                                     case 2:
                                         j1.atacarEnemigo(e, false);
+                                        Thread.sleep(2000);
                                         break;
                                     case 3:
                                         j1.usarObjeto();
+                                        Thread.sleep(2000);
                                         break;
                                     case 4:
                                         escapar = j1.escapar(e);
+                                        Thread.sleep(2000);
                                         break;
                                     default:
                                         System.out.println("Esta opcion no esta disponible");
+                                        Thread.sleep(1200);
                                         break;
                                 }
+
                                 mostrarCombate(j1, e);
+                                Thread.sleep(1500);
                             }
 
                             if (e.getPS() > 0 && !escapar) {
                                 e.atacar(j1);
+                                Thread.sleep(2000);
                             }
 
                         } else if (j1.getVel() < e.getVel()) {
@@ -118,69 +159,88 @@ public class Videojuegorpg {
                             // --- ENEMIGO ATACA PRIMERO ---
                             if (e.getPS() > 0) {
                                 e.atacar(j1);
+                                Thread.sleep(2000);
                             }
+
                             mostrarCombate(j1, e);
+                            Thread.sleep(1500);
 
                             if (j1.getPS() > 0) {
+
                                 System.out.print("1. Ataque Basico");
                                 System.out.println("   2. Ataque Especial");
                                 System.out.print("3. Usar Objetos");
                                 System.out.println("    4. Huir");
                                 ataque = teclado.nextInt();
+
                                 switch (ataque) {
                                     case 1:
                                         j1.atacarEnemigo(e, true);
+                                        Thread.sleep(2000);
                                         break;
                                     case 2:
                                         j1.atacarEnemigo(e, false);
+                                        Thread.sleep(2000);
                                         break;
                                     case 3:
                                         j1.usarObjeto();
+                                        Thread.sleep(2000);
                                         break;
                                     case 4:
                                         escapar = j1.escapar(e);
-                                        ;
+                                        Thread.sleep(2000);
                                         break;
                                     default:
                                         System.out.println("Esta opcion no esta disponible");
+                                        Thread.sleep(1200);
                                         break;
                                 }
                             }
 
                         } else {
-                            // Esto genera un booleano seudo aleatorio para decidir quien ataca primero
+
+                            // Igual velocidad → aleatorio
                             if (new java.util.Random().nextBoolean()) {
 
                                 // --- JUGADOR PRIMERO ---
                                 if (j1.getPS() > 0) {
+
                                     System.out.print("1. Ataque Basico");
                                     System.out.println("   2. Ataque Especial");
                                     System.out.print("3. Usar Objetos");
                                     System.out.println("    4. Huir");
                                     ataque = teclado.nextInt();
+
                                     switch (ataque) {
                                         case 1:
                                             j1.atacarEnemigo(e, true);
+                                            Thread.sleep(2000);
                                             break;
                                         case 2:
                                             j1.atacarEnemigo(e, false);
+                                            Thread.sleep(2000);
                                             break;
                                         case 3:
                                             j1.usarObjeto();
+                                            Thread.sleep(2000);
                                             break;
                                         case 4:
                                             escapar = j1.escapar(e);
-                                            ;
+                                            Thread.sleep(2000);
                                             break;
                                         default:
                                             System.out.println("Esta opcion no esta disponible");
+                                            Thread.sleep(1200);
                                             break;
                                     }
                                 }
+
                                 mostrarCombate(j1, e);
+                                Thread.sleep(1500);
 
                                 if (e.getPS() > 0 && !escapar) {
                                     e.atacar(j1);
+                                    Thread.sleep(2000);
                                 }
 
                             } else {
@@ -188,33 +248,41 @@ public class Videojuegorpg {
                                 // --- ENEMIGO PRIMERO ---
                                 if (e.getPS() > 0) {
                                     e.atacar(j1);
+                                    Thread.sleep(2000);
                                 }
+
                                 mostrarCombate(j1, e);
+                                Thread.sleep(1500);
 
                                 if (j1.getPS() > 0) {
+
                                     System.out.print("1. Ataque Basico");
                                     System.out.println("   2. Ataque Especial");
                                     System.out.print("3. Usar Objetos");
                                     System.out.println("    4. Huir");
                                     ataque = teclado.nextInt();
+
                                     switch (ataque) {
                                         case 1:
                                             j1.atacarEnemigo(e, true);
+                                            Thread.sleep(2000);
                                             break;
                                         case 2:
                                             j1.atacarEnemigo(e, false);
+                                            Thread.sleep(2000);
                                             break;
                                         case 3:
                                             j1.usarObjeto();
+                                            Thread.sleep(2000);
                                             break;
                                         case 4:
                                             escapar = j1.escapar(e);
-                                            ;
+                                            Thread.sleep(2000);
                                             break;
                                         default:
                                             System.out.println("Esta opcion no esta disponible");
+                                            Thread.sleep(1200);
                                             break;
-
                                     }
                                 }
                             }
@@ -222,21 +290,24 @@ public class Videojuegorpg {
 
                     } while (j1.getPS() > 0 && e.getPS() > 0 && !escapar);
 
+                    // ================= FIN DEL COMBATE =================
                     if (j1.getPS() <= 0) {
                         mostrarCombate(j1, e);
+                        Thread.sleep(1500);
                         mostrarGameOver();
                     } else if (e.getPS() <= 0) {
                         mostrarCombateDerrotaEnemigo(j1, e);
+                        Thread.sleep(1500);
                         e.dropGold(j1);
-                        if(contadorCombates % 2 == 0){
+                        if (contadorCombates % 2 == 0) {
                             j1.lvlUP(j1);
                         }
-                        contadorCombates ++;
+                        contadorCombates++;
                         break;
-
                     }
 
                     break;
+
                 case 2:
                     System.out.println(j1);
                     break;
@@ -259,7 +330,7 @@ public class Videojuegorpg {
 
                     System.out.println(
                             "    1.ESPADA            2.COLLAR VIDA              3.ARMADURA                  4.BOTAS\n"
-                            + "   (" + (5+j1.getNivel()) +" de oro)            (7 de oro)                (10 de oro)                (6 de oro)\n"
+                            + "   (" + (5 + j1.getNivel()) + " de oro)            (" + (7 + j1.getNivel()) + " de oro)                (" + (10 + j1.getNivel()) + " de oro)                (" + (6 + j1.getNivel()) + " de oro)\n"
                             + "     />                   __\\/__                    /========\\                ___     ___\n"
                             + " (===(============>      /      \\                  |  [____]  |              |   |   |   |\n"
                             + "     \\>                 |   <3   |                 |  |    |  |              |___|   |___|\n"
@@ -269,7 +340,7 @@ public class Videojuegorpg {
 
                     System.out.println(
                             " 5.ANILLO MAGICO        6.POCION VIDA              7.POCION MANA               8.POCION RESIST. FUEGO\n"
-                            + "  (10 de oro)            (8 de oro)                 (12 de oro)                (15 de oro) \n"
+                            + "  (" + (10 + j1.getNivel()) + " de oro)            (" + (8 + j1.getNivel()) + " de oro)                 (" + (12 + j1.getNivel()) + " de oro)                (" + (15 + j1.getNivel()) + " de oro) \n"
                             + "     ____                   (~~)                      (~~)                         (~~)\n"
                             + "   /      \\                (    )                    (    )                       (    )\n"
                             + "  |  (  )  |               ( VV )                    ( MM )                       ( FF )\n"
@@ -286,9 +357,219 @@ public class Videojuegorpg {
                     System.out.println("===============================================\n");
 
                     break;
+                case 4:
+
+                    j1.usarObjeto();
+                    break;
+                case 5:
+                    
+                    if (j1.getNivel() < 1) {
+                        System.out.println("==== NO TIENES NIVEL PARA ENFRENTARTE AL JEFE(te destruiria con un solo tetraedro del fuego) ====");
+                        break;
+                    } else {
+
+                        System.out.println("");
+                        System.out.println("--------------------------------------------");
+                        System.out.println("Despues de muchas batallas, amigos perdidos, y mentores sacrificados, llegas al ultimo de ellos, el mas temido y poderoso rival, un genio en retorica y artes oscuras, \n"
+                                + "has llegado AL AULA DE " + d.getNombre());
+                        System.out.println("");
+
+                        do {
+                            mostrarCombateFinal(j1, d);
+                            Thread.sleep(1500);
+
+                            if (j1.getVel() > d.getVel()) {
+
+                                // --- JUGADOR ATACA PRIMERO ---
+                                if (j1.getPS() > 0) {
+                                    System.out.print("1. Ataque Basico");
+                                    System.out.println("   2. Ataque Especial");
+                                    System.out.print("3. Usar Objetos");
+                                    System.out.println("    4. Huir");
+                                    ataque = teclado.nextInt();
+
+                                    switch (ataque) {
+                                        case 1:
+                                            j1.atacarJefe(d, true);
+                                            Thread.sleep(2000);
+                                            break;
+                                        case 2:
+                                            j1.atacarJefe(d, false);
+                                            Thread.sleep(2000);
+                                            break;
+                                        case 3:
+                                            j1.usarObjeto();
+                                            Thread.sleep(2000);
+                                            break;
+                                        case 4:
+                                            System.out.println("=== NO PUEDES ESCAPAR DE MI ===");
+                                            Thread.sleep(2000);
+                                            break;
+                                        default:
+                                            System.out.println("Esta opcion no esta disponible");
+                                            Thread.sleep(1200);
+                                            break;
+                                    }
+
+                                    mostrarCombateFinal(j1, d);
+                                    Thread.sleep(1500);
+                                }
+
+                                if (d.getPS() > 0 && !escapar) {
+                                    ataqueJefe = d.Atacar();
+                                    d.habilidades(ataqueJefe, j1);
+                                    Thread.sleep(2000);
+                                }
+
+                            } else if (j1.getVel() < d.getVel()) {
+
+                                // --- JEFE ATACA PRIMERO ---
+                                if (d.getPS() > 0) {
+                                    ataqueJefe = d.Atacar();
+                                    d.habilidades(ataqueJefe, j1);
+                                    Thread.sleep(2000);
+                                }
+
+                                mostrarCombateFinal(j1, d);
+                                Thread.sleep(1500);
+
+                                if (j1.getPS() > 0) {
+                                    System.out.print("1. Ataque Basico");
+                                    System.out.println("   2. Ataque Especial");
+                                    System.out.print("3. Usar Objetos");
+                                    System.out.println("    4. Huir");
+                                    ataque = teclado.nextInt();
+
+                                    switch (ataque) {
+                                        case 1:
+                                            j1.atacarJefe(d, true);
+                                            Thread.sleep(2000);
+                                            break;
+                                        case 2:
+                                            j1.atacarJefe(d, false);
+                                            Thread.sleep(2000);
+                                            break;
+                                        case 3:
+                                            j1.usarObjeto();
+                                            Thread.sleep(2000);
+                                            break;
+                                        case 4:
+                                            System.out.println("=== NO PUEDES ESCAPAR DE MI ===");
+                                            Thread.sleep(2000);
+                                            break;
+                                        default:
+                                            System.out.println("Esta opcion no esta disponible");
+                                            Thread.sleep(1200);
+                                            break;
+                                    }
+                                }
+
+                            } else {
+
+                                // Igual velocidad entonces es aleatorio
+                                if (new java.util.Random().nextBoolean()) {
+
+                                    // --- JUGADOR PRIMERO ---
+                                    if (j1.getPS() > 0) {
+                                        System.out.print("1. Ataque Basico");
+                                        System.out.println("   2. Ataque Especial");
+                                        System.out.print("3. Usar Objetos");
+                                        System.out.println("    4. Huir");
+                                        ataque = teclado.nextInt();
+
+                                        switch (ataque) {
+                                            case 1:
+                                                j1.atacarJefe(d, true);
+                                                Thread.sleep(2000);
+                                                break;
+                                            case 2:
+                                                j1.atacarJefe(d, false);
+                                                Thread.sleep(2000);
+                                                break;
+                                            case 3:
+                                                j1.usarObjeto();
+                                                Thread.sleep(2000);
+                                                break;
+                                            case 4:
+                                                System.out.println("=== NO PUEDES ESCAPAR DE MI ===");
+                                                Thread.sleep(2000);
+                                                break;
+                                            default:
+                                                System.out.println("Esta opcion no esta disponible");
+                                                Thread.sleep(1200);
+                                                break;
+                                        }
+                                    }
+
+                                    mostrarCombateFinal(j1, d);
+                                    Thread.sleep(1500);
+
+                                    if (d.getPS() > 0 && !escapar) {
+                                        ataqueJefe = d.Atacar();
+                                        d.habilidades(ataqueJefe, j1);
+                                        Thread.sleep(2000);
+                                    }
+
+                                } else {
+
+                                    // --- JEFE PRIMERO ---
+                                    if (d.getPS() > 0) {
+                                        ataqueJefe = d.Atacar();
+                                        d.habilidades(ataqueJefe, j1);
+                                        Thread.sleep(2000);
+                                    }
+
+                                    mostrarCombateFinal(j1, d);
+                                    Thread.sleep(1500);
+
+                                    if (j1.getPS() > 0) {
+                                        System.out.print("1. Ataque Basico");
+                                        System.out.println("   2. Ataque Especial");
+                                        System.out.print("3. Usar Objetos");
+                                        System.out.println("    4. Huir");
+                                        ataque = teclado.nextInt();
+
+                                        switch (ataque) {
+                                            case 1:
+                                                j1.atacarJefe(d, true);
+                                                Thread.sleep(2000);
+                                                break;
+                                            case 2:
+                                                j1.atacarJefe(d, false);
+                                                Thread.sleep(2000);
+                                                break;
+                                            case 3:
+                                                j1.usarObjeto();
+                                                Thread.sleep(2000);
+                                                break;
+                                            case 4:
+                                                System.out.println("=== NO PUEDES ESCAPAR DE MI ===");
+                                                Thread.sleep(2000);
+                                                break;
+                                            default:
+                                                System.out.println("Esta opcion no esta disponible");
+                                                Thread.sleep(1200);
+                                                break;
+                                        }
+                                    }
+                                }
+                            }
+
+                        } while (j1.getPS() > 0 && d.getPS() > 0 && !escapar);
+
+                        if (j1.getPS() <= 0) {
+                            mostrarCombateFinal(j1, d);
+                            Thread.sleep(1500);
+                            mostrarGameOver();
+                        } else if (d.getPS() <= 0) {
+                            mostrarFinal();
+                            Thread.sleep(1500);
+                        }
+
+                    }
 
             }
-        } while (j1.getPS() > 0 && opcion != 6);
+        } while (j1.getPS() > 0 && opcion != 6 && d.getPS() > 0);
     }
 
     public static void mostrarCombate(Jugador jugador, Enemigo enemigo) {
@@ -298,24 +579,38 @@ public class Videojuegorpg {
 
         // ENEMIGO (arriba derecha)
         System.out.println(enemigo.toString());
-        System.out.println("                           O");
-        System.out.println("                          /|\\");
-        System.out.println("                          / \\");
-        System.out.println("                        ------------------------------------------");
+        System.out.println("                                  ,----.__                         |\n"
+                + "                                ,'        `.                       |\n"
+                + "                            _  /            :                      ,-.\n"
+                + "                           |.`:              :                    /  -\n"
+                + "            ,'''''-._      | )               :                 _.'  --\n"
+                + "           /         '.  _.`.   (88o    _    |_           _.-''      -\n"
+                + "           |           `/    |   \"\"\"   9@8o  / )-..__._.-'      ,/'`-/\n"
+                + "           ]     \\    ,:     `.         \"\"  :_/              ,-'  |\n"
+                + "            :     \\-_/        `. `a,    ,   :              ,'    /\n"
+                + "             `.    Y'       ,_  \\ \"7888\"  ,'   _.--''''---')     |\n"
+                + "               \\ .'      _/'  `._\\      ,'---.<...        /     |\n"
+                + "               .'      ,' '-.._   ':._,::...,'   /'     ,'      /\n"
+                + "              /'     ,/        '`''''           /     ,'       /\n"
+                + "             ,'    /  :                        /    ,'       ,-''''._\n"
+                + "             |    ()   :                      |    |      .-'        '\n"
+                + "             `.   :     ) __............____ .'    |_ .--'\n"
+                + "              `.   `.  ,'                   `/       `'-.__\n"
+                + "      _,....--'>    : /                     |   __...-._   `\\\n"
+                + "   ,-'       .' |   `.                      \"--'        ` ._/'--._\n"
+                + " ,'        /'    |   `.                                           'akn\n"
+                + "/         (.,   /|     :                                            \\.\n"
+                + "             `'' :     :\\\n"
+                + "                 )     :.:\n"
+                + "                 : ; . ; '\n"
+                + "                 '_: . '\n"
+                + "                   '_:'");
 
-        System.out.println();
-        System.out.println("--------------------------------------------------");
-        System.out.println();
-
-        // JUGADOR (abajo izquierda)
-        System.out.println("------------------------------------------");
-        System.out.println("   O");
-        System.out.println("  /|\\");
-        System.out.println("  / \\");
+        System.out.println("-------------------------------------------------------------------------");
+        mostrarClases(jugador);
         System.out.println(jugador.toString());
 
         System.out.println("==================================================================");
-        System.out.println();
     }
 
     public static void mostrarCombateDerrotaEnemigo(Jugador jugador, Enemigo enemigo) {
@@ -324,22 +619,70 @@ public class Videojuegorpg {
         System.out.println("==================================================");
 
         System.out.println(enemigo.toString());
-        System.out.println("                           .-.");
-        System.out.println("                          (X X)");
-        System.out.println("                           \\_/");
-        System.out.println("                        ------------------------------------------");
+        System.out.println("                                                        ,--.\n"
+                + "                                                       {    }\n"
+                + "                                                       K,   }\n"
+                + "                                                      /  ~Y`\n"
+                + "                                                 ,   /   /\n"
+                + "                                                {_'-K.__/\n"
+                + "                                                  `/-.__L._\n"
+                + "                                                  /  ' /`\\_}\n"
+                + "                                                 /  ' /\n"
+                + "                                         ____   /  ' /\n"
+                + "                                  ,-'~~~~    ~~/  ' /_\n"
+                + "                                ,'             ``~~~  ',\n"
+                + "                               (                        Y\n"
+                + "                              {                         I\n"
+                + "                             {      -                    `,\n"
+                + "                             |       ',                   )\n"
+                + "                             |        |   ,..__      __. Y\n"
+                + "                             |    .,_./  Y ' / ^Y   J   )|\n"
+                + "                             \\           |' /   |   |   ||\n"
+                + "                              \\          L_/    . _ (_,.'(\n"
+                + "                               \\,   ,      ^^\"\"' / |      )\n"
+                + "                                 \\_  \\          /,L]     /\n"
+                + "                                   '-_~-,       ` `   ./`\n"
+                + "                                      `'{_            )\n"
+                + "                                          ^^\\..___,.--`     ");
 
-        System.out.println();
-        System.out.println("--------------------------------------------------");
-        System.out.println();
-
-        System.out.println("------------------------------------------");
-        System.out.println("   O");
-        System.out.println("  /|\\");
-        System.out.println("  / \\");
+        System.out.println("-------------------------------------------------------------------------");
+        mostrarClases(jugador);
         System.out.println(jugador.toString());
         System.out.println("HAS DERROTADO A " + enemigo.getNombre());
         System.out.println("==================================================");
+        System.out.println();
+    }
+
+    public static void mostrarCombateFinal(Jugador jugador, JefeFinal jefe) {
+
+        System.out.println("                              " + jefe.toString());
+
+        System.out.println("                                                                    ,-.\n"
+                + "                                               ___,---.__          /'|`\\          __,---,___\n"
+                + "                                            ,-'    \\`    `-.____,-'  |  `-.____,-'    //    `-.\n"
+                + "                                          ,'        |           ~'\\     /`~           |        `.\n"
+                + "                                         /      ___//              `. ,'          ,  , \\___      \\\n"
+                + "                                        |    ,-'   `-.__   _         |        ,    __,-'   `-.    |\n"
+                + "                                        |   /          /\\_  `   .    |    ,      _/\\          \\   |\n"
+                + "                                        \\  |           \\ \\`-.___ \\   |   / ___,-'/ /           |  /\n"
+                + "                                         \\  \\           | `._   `\\\\  |  //'   _,' |           /  /\n"
+                + "                                          `-.\\         /'  _ `---'' , . ``---' _  `\\         /,-'\n"
+                + "                                             ``       /     \\    ,='/ \\`=.    /     \\       ''\n"
+                + "                                                     |__   /|\\_,--.,-.--,--._/|\\   __|\n"
+                + "                                                     /  `./  \\\\`\\ |  |  | /,//' \\,'  \\\n"
+                + "                                                    /   /     ||--+--|--+-/-|     \\   \\\n"
+                + "                                                   |   |     /'\\_\\_\\ | /_/_/`\\     |   |\n"
+                + "                                                    \\   \\__, \\_     `~'     _/ .__/   /\n"
+                + "                                                     `-._,-'   `-._______,-'   `-._,-'\n");
+
+        System.out.println();
+        System.out.println("===================================================================================================================================");
+        System.out.println();
+
+        mostrarClases(jugador);
+        System.out.println(jugador.toString());
+
+        System.out.println("==================================================================");
         System.out.println();
     }
 
@@ -354,4 +697,238 @@ public class Videojuegorpg {
         System.out.println();
     }
 
+    public static void mostrarClases(Jugador jugador) {
+        if (jugador.getClases().equals("Mago")) {
+            System.out.println("                                  ....\n"
+                    + "                                .'' .'''\n"
+                    + ".                             .'   :\n"
+                    + "\\\\                          .:    :\n"
+                    + " \\\\                        _:    :       ..----.._\n"
+                    + "  \\\\                    .:::.....:::.. .'         ''.\n"
+                    + "   \\\\                 .'  #-. .-######'     #        '.\n"
+                    + "    \\\\                 '.##'/ ' ################       :\n"
+                    + "     \\\\                  #####################         :\n"
+                    + "      \\\\               ..##.-.#### .''''###'.._        :\n"
+                    + "       \\\\             :--:########:            '.    .' :\n"
+                    + "        \\\\..__...--.. :--:#######.'   '.         '.     :\n"
+                    + "        :     :  : : '':'-:'':'::        .         '.  .'\n"
+                    + "        '---'''..: :    ':    '..'''.      '.        :'\n"
+                    + "           \\\\  :: : :     '      ''''''.     '.      .:\n"
+                    + "            \\\\ ::  : :     '            '.      '      :\n"
+                    + "             \\\\::   : :           ....' ..:       '     '.\n"
+                    + "              \\\\::  : :    .....####\\\\ .~~.:.             :\n"
+                    + "               \\\\':.:.:.:'#########.===. ~ |.'-.   . '''.. :\n"
+                    + "                \\\\    .'  ########## \\ \\ _.' '. '-.       '''.\n"
+                    + "                :\\\\  :     ########   \\ \\      '.  '-.        :\n"
+                    + "               :  \\\\'    '   #### :    \\ \\      :.    '-.      :\n"
+                    + "              :  .'\\\\   :'  :     :     \\ \\       :      '-.    :\n"
+                    + "             : .'  .\\\\  '  :      :     :\\ \\       :        '.   :\n"
+                    + "             ::   :  \\\\'  :.      :     : \\ \\      :          '. :\n"
+                    + "             ::. :    \\\\  : :      :    ;  \\ \\     :           '.:\n"
+                    + "              : ':    '\\\\ :  :     :     :  \\:\\     :        ..'\n"
+                    + "                 :    ' \\\\ :        :     ;  \\|      :   .'''\n"
+                    + "                 '.   '  \\\\:                         :.''\n"
+                    + "                  .:..... \\\\:       :            ..''\n"
+                    + "                 '._____|'.\\\\......'''''''.:..'''\n"
+                    + "                            \\\\");
+        } else if (jugador.getClases().equals("Guerrero")) {
+            System.out.println("             _.-;-._\n"
+                    + "            ;_.JL___; \n"
+                    + "            F\"-/\\_-7L\n"
+                    + "            | a/ e | \\\n"
+                    + "           ,L,c;,.='/;,\n"
+                    + "        _,-;;S:;:S;;:' '--._\n"
+                    + "       ;. \\;;s:::s;;: .'   /\\\n"
+                    + "      /  \\  ;::::;;  /    /  \\\n"
+                    + "     / ,  k ;S';;'S.'    j __,l\n"
+                    + "  ,---/| /  /S   /S '.   |'   ;\n"
+                    + " ,Ljjj |/|.' s .' s   \\  L    |\n"
+                    + " LL,_ ]( \\    /    '.  '.||   ;\n"
+                    + " ||\\ > /  ;-.'_.-.___\\.-'(|==\"(\n"
+                    + " JJ,\" /   |_  [   ]     _]|   /\n"
+                    + "  LL\\/   ,' '--'-'-----'  \\  ( \n"
+                    + "  ||     ;      |          |  >\n"
+                    + "  JJ     |      |\\         |,/\n"
+                    + "   LL    |      ||       ' | \n"
+                    + "   ||    |      ||       . |\n"
+                    + "   JJ    /_     ||       ;_|\n"
+                    + "    LL   L \"==='|i======='_|\n"
+                    + "    ||    i----' '-------';\n"
+                    + "    JJ    ';-----.------,-'\n"
+                    + "     LL     L_.__J,'---;'\n"
+                    + "     ||      |   ,|    (\n"
+                    + "     JJ     .'=  (|  ,_|\n"
+                    + "      LL   /    .'L_    \\\n"
+                    + "      ||   '---'    '.___>");
+        } else if (jugador.getClases().equals("Picaro")) {
+            System.out.println("     .;;,.\n"
+                    + "                  ; '\" ;\\ \\//\n"
+                    + "                 \\|a (a|7 \\//\n"
+                    + "                 j| ..  | ||/\n"
+                    + "                //'.--.')\\-,/\n"
+                    + "              .-||- '' ||/  `-.\n"
+                    + "             ;  | \\ |/ |/ L.  ,|\n"
+                    + "             f\\ |\\| Y  || \\ '._\\\n"
+                    + "            j | \\|     (| |   | |\n"
+                    + "           |  L_\\         L.__: |\n"
+                    + "            \\(  '-.,-,    |   ; |\n"
+                    + "             |'-.'.L_rr>  f--f  |\n"
+                    + ".-=,,______,--------- J-. ;  ;__ \n"
+                    + "   ``\"-,__   |  |      h  |  f  '--.__\n"
+                    + "       `--;;--,_       h  f-j   |   __;==-.\n"
+                    + "            / `-''-,,__J,'  \\_..--:'-'     '\n"
+                    + "            | |    `' --L7//'-'`|\n"
+                    + "            | ,     ||  h    |  (\n"
+                    + "            | ;     | \\ J    j   |\n"
+                    + "            | L__   | |  L_.'    |\n"
+                    + "            |   |'-.| L.'h  |  : |\n"
+                    + "            |;  \\     |  J ; : : |\n"
+                    + "            | :  (    \\  'L| : : |\n"
+                    + "            | ;   \\'.--|    \\  : |\n"
+                    + "            | | : \\    \\-, /`\\ : |\n"
+                    + "            L-'-;__\\   \\\\ '  | | |\n"
+                    + "                    ;   \\\\   |'L_j\n"
+                    + "                    _>  _|   |\n"
+                    + "                   <___/ /-  \\\n"
+                    + "                        /    /\n"
+                    + "                        '---'");
+        } else if (jugador.getClases().equals("Tanque")) {
+            System.out.println("              .\n"
+                    + "             /.\\\n"
+                    + "             |.|\n"
+                    + "             |.|\n"
+                    + "             |.|\n"
+                    + "             |.|   ,'`.\n"
+                    + "             |.|  ;\\  /:\n"
+                    + "             |.| /  \\/  \\\n"
+                    + "             |.|<.<_\\/_>,>\n"
+                    + "             |.| \\`.::,'/\n"
+                    + "             |.|,'.'||'/.\n"
+                    + "          ,-'|.|.`.____,'`.\n"
+                    + "        ,' .`|.| `.____,;/ \\\n"
+                    + "       ,'=-.`|.|\\ .   \\ |,':\n"
+                    + "      /_   :)|.|.`.___:,:,'|.\n"
+                    + "     (  `-:;\\|.|.`.)  |.`-':,\\\n"
+                    + "     /.   /  ;.:--'   |    | ,`.\n"
+                    + "    / _>-'._.'-'.     |.   |' / )._\n"
+                    + "   :.'    ((.__;/     |    |._ /__ `.___\n"
+                    + "   `.>._.-' |)=(      |.   ;  '--.._,`-.`.\n"
+                    + "            ',--'`-._ | _,:          `='`'\n"
+                    + "            /_`-. `..`:'/_.\\\n"
+                    + "           :__``--..\\\\_/_..:\n"
+                    + "           |  ``--..,:;\\__.|\n"
+                    + "           |`--..__/:;  :__|\n"
+                    + "           `._____:-;_,':__;\n"
+                    + "            |:'    /::'  `|\n"
+                    + "            |,---.:  :,-'`;\n"
+                    + "            : __  )  ;__,'\\\n"
+                    + "            \\' ,`/   \\__  :\n"
+                    + "            :. |,:   :  `./\n"
+                    + "            | `| |   |   |:\n"
+                    + "            |  | |   |   ||\n"
+                    + "            |  | |   |   ||\n"
+                    + "            |  | |   '   ||\n"
+                    + "            |  : |    \\  ||\n"
+                    + "            |  ; :    :  ||\n"
+                    + "            | / ,;    |\\,'`.\n"
+                    + "            ;-.(,'    '-._,-`.\n"
+                    + "          ,'-.//          `--'    \n"
+                    + "          `---'");
+        } else if (jugador.getClases().equals("Clerigo")) {
+            System.out.println("                 \\ : /\n"
+                    + "                    '-: __ :-'\n"
+                    + "                    -:  )(_ :--\n"
+                    + "                    -' |r-_i'-\n"
+                    + "            ,sSSSSs,   (2-,7\n"
+                    + "            sS';:'`Ss   )-j\n"
+                    + "           ;K e (e s7  /  (\n"
+                    + "            S, ''  SJ (  ;/\n"
+                    + "            sL_~~_;(S_)  _7\n"
+                    + "|,          'J)_.-' />'-' `Z\n"
+                    + "j J         /-;-A'-'|'--'-j\\\n"
+                    + " L L        )  |/   :    /  \\\n"
+                    + "  \\ \\       | | |    '._.'|  L\n"
+                    + "   \\ \\      | | |       | \\  J\n"
+                    + "    \\ \\    _/ | |       |  ',|\n"
+                    + "     \\ L.,' | | |       |   |/\n"
+                    + "    _;-r-<_.| \\=\\    __.;  _/\n"
+                    + "      {_}\"  L-'  '--'   / /|\n"
+                    + "            |   ,      |  \\|\n"
+                    + "            |   |      |   \")\n"
+                    + "            L   ;|     |   /|\n"
+                    + "           /|    ;     |  / |\n"
+                    + "          | |    ;     |  ) |\n"
+                    + "         |  |    ;|    | /  |\n"
+                    + "         | ;|    ||    | |  |\n"
+                    + "         L-'|____||    )/   |\n"
+                    + "             % %/ '-,- /    /\n"
+                    + "     snd     |% |   \\%/_    |\n"
+                    + "          ___%  (   )% |'-; |\n"
+                    + "        C;.---..'   >%,(   \"'\n"
+                    + "                   /%% /\n"
+                    + "                  Cccc'");
+        }
+    }
+
+    public static void mostrarFinal() {
+        System.out.println("                            .     @$* @$3\n"
+                + "                            '$Nueeed$$ed$$eeec$$\n"
+                + "         ,            4$Lze@*$C2$b* ed(he*rb$CC$*$bc@$r\n"
+                + "   /@ |~~            .e$$\"W$$B$B$**  ^$  e\"\"##d?$Bd$$$Nc. ..      @\\/~\\\n"
+                + "   \\==|         4$kd*Cr$6F#\"`  **   .*==      # '\"**F#$I$b$*       |   I\n"
+                + "      |         d$5N@$$\"   ....eu$$$$$$N$*$zbeuu     #$d$$$$b.     / @/\n"
+                + "     @/     . z$Ted*\"$P zue$*9d$$$@#       W$e@B$$L.    \"#@$E$b@N\n"
+                + "           #d$Id*P#  'Nd$$B$**\"       .*,     \"#*N$$b$c   $$$*$$c\n"
+                + "          .d#+C6J   @@$B$*\"          -***-        \"#$$$$c   *$$$#$u\n"
+                + "       ..u$l4@\"^\"zJ$7W*\"              '*`            ^*$@$$$r \"$$E$@B>\n"
+                + "       *@$l$P\"+Rd$$N#\"          *     /|\\     *        '\"$$$c.. ?E$*b\n"
+                + "       z$ \"*.  .Jz$\"           ***   / | \\   ***         '*@N$b   d**N\n"
+                + "     .z$JBR^bs@$$#          *   *   /  |  \\   *  *         \"$l*9N \"bN$Nee\n"
+                + "    4$$.C*   dB@\"          ***    _/  /^\\  \\_   ***         '$$$z> 3$b$$#\n"
+                + "     $\"$e$  @*$\"        *   *     \\\\^|   |^//    *   *        $$$u.^*$N$c\n"
+                + "    JPd$%  @@d\"        ***        ***********       ***       '$Ni$  $EP$\n"
+                + "  :e$\"*$  :et$          *         ***********        *         ^$$E  4$N$be\n"
+                + "  ')$ud\"  @6$                                                   9$$   $*@$\"\n"
+                + "   @F*$   *4P                       ./                          '$m#   .$$.\n"
+                + "u*\"\"\"\"\"\"\"\"\"\"\"\"h                     ##=====                    e#\"\"\"\"\"\"\"\"\"\"#\n"
+                + "E +e       ue. N                 ___##_______                 4F e=c     z*c\n"
+                + "#e$@e.. ..z6+6d\"                #*************/               ^*cBe$u.  .$$@\n"
+                + "   $ ^\"\"\"\" 4F\"  ze=eu              ********              z***hc ^\"$ \"\"*\"\" $\n"
+                + "   $       ^F :*    3r                                  @\"  e \"b  $       $\n"
+                + " .e$        N $  'be$L...                            ...?be@F  $F $       9F\n"
+                + "4\" $        $ $.  zm$*****h.                      ue\"\"\"\"*h6   J$\" $       4%\n"
+                + "$  $        $ $$u5e\" .     \"k                    d\"       #$bu$F  $       4F\n"
+                + "\"N $        $ ^d%P  dF      $  .            .e   $     -c  \"N$F  .$       4F\n"
+                + " #$$        $  $4*. \"N.    zP  3r ..    ..  $c   *u     $  u$K$  4F       4L\n"
+                + "  ^N$e.     3  F$k*. \"*C$$$# .z$\" '$    4L  \"$c. '#$eeedF  $$$9r JF       J$\n"
+                + "   $'\"$$eu. 4  F3\"K$ .e=*CB$$$$L .e$    '$bc.u$***hd6C\"\"  4kF$4F $F     u@$F\n"
+                + "   $   '\"*$*@u N'L$B*\"z*\"\"     \"$F\" 4k 4c '7$\"      \"*$eu 4'L$J\" $   .e$*\"4F\n"
+                + "   $      '\"hC*$ \"$#.P\"          $me$\"  #$*$       .  ^*INJL$\"$  $e$$*#   4F\n"
+                + "   $         $b\"h \".F     $\"     ^F        $       9r   #L#$FJEd#C@\"      4L\n"
+                + "  .$         $Jb   J\"..  4b      uF        *k      J%    #c^ $\" d$        4L\n"
+                + " :\"$         $k9   $ $%4c $Bme.ze$         '*$+eee@*$\"  :r$    @L$        4$\n"
+                + " $ $         $$Jr  $d\" '$r \"*==*\"            \"#**\"\" $r  4$3r  db$F        4F\n"
+                + " $c$         $'*F  $\"   '$            /\\            $    *(L  $$$F         k\n"
+                + " #i*e.       $ 4>  $  ue $         \\`.||.'/         'L c  $$ .L$d         .$\n"
+                + "  \"b.\"*e.    4 4   $  $%db=eL     `.<\\||/>.'      e*+$/$r  $ '$\"$       .d$$\n"
+                + "   $^#+cC*mu 4r4   4r:6@F  $$    -----++-----    <$. \"N?N  F  $ $    ud$$* $\n"
+                + "   $    \"*eJ\"@L4   4k*3Ic.*\"      .'`.      #*5.J$$..F  $ $ ue#2*\"   $\n"
+                + "   $       \"N.\"@r  4Fd\" '$r        /.'||`.\\        4$ '\"N*d\"  9.$#Ce*\"     $\n"
+                + "   $         \"e^\"  'd\" uz$%           \\/           '$czr\"k#\"  4Pu@\"        $");
+
+        System.out.println("   ____              _ _ _              \n"
+                + "  / ___|_ __ ___  __| (_) |_ ___  ___ _ \n"
+                + " | |   | '__/ _ \\/ _` | | __/ _ \\/ __(_)\n"
+                + " | |___| | |  __/ (_| | | || (_) \\__ \\_ \n"
+                + "  \\____|_|  \\___|\\__,_|_|\\__\\___/|___(_)\n"
+                + "                                        ");
+
+        System.out.println("      _             _                _         _            ____        _ _     _                 ____       _     _          ____               _          ____                      _          \n"
+                + "     | | __ ___   _(_) ___ _ __     / \\   _ __(_)______ _  |  _ \\ _   _| (_) __| | ___    _   _  |  _ \\ __ _| |__ | | ___    / ___| ___  _ __ __| | ___    / ___| ___  _ __  ______ _| | ___ ____\n"
+                + "  _  | |/ _` \\ \\ / / |/ _ \\ '__|   / _ \\ | '__| |_  / _` | | |_) | | | | | |/ _` |/ _ \\  | | | | | |_) / _` | '_ \\| |/ _ \\  | |  _ / _ \\| '__/ _` |/ _ \\  | |  _ / _ \\| '_ \\|_  / _` | |/ _ \\_  /\n"
+                + " | |_| | (_| |\\ V /| |  __/ |     / ___ \\| |  | |/ / (_| | |  __/| |_| | | | (_| | (_) | | |_| | |  __/ (_| | |_) | | (_) | | |_| | (_) | | | (_| | (_) | | |_| | (_) | | | |/ / (_| | |  __// / \n"
+                + "  \\___/ \\__,_| \\_/ |_|\\___|_|    /_/   \\_\\_|  |_/___\\__,_| |_|    \\__,_|_|_|\\__,_|\\___/   \\__, | |_|   \\__,_|_.__/|_|\\___/   \\____|\\___/|_|  \\__,_|\\___/   \\____|\\___/|_| |_/___\\__,_|_|\\___/___|\n"
+                + "                                                                                          |___/                                                                                                  ");
+
+    }
 }

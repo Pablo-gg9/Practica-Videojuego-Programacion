@@ -14,7 +14,7 @@ public class JefeFinal {
     private int PS, PSMax, PA, vel, armor, nivel;
 
     public JefeFinal() {
-        nombre = "Javier Dueñas";
+        nombre = "JAVIER DUEÑAS";
         PS = 200;
         PSMax = 200;
         vel = 90;
@@ -90,27 +90,26 @@ public class JefeFinal {
             llenos = longitud;
         }
 
-        String barra = "[";
+        String barra = "||";
         for (int i = 0; i < longitud; i++) {
             if (i < llenos) {
-                barra += "#";   // parte llena
+                barra += "=";   // parte llena
             } else {
                 barra += "-";   // parte vacía
             }
         }
-        barra += "]";
+        barra += "||";
         return barra;
     }
 
     @Override
     public String toString() {
-        String texto = "                        ------------------------------------------" + "\n";
-        texto += "                        JUGADOR: " + nombre + "   Nv. " + nivel + "\n";
-        texto += "                        HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
+        String texto = "\n                        =================================================== JEFE FINAL ===================================================\n";
+        texto += "                        Nombre: " + nombre + "   Nv. " + nivel + "\n";
+        texto += "                        HP: " + generarBarra(PS, PSMax, 120) + " " + PS + "/" + PSMax + "\n";
         texto += "                        ATK: " + PA
                 + "   DEF: " + armor
                 + "   VEL: " + vel + "\n";
-
         return texto;
     }
 
@@ -147,7 +146,7 @@ public class JefeFinal {
                 j1PS -= PA - 5;
                 j1.setPS(j1PS);
 
-                int quemadoRandom = (int) (Math.random() * 5);
+                int quemadoRandom = (int) (Math.random() * 3);
                 if (quemadoRandom == 3) {
                     j1Quemado = true;
                     j1.setQuemado(j1Quemado);
@@ -173,7 +172,7 @@ public class JefeFinal {
                 j1.setPS(j1PS);
                 int confusoRandom = (int) (Math.random() * 3);
                 if (confusoRandom == 2) {
-                    
+
                 }
 
                 break;
