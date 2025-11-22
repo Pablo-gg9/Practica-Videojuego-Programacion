@@ -120,10 +120,12 @@ public class Enemigo {
         return texto;
     }
 
-    public void calcularEstadisticasEnemigo() {
+    public void calcularEstadisticasEnemigo(Jugador j1) {
 
-        int PARandom = (int) (Math.random() * 10) + 2 * nivel;
-        int PSMaxRandom = (int) (Math.random() * 11) + 10 * nivel / 2;
+        int nivelJugador = j1.getNivel();
+        nivel = nivelJugador;
+        int PARandom = (int) (Math.random() * 5) + 2 * nivel;
+        int PSMaxRandom = (int) (Math.random() * 5) + 10 * nivel / 2;
         int velRandom = (int) (Math.random() * 10) * nivel;
         int armorRandom = (int) (Math.random() * 4) + nivel;
         int goldRandom = (int) (Math.random() * 4) + nivel;
@@ -139,11 +141,17 @@ public class Enemigo {
     public void atacar(Jugador j1) {
 
         int PARandom = (int) (Math.random() * 6) + PA;
+  
         System.out.println(nombre + " ha usado 'ataque basico' ");
+        System.out.println("Ha sacado un " + PARandom);
         int j1PS = j1.getPS();
+        int j1PSMax = j1.getPSMax();
         int j1Armor = j1.getArmor();
 
-        j1PS -= PARandom + j1Armor;
+        j1PS -= PARandom - j1Armor;
+        if(j1PS > j1PSMax){
+            j1PS = j1PSMax;
+        }
         j1.setPS(j1PS);
 
     }

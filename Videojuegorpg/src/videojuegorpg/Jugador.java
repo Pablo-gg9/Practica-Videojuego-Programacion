@@ -143,7 +143,7 @@ public class Jugador {
     public void setQuemado(boolean quemado) {
         this.quemado = quemado;
     }
-    
+
     public static Scanner teclado = new Scanner(System.in);
 
     private String generarBarra(int actual, int max, int longitud) {
@@ -171,25 +171,24 @@ public class Jugador {
     }
 
     @Override
-public String toString() {
-    String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n";
-    texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
-    texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "\n";
+    public String toString() {
+        String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n";
+        texto += "HP " + generarBarra(PS, PSMax, 25) + " " + PS + "/" + PSMax + "\n";
+        texto += "MP " + generarBarra(PM, PMMax, 25) + " " + PM + "/" + PMMax + "\n";
 
-    texto += "ATK: " + PA
-            + "   ARMOR: " + armor
-            + "   VEL: " + vel
-            + "   GOLD: " + gold + "\n";
-    
-    texto += "POTIONS:   VIDA: x" + inventario[0]
-            + "   MANA: x" + inventario[1]
-            + "   FUEGO: x" + inventario[2] + "\n";
+        texto += "ATK: " + PA
+                + "   ARMOR: " + armor
+                + "   VEL: " + vel
+                + "   GOLD: " + gold + "\n";
 
-    texto += "------------------------------------------\n";
+        texto += "POTIONS:   VIDA: x" + inventario[0]
+                + "   MANA: x" + inventario[1]
+                + "   FUEGO: x" + inventario[2] + "\n";
 
-    return texto;
-}
+        texto += "------------------------------------------\n";
 
+        return texto;
+    }
 
     public void iniciarClase() {
         if ("Mago".equals(clases)) {
@@ -243,13 +242,18 @@ public String toString() {
     public void atacarEnemigo(Enemigo e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
         int psEnemigo = e1.getPS();
+        int psMaxEnemigo = e1.getPSMax();
         int armorEnemigo = e1.getArmor();
         switch (clases) {
 
             case "Mago":
                 if (a1) {
                     System.out.println("Has usado MISIL MAGICO BASICO");
-                    psEnemigo -= PARandom + armorEnemigo;
+                    System.out.println("Has sacado un " + PARandom);
+                    psEnemigo -= PARandom - armorEnemigo;
+                    if (psEnemigo > psMaxEnemigo) {
+                        psEnemigo = psMaxEnemigo;
+                    }
                     e1.setPS(psEnemigo);
 
                 } else {
@@ -261,7 +265,11 @@ public String toString() {
                         e1.setPS(psEnemigo);
                     } else {
                         System.out.println("No tienes PM necesarios para usar el ataque especial, has usado misil magico basico");
-                        psEnemigo -= PARandom + armorEnemigo;
+                        System.out.println("Has sacado un " + PARandom);
+                        psEnemigo -= PARandom - armorEnemigo;
+                        if (psEnemigo > psMaxEnemigo) {
+                            psEnemigo = psMaxEnemigo;
+                        }
                         e1.setPS(psEnemigo);
 
                     }
@@ -270,7 +278,8 @@ public String toString() {
             case "Guerrero":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psEnemigo -= PARandom + armorEnemigo;
+                    System.out.println("Has sacado un " + PARandom);
+                    psEnemigo -= PARandom - armorEnemigo;
                     e1.setPS(psEnemigo);
 
                 } else {
@@ -279,11 +288,19 @@ public String toString() {
                         PM -= 10;
                         int tirada = (int) (Math.random() * 6) + PA;
 
-                        psEnemigo -= PARandom - tirada + armorEnemigo;
+                        System.out.println("Has sacado un " + PARandom + " (+ un " + tirada + ")");
+                        psEnemigo -= PARandom + tirada - armorEnemigo;
+                        if (psEnemigo > psMaxEnemigo) {
+                            psEnemigo = psMaxEnemigo;
+                        }
                         e1.setPS(psEnemigo);
                     } else {
                         System.out.println("No tienes PM para realizar el ataque especial, has usado ATAQUE BASICO");
-                        psEnemigo -= PARandom + armorEnemigo;
+                        System.out.println("Has sacado un " + PARandom);
+                        psEnemigo -= PARandom - armorEnemigo;
+                        if (psEnemigo > psMaxEnemigo) {
+                            psEnemigo = psMaxEnemigo;
+                        }
                         e1.setPS(psEnemigo);
                     }
 
@@ -293,7 +310,11 @@ public String toString() {
             case "Tanque":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psEnemigo -= PARandom + armorEnemigo;
+                    System.out.println("Has sacado un " + PARandom);
+                    psEnemigo -= PARandom - armorEnemigo;
+                    if (psEnemigo > psMaxEnemigo) {
+                        psEnemigo = psMaxEnemigo;
+                    }
                     e1.setPS(psEnemigo);
 
                 } else {
@@ -304,7 +325,11 @@ public String toString() {
                         armor += 3;
                     } else {
                         System.out.println("No tienes PM para usar el ataque especial has usado ATAQUE BASICO");
-                        psEnemigo -= PARandom + armorEnemigo;
+                        System.out.println("Has sacado un " + PARandom);
+                        psEnemigo -= PARandom - armorEnemigo;
+                        if (psEnemigo > psMaxEnemigo) {
+                            psEnemigo = psMaxEnemigo;
+                        }
                         e1.setPS(psEnemigo);
                     }
                 }
@@ -312,7 +337,11 @@ public String toString() {
             case "Picaro":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psEnemigo -= PARandom + armorEnemigo;
+                    System.out.println("Has sacado un " + PARandom);
+                    psEnemigo -= PARandom - armorEnemigo;
+                    if (psEnemigo > psMaxEnemigo) {
+                        psEnemigo = psMaxEnemigo;
+                    }
                     e1.setPS(psEnemigo);
 
                 } else {
@@ -320,19 +349,28 @@ public String toString() {
                         System.out.println("Has usado GANG");
                         PM -= 30;
 
-                        psEnemigo -= (PARandom * 2) + armorEnemigo;
+                        System.out.println("Has sacado un " + PARandom + " x 2");
+                        psEnemigo -= (PARandom * 2) - armorEnemigo;
+                        if (psEnemigo > psMaxEnemigo) {
+                            psEnemigo = psMaxEnemigo;
+                        }
                         e1.setPS(psEnemigo);
                     } else {
 
                         System.out.println("Has usado ATAQUE BASICO");
-                        psEnemigo -= PARandom + armorEnemigo;
+                        System.out.println("Has sacado un " + PARandom);
+                        psEnemigo -= PARandom - armorEnemigo;
                         e1.setPS(psEnemigo);
                     }
                 }
             case "Clerigo":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psEnemigo -= PARandom + armorEnemigo;
+                    System.out.println("Has sacado un " + PARandom);
+                    psEnemigo -= PARandom - armorEnemigo;
+                    if (psEnemigo > psMaxEnemigo) {
+                        psEnemigo = psMaxEnemigo;
+                    }
                     e1.setPS(psEnemigo);
 
                 } else {
@@ -347,7 +385,11 @@ public String toString() {
                         }
                     } else {
                         System.out.println("Has usado ATAQUE BASICO");
-                        psEnemigo -= PARandom + armorEnemigo;
+                        System.out.println("Has sacado un " + PARandom);
+                        psEnemigo -= PARandom - armorEnemigo;
+                        if (psEnemigo > psMaxEnemigo) {
+                            psEnemigo = psMaxEnemigo;
+                        }
                         e1.setPS(psEnemigo);
                     }
                 }
@@ -360,13 +402,18 @@ public String toString() {
     public void atacarJefe(JefeFinal e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
         int psJefe = e1.getPS();
+        int psMaxJefe = e1.getPSMax();
         int armorJefe = e1.getArmor();
         switch (clases) {
 
             case "Mago":
                 if (a1) {
                     System.out.println("Has usado MISIL MAGICO BASICO");
-                    psJefe -= PARandom + armorJefe;
+                    System.out.println("Has sacado un " + PARandom);
+                    psJefe -= PARandom - armorJefe;
+                    if (psJefe > psMaxJefe) {
+                        psJefe = psMaxJefe;
+                    }
                     e1.setPS(psJefe);
                     estarQuemado();
 
@@ -379,7 +426,11 @@ public String toString() {
                         estarQuemado();
                     } else {
                         System.out.println("No tienes PM necesarios para usar el ataque especial, has usado misil magico basico");
-                        psJefe -= PARandom + armorJefe;
+                        System.out.println("Has sacado un " + PARandom);
+                        psJefe -= PARandom - armorJefe;
+                        if (psJefe > psMaxJefe) {
+                            psJefe = psMaxJefe;
+                        }
                         e1.setPS(psJefe);
                         estarQuemado();
 
@@ -389,7 +440,11 @@ public String toString() {
             case "Guerrero":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psJefe -= PARandom + armorJefe;
+                    System.out.println("Has sacado un " + PARandom);
+                    psJefe -= PARandom - armorJefe;
+                    if (psJefe > psMaxJefe) {
+                        psJefe = psMaxJefe;
+                    }
                     e1.setPS(psJefe);
                     estarQuemado();
 
@@ -399,12 +454,20 @@ public String toString() {
                         PM -= 10;
                         int tirada = (int) (Math.random() * 6) + PA;
 
-                        psJefe -= PARandom - tirada + armorJefe;
+                        System.out.println("Has sacado un " + PARandom + " (+ un " + tirada + ")");
+                        psJefe -= PARandom + tirada - armorJefe;
+                        if (psJefe > psMaxJefe) {
+                            psJefe = psMaxJefe;
+                        }
                         e1.setPS(psJefe);
                         estarQuemado();
                     } else {
                         System.out.println("No tienes PM para realizar el ataque especial, has usado ATAQUE BASICO");
-                        psJefe -= PARandom + armorJefe;
+                        System.out.println("Has sacado un " + PARandom);
+                        psJefe -= PARandom - armorJefe;
+                        if (psJefe > psMaxJefe) {
+                            psJefe = psMaxJefe;
+                        }
                         e1.setPS(psJefe);
                         estarQuemado();
                     }
@@ -415,7 +478,11 @@ public String toString() {
             case "Tanque":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psJefe -= PARandom + armorJefe;
+                    System.out.println("Has sacado un " + PARandom);
+                    psJefe -= PARandom - armorJefe;
+                    if (psJefe > psMaxJefe) {
+                        psJefe = psMaxJefe;
+                    }
                     e1.setPS(psJefe);
                     estarQuemado();
 
@@ -428,7 +495,11 @@ public String toString() {
                         estarQuemado();
                     } else {
                         System.out.println("No tienes PM para usar el ataque especial has usado ATAQUE BASICO");
-                        psJefe -= PARandom + armorJefe;
+                        System.out.println("Has sacado un " + PARandom);
+                        psJefe -= PARandom - armorJefe;
+                        if (psJefe > psMaxJefe) {
+                            psJefe = psMaxJefe;
+                        }
                         e1.setPS(psJefe);
                         estarQuemado();
                     }
@@ -437,7 +508,10 @@ public String toString() {
             case "Picaro":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psJefe -= PARandom + armorJefe;
+                    psJefe -= PARandom - armorJefe;
+                    if (psJefe > psMaxJefe) {
+                        psJefe = psMaxJefe;
+                    }
                     e1.setPS(psJefe);
                     estarQuemado();
 
@@ -446,13 +520,20 @@ public String toString() {
                         System.out.println("Has usado GANG");
                         PM -= 30;
 
-                        psJefe -= (PARandom * 2) + armorJefe;
+                        psJefe -= (PARandom * 2) - armorJefe;
+                        if (psJefe > psMaxJefe) {
+                            psJefe = psMaxJefe;
+                        }
                         e1.setPS(psJefe);
                         estarQuemado();
                     } else {
 
                         System.out.println("Has usado ATAQUE BASICO");
-                        psJefe -= PARandom + armorJefe;
+                        System.out.println("Has sacado un " + PARandom);
+                        psJefe -= PARandom - armorJefe;
+                        if (psJefe > psMaxJefe) {
+                            psJefe = psMaxJefe;
+                        }
                         e1.setPS(psJefe);
                         estarQuemado();
                     }
@@ -460,7 +541,11 @@ public String toString() {
             case "Clerigo":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psJefe -= PARandom + armorJefe;
+                    System.out.println("Has sacado un " + PARandom);
+                    psJefe -= PARandom - armorJefe;
+                    if (psJefe > psMaxJefe) {
+                        psJefe = psMaxJefe;
+                    }
                     e1.setPS(psJefe);
                     estarQuemado();
 
@@ -478,7 +563,11 @@ public String toString() {
                         }
                     } else {
                         System.out.println("Has usado ATAQUE BASICO");
-                        psJefe -= PARandom + armorJefe;
+                        System.out.println("Has sacado un " + PARandom);
+                        psJefe -= PARandom - armorJefe;
+                        if (psJefe > psMaxJefe) {
+                            psJefe = psMaxJefe;
+                        }
                         e1.setPS(psJefe);
                         estarQuemado();
                     }
@@ -489,37 +578,109 @@ public String toString() {
 
     }
 
-    public void lvlUP(int opcion) {
+    public void lvlUP(Jugador j1) {
         int subidaStats = (int) (Math.random() * 6) + nivel;
 
-        switch (opcion) {
-            case 1:
-                PSMax += subidaStats;
-                break;
-            case 2:
-                PMMax += subidaStats;
-                break;
-            case 3:
-                PA += subidaStats;
-                break;
-            case 4:
-                armor += subidaStats;
-                break;
-            case 5:
-                vel += subidaStats;
-                break;
+        System.out.println("===================================================");
+        System.out.println("                  SUBIDA DE ESTADISTICAS");
+        System.out.println("===================================================\n");
 
-            default:
-                System.out.println("Esa opcion no esta disponible");
+        System.out.println("                                                       \n"
+                + " __    _____ _____ _____ __       _____ _____      _   \n"
+                + "|  |  |   __|  |  |   __|  |     |  |  |  _  |   _| |_ \n"
+                + "|  |__|   __|  |  |   __|  |__   |  |  |   __|  |_   _|\n"
+                + "|_____|_____|\\___/|_____|_____|  |_____|__|       |_|  \n"
+                + "                                                       ");
 
-        }
+        System.out.println("                     LEVEL UP");
+        System.out.println("===================================================");
+        System.out.println("   (1)  PS MAXIMOS      - Aumenta tu vida maxima");
+        System.out.println("   (2)  PM MAXIMOS      - Aumenta tu mana maxima");
+        System.out.println("   (3)  PODER DE ATAQUE - Incrementa tu dano");
+        System.out.println("   (4)  ARMADURA        - Incrementa la defensa");
+        System.out.println("   (5)  VELOCIDAD       - Te permite actuar antes");
+        System.out.println("===================================================\n");
+        System.out.println(j1 + "\n");
+        do {
+            System.out.println("Te quedan " + subidaStats + " puntos de estadisticas");
+            System.out.print("Ingresa una opcion (1-5): \n");
+
+            int opcion = teclado.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    if (subidaStats >= 1) {
+                        PSMax += 5;
+                        PS = PSMax;
+                        subidaStats--;
+                        
+                        System.out.println(j1 + "\n");;
+                        break;
+                    } else {
+                        System.out.println("No tienes suficientes puntos de estadistica");
+                        break;
+                    }
+                case 2:
+                    if (subidaStats >= 1) {
+                        PMMax += 5;
+                        PM = PMMax;
+                        subidaStats--;
+                        System.out.println(j1 + "\n");;
+                        break;
+                    } else {
+                        System.out.println("No tienes suficientes puntos de estadistica");
+                        break;
+                    }
+                case 3:
+                    if (subidaStats >= 1) {
+                        PA += 1;
+                        subidaStats--;
+                        System.out.println(j1 + "\n");;
+                        break;
+                    } else {
+                        System.out.println("No tienes suficientes puntos de estadistica");
+                        break;
+                    }
+                case 4:
+                    if (subidaStats >= 2) {
+                        armor += 1;
+                        subidaStats -= 2;
+                        System.out.println(j1 + "\n");;
+                        break;
+                    } else {
+                        System.out.println("No tienes suficientes puntos de estadistica");
+                        break;
+                    }
+
+                case 5:
+                    if (subidaStats >= 2) {
+                        vel += 2;
+                        subidaStats -= 2;
+                        System.out.println(j1 + "\n");;
+                        break;
+                    } else {
+                        System.out.println("No tienes suficientes puntos de estadistica");
+                        break;
+                    }
+
+                default:
+                    System.out.println("Esa opcion no esta disponible");
+
+            }
+        } while (subidaStats > 0);
+        nivel++;
 
     }
 
     public void usarObjeto() {
 
         System.out.println("===============================================");
-        System.out.println("              *** INVENTARIO ***");
+        System.out.println("  ___                      _             _       \n"
+                + " |_ _|_ ____   _____ _ __ | |_ __ _ _ __(_) ___  \n"
+                + "  | || '_ \\ \\ / / _ \\ '_ \\| __/ _` | '__| |/ _ \\ \n"
+                + "  | || | | \\ V /  __/ | | | || (_| | |  | | (_) |\n"
+                + " |___|_| |_|\\_/ \\___|_| |_|\\__\\__,_|_|  |_|\\___/ \n"
+                + "                                                 ");
         System.out.println("===============================================\n");
         System.out.println(
                 " [1] POCIÓN DE VIDA           [2] POCIÓN DE MANÁ          [3] POCIÓN ANTIQUEMADURAS\n"
@@ -529,11 +690,11 @@ public String toString() {
                 + "      (____)                       (____)                         (____)\n"
         );
         int objeto = teclado.nextInt();
-        
+
         switch (objeto) {
             case 1:
                 if (inventario[1] > 0) {
-                    System.out.println("Te has bebido una pocion de vida");
+                    System.out.println("Te has bebido una pocion de vida \n");
                     if (PS + 10 > PSMax) {
                         PS = PSMax;
                     } else {
@@ -541,41 +702,39 @@ public String toString() {
                     }
                     inventario[1]--;
                 } else {
-                    System.out.println("No tienes pociones de vida");
+                    System.out.println("No tienes pociones de vida \n");
                 }
 
                 break;
             case 2:
-                if(inventario[2] > 0){
-                System.out.println("Te has bebido una pocion de mana");
-                if (PM + 15 > PMMax) {
-                    PM = PMMax;
+                if (inventario[2] > 0) {
+                    System.out.println("Te has bebido una pocion de mana \n");
+                    if (PM + 15 > PMMax) {
+                        PM = PMMax;
 
+                    } else {
+                        PM += 15;
+                    }
+                    inventario[2]--;
                 } else {
-                    PM += 15;
-                }
-                inventario[2]--;
-                }
-                else{
-                    System.out.println("No tienes pociones de vida");
+                    System.out.println("No tienes pociones de vida \n");
                 }
 
                 break;
 
             case 3:
-                if(inventario[3] > 0){
-                System.out.println("Te has bebido una pocion antiquemaduras");
-                quemado = false;
-                inventario[3]--;
-                }
-                else{
-                    System.out.println("No tienes pociones antiquemaduras");
+                if (inventario[3] > 0) {
+                    System.out.println("Te has bebido una pocion antiquemaduras \n");
+                    quemado = false;
+                    inventario[3]--;
+                } else {
+                    System.out.println("No tienes pociones antiquemaduras \n");
                 }
 
                 break;
-                
+
             default:
-                System.out.println("Eso no es una pocion, es una monster vacia");
+                System.out.println("Eso no es una pocion, es una monster vacia \n");
 
                 break;
 
@@ -587,7 +746,7 @@ public String toString() {
         int dañoQuemado = (int) (Math.random() * 5) + PSMax / 5;
         if (quemado == true) {
             PS -= dañoQuemado;
-            System.out.println("Has sufrido " + dañoQuemado + " de daño por quemadura");
+            System.out.println("Has sufrido " + dañoQuemado + " de daño por quemadura \n");
         }
 
     }
@@ -595,68 +754,89 @@ public String toString() {
     public void comprar(int opcion) {
         switch (opcion) {
             case 1:
-                if (gold > 5) {
-                    System.out.println("Compraste una espada");
-                    PA += inventario[opcion];
+                if (gold > 5 + nivel) {
+                    System.out.println("Compraste una espada (Gold: " + gold + ")");
+                    System.out.println("ATK(" + PA + "+" + inventario[4] + ")\n" );
+                    PA += inventario[4];
+                    gold -= 5;
+                    inventario[4] ++;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
 
             case 2:
-                if (gold > 7) {
-                    System.out.println("Compraste un colgante con forma de corazon");
-                    PSMax += 3 + inventario[opcion];
+                if (gold > 7 + nivel) {
+                    System.out.println("Compraste un colgante con forma de corazon (Gold: " + gold + ")");
+                    System.out.println("PSMax(" + PSMax + "+" + inventario[5] + ")\n" );
+                    PSMax += 3 + inventario[5];
+                    gold -= 7;
+                    inventario[5] ++;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
 
             case 3:
-                if (gold > 10) {
-                    System.out.println("Compraste una armadura");
-                    armor += inventario[opcion];
+                if (gold > 10 + nivel) {
+                    System.out.println("Compraste una armadura (Gold: " + gold + ")");
+                    System.out.println("Armor(" + armor + "+" + inventario[6] + ")\n" );
+                    armor += inventario[6];
+                    gold -= 10;
+                    inventario[6] ++;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
 
             case 4:
-                if (gold > 6) {
-                    System.out.println("Compraste unas botas");
-                    vel += 2 + inventario[opcion];
+                if (gold > 6 + nivel) {
+                    System.out.println("Compraste unas botas (Gold: " + gold + ")");
+                    System.out.println("VEL(" + vel + "+" + inventario[7] + ")\n" );
+                    vel += 2 + inventario[7];
+                    gold -= 6;
+                    inventario[7] ++;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
             case 5:
-                if (gold > 10) {
-                    System.out.println("Compraste un anillo magico");
-                    PMMax += 5 + inventario[opcion];
+                if (gold > 10 + nivel) {
+                    System.out.println("Compraste un anillo magico (Gold: " + gold + ")");
+                    System.out.println("PMMax(" + PMMax + "+" + inventario[8] + ")\n" );
+                    PMMax += 5 + inventario[8];
+                    gold -= 10;
+                    inventario[8] ++;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
                 break;
             case 6:
-                if (gold > 8) {
-                    System.out.println("Compraste una pocion de vida");
+                if (gold > 8 + nivel) {
+                    System.out.println("Compraste una pocion de vida (Gold: " + gold + ")");
                     inventario[1]++;
+                    gold -= 8;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
+                break;
             case 7:
-                if (gold > 12) {
-                    System.out.println("Compraste una pocion de mana");
+                if (gold > 12 + nivel) {
+                    System.out.println("Compraste una pocion de mana (Gold: " + gold + ")");
                     inventario[2]++;
+                    gold -= 12;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n" );
                 }
+                break;
+
             case 8:
-                if (gold > 15) {
-                    System.out.println("Compraste una pocion de resistencia al fuego");
+                if (gold > 15 + nivel) {
+                    System.out.println("Compraste una pocion de resistencia al fuego (Gold: " + gold + ")");
                     inventario[3]++;
+                    gold -= 15;
                 } else {
-                    System.out.println("Te fartan pollas de moneas");
+                    System.out.println("Te fartan pollas de moneas \n");
                 }
 
                 break;
@@ -665,22 +845,24 @@ public String toString() {
                 break;
 
         }
-        
 
     }
-    
-    public boolean escapar(Enemigo e1){
-        
-        if(vel > e1.getVel()){
-            
+
+    public boolean escapar(Enemigo e1) {
+
+        if (vel > e1.getVel()) {
+            System.out.println("==== HAS ESCAPADO ====\n");
+
             return true;
-        }
-        else{
-            
+        } else {
+            int probEscapar = (int) (Math.random() * 5);
+            if (probEscapar == 3) {
+                System.out.println("==== HAS ESCAPADO ====\n");
+                return true;
+            }
             return false;
         }
-        
-        
+
     }
 
 }

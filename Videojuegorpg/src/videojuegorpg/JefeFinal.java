@@ -22,6 +22,22 @@ public class JefeFinal {
         nivel = 10;
     }
 
+    public int getPSMax() {
+        return PSMax;
+    }
+
+    public void setPSMax(int PSMax) {
+        this.PSMax = PSMax;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
+    }
+
     public String getNombre() {
         return nombre;
     }
