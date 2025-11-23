@@ -192,8 +192,8 @@ public class Jugador {
 
     public void iniciarClase() {
         if ("Mago".equals(clases)) {
-            PM = 20;
-            PMMax = 20;
+            PM = 40;
+            PMMax = 40;
             int PArandom = (int) (Math.random() * 7) + 3;
             int velrandom = (int) (Math.random() * 7) + 3;
             int armorrandom = (int) (Math.random() * 7) + 3;
@@ -212,6 +212,8 @@ public class Jugador {
 
         } else if ("Picaro".equals(clases)) {
             vel = 100;
+            PMMax = 30;
+            PM = 30;
             int PArandom = (int) (Math.random() * 7) + 3;
             int velrandom = (int) (Math.random() * 7) + 3;
             int armorrandom = (int) (Math.random() * 7) + 3;
@@ -257,7 +259,7 @@ public class Jugador {
                     e1.setPS(psEnemigo);
 
                 } else {
-                    if (PM >= 10) {
+                    if (PM >= 15) {
                         System.out.println("Has usado BOLA DE FUEGO");
                         PM -= 15;
 
@@ -360,6 +362,9 @@ public class Jugador {
                         System.out.println("Has usado ATAQUE BASICO");
                         System.out.println("Has sacado un " + PARandom);
                         psEnemigo -= PARandom - armorEnemigo;
+                        if (psEnemigo > psMaxEnemigo) {
+                            psEnemigo = psMaxEnemigo;
+                        }
                         e1.setPS(psEnemigo);
                     }
                 }
@@ -761,7 +766,7 @@ public class Jugador {
                     gold -= (5 + nivel);
                     System.out.println("Compraste una espada (Gold: " + gold + ")");
                     System.out.println("ATK(" + PA + "+" + inventario[4] + ")\n");
-                    
+
                 } else {
                     System.out.println("Te fartan pollas de moneas \n");
                 }
