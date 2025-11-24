@@ -90,7 +90,7 @@ public class Videojuegorpg {
             System.out.println("                          === Mago(0)===                                 ===Guerrero(1)===                     ===Picaro(2)===                            ===Tanque(3)===                            ===Clerigo(4)=== ");
             System.out.println("Introduce tu clase: ");
             numeroClase = teclado.nextInt();
-        } while (numeroClase < 0 && numeroClase > 4);
+        } while (numeroClase < 0 || numeroClase > 4);
 
         Jugador j1 = new Jugador(nombreJ, nombreClase[numeroClase]);
         j1.iniciarClase();
