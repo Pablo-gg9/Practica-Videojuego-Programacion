@@ -115,10 +115,10 @@ public class JefeFinal {
 
     public int Atacar() {
 
-        int PARandom = (int) (Math.random() * 10) + 10;
+        int PARandom = (int) (Math.random() * 10) + 20;
         PA = PARandom;
 
-        return (int) (Math.random() * 4); // Esto elegira que ataque va a hacer el jefe   
+        return (int) (Math.random() * 3)+1; // Esto elegira que ataque va a hacer el jefe   
     }
 
     /**
@@ -146,7 +146,7 @@ public class JefeFinal {
                 j1PS -= PA - 5;
                 j1.setPS(j1PS);
 
-                int quemadoRandom = (int) (Math.random() * 3);
+                int quemadoRandom = (int) (Math.random() * 2)+1;
                 if (quemadoRandom == 3) {
                     j1Quemado = true;
                     j1.setQuemado(j1Quemado);
@@ -170,9 +170,9 @@ public class JefeFinal {
 
                 j1PS -= PA % 10;
                 j1.setPS(j1PS);
-                int confusoRandom = (int) (Math.random() * 3);
+                int confusoRandom = (int) (Math.random() * 2)+1;
                 if (confusoRandom == 2) {
-
+                      j1.setTurno(false);
                 }
 
                 break;

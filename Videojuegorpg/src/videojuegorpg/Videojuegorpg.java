@@ -421,7 +421,7 @@ public class Videojuegorpg {
                     break;
                 case 5: // Aqui se repite lo mismo que con el enemigo pero no puedes enfrentarte al jefe hasta alcanzar cierto nivel
 
-                    if (j1.getNivel() < 10) {
+                    if (j1.getNivel() < 2) {
                         System.out.println("==== NO TIENES NIVEL PARA ENFRENTARTE AL JEFE(te destruiria con un solo tetraedro del fuego) ====");
                         break;
                     } else {
@@ -990,5 +990,10 @@ public class Videojuegorpg {
                 + "  \\___/ \\__,_| \\_/ |_|\\___|_|    /_/   \\_\\_|  |_/___\\__,_| |_|    \\__,_|_|_|\\__,_|\\___/   \\__, | |_|   \\__,_|_.__/|_|\\___/   \\____|\\___/|_|  \\__,_|\\___/   \\____|\\___/|_| |_/___\\__,_|_|\\___/___|\n"
                 + "                                                                                          |___/                                                                                                  ");
 
+        
+        
+        
+        
+        
     }
 }
