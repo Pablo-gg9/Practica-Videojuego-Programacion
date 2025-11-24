@@ -246,7 +246,6 @@ public class Jugador {
     public void atacarEnemigo(Enemigo e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
         int psEnemigo = e1.getPS();
-        int psMaxEnemigo = e1.getPSMax();
         int armorEnemigo = e1.getArmor();
         switch (clases) {
 
@@ -350,11 +349,11 @@ public class Jugador {
 
                         System.out.println("Has sacado un " + PARandom + " x 2");
                         if (armorEnemigo < PARandom) {
-                        psEnemigo -= (PARandom * 2) - armorEnemigo;
-                        e1.setPS(psEnemigo);
-                    } else {
-                        e1.setPS(psEnemigo);
-                    }
+                            psEnemigo -= (PARandom * 2) - armorEnemigo;
+                            e1.setPS(psEnemigo);
+                        } else {
+                            e1.setPS(psEnemigo);
+                        }
                     }
                 }
                 break;
@@ -366,11 +365,12 @@ public class Jugador {
                     }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psEnemigo -= PARandom - armorEnemigo;
-                    if (psEnemigo > psMaxEnemigo) {
-                        psEnemigo = psMaxEnemigo;
+                    if (armorEnemigo < PARandom) {
+                        psEnemigo -= PARandom - armorEnemigo;
+                        e1.setPS(psEnemigo);
+                    } else {
+                        e1.setPS(psEnemigo);
                     }
-                    e1.setPS(psEnemigo);
 
                 } else {
                     if (PM >= 10) {
@@ -393,7 +393,6 @@ public class Jugador {
     public void atacarJefe(JefeFinal e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
         int psJefe = e1.getPS();
-        int psMaxJefe = e1.getPSMax();
         int armorJefe = e1.getArmor();
         switch (clases) {
 
@@ -401,11 +400,13 @@ public class Jugador {
                 if (a1) {
                     System.out.println("Has usado MISIL MAGICO BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psJefe -= PARandom - armorJefe;
-                    if (psJefe > psMaxJefe) {
-                        psJefe = psMaxJefe;
+                    if (armorJefe < PARandom) {
+                        psJefe -= PARandom - armorJefe;
+                        e1.setPS(psJefe);
+                    } else {
+                        e1.setPS(psJefe);
                     }
-                    e1.setPS(psJefe);
+
                     estarQuemado();
 
                 } else {
@@ -418,11 +419,12 @@ public class Jugador {
                     } else {
                         System.out.println("No tienes PM necesarios para usar el ataque especial, has usado misil magico basico");
                         System.out.println("Has sacado un " + PARandom);
-                        psJefe -= PARandom - armorJefe;
-                        if (psJefe > psMaxJefe) {
-                            psJefe = psMaxJefe;
+                        if (armorJefe < PARandom) {
+                            psJefe -= PARandom - armorJefe;
+                            e1.setPS(psJefe);
+                        } else {
+                            e1.setPS(psJefe);
                         }
-                        e1.setPS(psJefe);
                         estarQuemado();
 
                     }
@@ -432,11 +434,12 @@ public class Jugador {
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psJefe -= PARandom - armorJefe;
-                    if (psJefe > psMaxJefe) {
-                        psJefe = psMaxJefe;
+                    if (armorJefe < PARandom) {
+                        psJefe -= PARandom - armorJefe;
+                        e1.setPS(psJefe);
+                    } else {
+                        e1.setPS(psJefe);
                     }
-                    e1.setPS(psJefe);
                     estarQuemado();
 
                 } else {
@@ -446,20 +449,22 @@ public class Jugador {
                         int tirada = (int) (Math.random() * 6) + PA;
 
                         System.out.println("Has sacado un " + PARandom + " (+ un " + tirada + ")");
-                        psJefe -= PARandom + tirada - armorJefe;
-                        if (psJefe > psMaxJefe) {
-                            psJefe = psMaxJefe;
+                        if (armorJefe < PARandom) {
+                            psJefe -= PARandom + tirada - armorJefe;
+                            e1.setPS(psJefe);
+                        } else {
+                            e1.setPS(psJefe);
                         }
-                        e1.setPS(psJefe);
                         estarQuemado();
                     } else {
                         System.out.println("No tienes PM para realizar el ataque especial, has usado ATAQUE BASICO");
                         System.out.println("Has sacado un " + PARandom);
-                        psJefe -= PARandom - armorJefe;
-                        if (psJefe > psMaxJefe) {
-                            psJefe = psMaxJefe;
+                        if (armorJefe < PARandom) {
+                            psJefe -= PARandom - armorJefe;
+                            e1.setPS(psJefe);
+                        } else {
+                            e1.setPS(psJefe);
                         }
-                        e1.setPS(psJefe);
                         estarQuemado();
                     }
 
@@ -470,11 +475,12 @@ public class Jugador {
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psJefe -= PARandom - armorJefe;
-                    if (psJefe > psMaxJefe) {
-                        psJefe = psMaxJefe;
+                    if (armorJefe < PARandom) {
+                        psJefe -= PARandom - armorJefe;
+                        e1.setPS(psJefe);
+                    } else {
+                        e1.setPS(psJefe);
                     }
-                    e1.setPS(psJefe);
                     estarQuemado();
 
                 } else {
@@ -487,11 +493,12 @@ public class Jugador {
                     } else {
                         System.out.println("No tienes PM para usar el ataque especial has usado ATAQUE BASICO");
                         System.out.println("Has sacado un " + PARandom);
-                        psJefe -= PARandom - armorJefe;
-                        if (psJefe > psMaxJefe) {
-                            psJefe = psMaxJefe;
+                        if (armorJefe < PARandom) {
+                            psJefe -= PARandom - armorJefe;
+                            e1.setPS(psJefe);
+                        } else {
+                            e1.setPS(psJefe);
                         }
-                        e1.setPS(psJefe);
                         estarQuemado();
                     }
                 }
@@ -499,33 +506,35 @@ public class Jugador {
             case "Picaro":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
-                    psJefe -= PARandom - armorJefe;
-                    if (psJefe > psMaxJefe) {
-                        psJefe = psMaxJefe;
+                    if (armorJefe < PARandom) {
+                        psJefe -= PARandom - armorJefe;
+                        e1.setPS(psJefe);
+                    } else {
+                        e1.setPS(psJefe);
                     }
-                    e1.setPS(psJefe);
                     estarQuemado();
 
                 } else {
                     if (PM >= 30) {
                         System.out.println("Has usado GANG");
                         PM -= 30;
-
-                        psJefe -= (PARandom * 2) - armorJefe;
-                        if (psJefe > psMaxJefe) {
-                            psJefe = psMaxJefe;
+                        if (armorJefe < PARandom) {
+                            psJefe -= (PARandom * 2) - armorJefe;
+                            e1.setPS(psJefe);
+                        } else {
+                            e1.setPS(psJefe);
                         }
-                        e1.setPS(psJefe);
                         estarQuemado();
                     } else {
 
                         System.out.println("Has usado ATAQUE BASICO");
                         System.out.println("Has sacado un " + PARandom);
-                        psJefe -= PARandom - armorJefe;
-                        if (psJefe > psMaxJefe) {
-                            psJefe = psMaxJefe;
+                        if (armorJefe < PARandom) {
+                            psJefe -= PARandom - armorJefe;
+                            e1.setPS(psJefe);
+                        } else {
+                            e1.setPS(psJefe);
                         }
-                        e1.setPS(psJefe);
                         estarQuemado();
                     }
                 }
@@ -533,11 +542,12 @@ public class Jugador {
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psJefe -= PARandom - armorJefe;
-                    if (psJefe > psMaxJefe) {
-                        psJefe = psMaxJefe;
+                    if (armorJefe < PARandom) {
+                        psJefe -= PARandom - armorJefe;
+                        e1.setPS(psJefe);
+                    } else {
+                        e1.setPS(psJefe);
                     }
-                    e1.setPS(psJefe);
                     estarQuemado();
 
                 } else {
@@ -555,11 +565,12 @@ public class Jugador {
                     } else {
                         System.out.println("Has usado ATAQUE BASICO");
                         System.out.println("Has sacado un " + PARandom);
-                        psJefe -= PARandom - armorJefe;
-                        if (psJefe > psMaxJefe) {
-                            psJefe = psMaxJefe;
+                        if (armorJefe < PARandom) {
+                            psJefe -= PARandom - armorJefe;
+                            e1.setPS(psJefe);
+                        } else {
+                            e1.setPS(psJefe);
                         }
-                        e1.setPS(psJefe);
                         estarQuemado();
                     }
                 }
