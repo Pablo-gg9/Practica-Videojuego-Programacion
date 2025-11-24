@@ -18,19 +18,19 @@ public class Videojuegorpg {
     public static Scanner teclado = new Scanner(System.in);
 
     public static void main(String[] args) throws InterruptedException {
+        //Declaracion de variables, la mayoria son enteros para elegir opciones en los switches
         Musica musica1 = new Musica();
         int opcion;
         int compra;
         int ataque;
         int ataqueJefe;
-        int objeto;
         String nombreJ;
         int numeroClase;
-        String[] nombreClase = {"Mago", "Guerrero", "Picaro", "Tanque", "Clerigo"};
+        String[] nombreClase = {"Mago", "Guerrero", "Picaro", "Tanque", "Clerigo"}; //Esta variable me permite elegir clase seleccionando su pusicion para que el usuario no se equivque al escribirla
         boolean escapar = false;
         int contadorCombates = 1;
 
-        String[] nombresE = {"Yasi", "Guille", "Cham", "Javi", "Pablo", "Katherine", "Tomas", "Fernando"};
+        String[] nombresE = {"Yasi", "Guille", "Cham", "Javi", "Pablo", "Katherine", "Tomas", "Fernando"}; //Este array me guarda los nombre de los enemigos
 
         System.out.println(" ___       ________  ________  ________          ________  ________      _________  ___  ___  _______           ___       ________  ___       __   ________      \n"
                 + "|\\  \\     |\\   __  \\|\\   __  \\|\\   ___ \\        |\\   __  \\|\\  _____\\    |\\___   ___\\\\  \\|\\  \\|\\  ___ \\         |\\  \\     |\\   __  \\|\\  \\     |\\  \\|\\   ____\\     \n"
@@ -42,56 +42,56 @@ public class Videojuegorpg {
                 + "                                                                                                                                                     \\|_________|\n"
                 + "                                                                                                                                                                 \n"
                 + "                                                                                                                                                                 ");
-        
+
         System.out.print("Introduce tu nombre: ");
         nombreJ = teclado.nextLine();
-        do{
-            System.out.println("                                                                                                                                                             .                                                           \n" +
-"                                                                                                                                                            /.\\                                                          \n" +
-"                                                                                                                                                            |.|                                                          \n" +
-"                                                                                                                                                            |.|                                                          \n" +
-"                                                                                                                                                            |.|                                                          \n" +
-"                                                                                                                                                            |.|   ,'`.                                                   \n" +
-"                                                                                                                                                            |.|  ;\\  /:                                                  \n" +
-"                                                                                                                                                            |.| /  \\/  \\                                                 \n" +
-"                                                                                                                                                            |.|<.<_\\/_>,>                                                \n" +
-"                                  ....                                                                                                                      |.| \\`.::,'/                                   \\ : /         \n" +
-"                                .'' .'''                                                                              .;;,.                                 |.|,'.'||'/.                                      '-: __ :-' \n" +
-".                             .'   :                                                                                ; '\" ;\\ \\//                          ,-'|.|.`.____,'`.                                    -:  )(_ :--\n" +
-"\\                          .:    :                                                                                 \\|a (a|7 \\//                        ,' .`|.| `.____,;/ \\                                   -' |r-_i'- \n" +
-" \\                        _:    :       ..----.._                                                                  j| ..  | ||/                       ,'=-.`|.|\\ .   \\ |,':                           ,sSSSSs,   (2-,7   \n" +
-"  \\                    .:::.....:::.. .'         ''.                          ;_.JL___;                           //'.--.')\\-,/                      /_   :)|.|.`.___:,:,'|.                          sS';:'`Ss   )-j    \n" +
-"   \\                 .'  #-. .-######'     #        '.                        F\"-/\\_-7L                         .-||- '' ||/  `-.                   (  `-:;\\|.|.`.)  |.`-':,\\                        ;K e (e s7  /  (    \n" +
-"    \\                 '.##'/ ' ################       :                       | a/ e | \\                       ;  | \\ |/ |/ L.  ,|                  /.   /  ;.:--'   |    | ,`.                       S, ''  SJ (  ;/    \n" +
-"     \\                  #####################         :                      ,L,c;,.='/;,                      f\\ |\\| Y  || \\ '._\\                 / _>-'._.'-'.     |.   |' / )._                    sL_~~_;(S_)  _7    \n" +
-"      \\               ..##.-.#### .''''###'.._        :                   _,-;;S:;:S;;:' '--._                j | \\|     (| |   | |               :.'    ((.__;/     |    |._ /__ `.___   |,          'J)_.-' />'-' `Z   \n" +
-"       \\             :--:########:            '.    .' :                 ;. \\;;s:::s;;: .'   /\\              |  L_\\         L.__: |               `.>._.-' |)=(      |.   ;  '--.._,`-.`. j J         /-;-A'-'|'--'-j\\   \n" +
-"        \\..__...--.. :--:#######.'   '.         '.     :                /  \\  ;::::;;  /    /  \\              \\(  '-.,-,    |   ; |                        ',--'`-._ | _,:          `='`'  L L        )  |/   :    /  \\  \n" +
-"        :     :  : : '':'-:'':'::        .         '.  .'              / ,  k ;S';;'S.'    j __,l              |'-.'.L_rr>  f--f  |                        /_`-. `..`:'/_.\\                 \\ \\       | | |    '._.'|  L \n" +
-"        '---'''..: :    ':    '..'''.      '.        :'             ,---/| /  /S   /S '.   |'   ; .-=,,______,--------- J-. ;  ;__                        :__``--..\\\\_/_..:                  \\ \\      | | |       | \\  J \n" +
-"           \\  :: : :     '      ''''''.     '.      .:             ,Ljjj |/|.' s .' s   \\  L    |    ``\"-,__   |  |      h  |  f  '--.__                  |  ``--..,:;\\__.|                   \\ \\    _/ | |       |  ',| \n" +
-"            \\ ::  : :     '            '.      '      :            LL,_ ]( \\    /    '.  '.||   ;        `--;;--,_       h  f-j   |   __;==-.             |`--..__/:;  :__|                    \\ L.,' | | |       |   |/ \n" +
-"             \\::   : :           ....' ..:       '     '.          ||\\ > /  ;-.'_.-.___\\.-'(|==\"(             / `-''-,,__J,'  \\_..--:'-'     '            `._____:-;_,':__;                   _;-r-<_.| \\=\\    __.;  _/  \n" +
-"              \\::  : :    .....####\\ .~~.:.             :          JJ,\" /   |_  [   ]     _]|   /             | |    `' --L7//'-'`|                        |:'    /::'  `|                      {_}\"  L-'  '--'   / /|   \n" +
-"               \\':.:.:.:'#########.===. ~ |.'-.   . '''.. :         LL\\/   ,' '--'-'-----'  \\  (              | ,     ||  h    |  (                        |,---.:  :,-'`;                            |   ,      |  \\|   \n" +
-"                \\    .'  ########## \\ \\ _.' '. '-.       '''.       ||     ;      |          |  >             | ;     | \\ J    j   |                       : __  )  ;__,'\\                            |   |      |   \")  \n" +
-"                :\\  :     ########   \\ \\      '.  '-.        :      JJ     |      |\\         |,/              | L__   | |  L_.'    |                       \\' ,`/   \\__  :                            L   ;|     |   /|  \n" +
-"               :  \\'    '   #### :    \\ \\      :.    '-.      :      LL    |      ||       ' |                |   |'-.| L.'h  |  : |                       :. |,:   :  `./                           /|    ;     |  / |  \n" +
-"              :  .'\\   :'  :     :     \\ \\       :      '-.    :     ||    |      ||       . |                |;  \\     |  J ; : : |                       | `| |   |   |:                          | |    ;     |  ) |  \n" +
-"             : .'  .\\  '  :      :     :\\ \\       :        '.   :    JJ    /_     ||       ;_|                | :  (    \\  'L| : : |                       |  | |   |   ||                         |  |    ;|    | /  |  \n" +
-"             ::   :  \\'  :.      :     : \\ \\      :          '. :     LL   L \"==='|i======='_|                | ;   \\'.--|    \\  : |                       |  | |   |   ||                         | ;|    ||    | |  |  \n" +
-"             ::. :    \\  : :      :    ;  \\ \\     :           '.:     ||    i----' '-------';                 | | : \\    \\-, /`\\ : |                       |  | |   '   ||                         L-'|____||    )/   |  \n" +
-"              : ':    '\\\\ :  :     :     :  \\:\\     :        ..'      JJ    ';-----.------,-'                 L-'-;__\\   \\\\ '  | | |                       |  : |    \\  ||                             % %/ '-,- /    /  \n" +
-"                 :    ' \\ :        :     ;  \\|      :   .'''           LL     L_.__J,'---;'                           ;   \\\\   |'L_j                       |  ; :    :  ||                     snd     |% |   \\%/_    |  \n" +
-"                 '.   '  \\:                         :.''               ||      |   ,|    (                            _>  _|   |                           | / ,;    |\\,'`.                         ___%  (   )% |'-; |  \n" +
-"                  .:..... \\:       :            ..''                   JJ     .'=  (|  ,_|                           <___/ /-  \\                           ;-.(,'    '-._,-`.                     C;.---..'   >%,(   \"'  \n" +
-"                 '._____|'.\\......'''''''.:..'''                        LL   /    .'L_    \\                               /    /                         ,'-.//          `--'                                /%% /       \n" +
-"                            \\                                           ||   '---'    '.___>                              '---'                          `---'                                              Cccc'        ");
+        do {
+            System.out.println("                                                                                                                                                             .                                                           \n"
+                    + "                                                                                                                                                            /.\\                                                          \n"
+                    + "                                                                                                                                                            |.|                                                          \n"
+                    + "                                                                                                                                                            |.|                                                          \n"
+                    + "                                                                                                                                                            |.|                                                          \n"
+                    + "                                                                                                                                                            |.|   ,'`.                                                   \n"
+                    + "                                                                                                                                                            |.|  ;\\  /:                                                  \n"
+                    + "                                                                                                                                                            |.| /  \\/  \\                                                 \n"
+                    + "                                                                                                                                                            |.|<.<_\\/_>,>                                                \n"
+                    + "                                  ....                                                                                                                      |.| \\`.::,'/                                   \\ : /         \n"
+                    + "                                .'' .'''                                                                              .;;,.                                 |.|,'.'||'/.                                      '-: __ :-' \n"
+                    + ".                             .'   :                                                                                ; '\" ;\\ \\//                          ,-'|.|.`.____,'`.                                    -:  )(_ :--\n"
+                    + "\\                          .:    :                                                                                 \\|a (a|7 \\//                        ,' .`|.| `.____,;/ \\                                   -' |r-_i'- \n"
+                    + " \\                        _:    :       ..----.._                                                                  j| ..  | ||/                       ,'=-.`|.|\\ .   \\ |,':                           ,sSSSSs,   (2-,7   \n"
+                    + "  \\                    .:::.....:::.. .'         ''.                          ;_.JL___;                           //'.--.')\\-,/                      /_   :)|.|.`.___:,:,'|.                          sS';:'`Ss   )-j    \n"
+                    + "   \\                 .'  #-. .-######'     #        '.                        F\"-/\\_-7L                         .-||- '' ||/  `-.                   (  `-:;\\|.|.`.)  |.`-':,\\                        ;K e (e s7  /  (    \n"
+                    + "    \\                 '.##'/ ' ################       :                       | a/ e | \\                       ;  | \\ |/ |/ L.  ,|                  /.   /  ;.:--'   |    | ,`.                       S, ''  SJ (  ;/    \n"
+                    + "     \\                  #####################         :                      ,L,c;,.='/;,                      f\\ |\\| Y  || \\ '._\\                 / _>-'._.'-'.     |.   |' / )._                    sL_~~_;(S_)  _7    \n"
+                    + "      \\               ..##.-.#### .''''###'.._        :                   _,-;;S:;:S;;:' '--._                j | \\|     (| |   | |               :.'    ((.__;/     |    |._ /__ `.___   |,          'J)_.-' />'-' `Z   \n"
+                    + "       \\             :--:########:            '.    .' :                 ;. \\;;s:::s;;: .'   /\\              |  L_\\         L.__: |               `.>._.-' |)=(      |.   ;  '--.._,`-.`. j J         /-;-A'-'|'--'-j\\   \n"
+                    + "        \\..__...--.. :--:#######.'   '.         '.     :                /  \\  ;::::;;  /    /  \\              \\(  '-.,-,    |   ; |                        ',--'`-._ | _,:          `='`'  L L        )  |/   :    /  \\  \n"
+                    + "        :     :  : : '':'-:'':'::        .         '.  .'              / ,  k ;S';;'S.'    j __,l              |'-.'.L_rr>  f--f  |                        /_`-. `..`:'/_.\\                 \\ \\       | | |    '._.'|  L \n"
+                    + "        '---'''..: :    ':    '..'''.      '.        :'             ,---/| /  /S   /S '.   |'   ; .-=,,______,--------- J-. ;  ;__                        :__``--..\\\\_/_..:                  \\ \\      | | |       | \\  J \n"
+                    + "           \\  :: : :     '      ''''''.     '.      .:             ,Ljjj |/|.' s .' s   \\  L    |    ``\"-,__   |  |      h  |  f  '--.__                  |  ``--..,:;\\__.|                   \\ \\    _/ | |       |  ',| \n"
+                    + "            \\ ::  : :     '            '.      '      :            LL,_ ]( \\    /    '.  '.||   ;        `--;;--,_       h  f-j   |   __;==-.             |`--..__/:;  :__|                    \\ L.,' | | |       |   |/ \n"
+                    + "             \\::   : :           ....' ..:       '     '.          ||\\ > /  ;-.'_.-.___\\.-'(|==\"(             / `-''-,,__J,'  \\_..--:'-'     '            `._____:-;_,':__;                   _;-r-<_.| \\=\\    __.;  _/  \n"
+                    + "              \\::  : :    .....####\\ .~~.:.             :          JJ,\" /   |_  [   ]     _]|   /             | |    `' --L7//'-'`|                        |:'    /::'  `|                      {_}\"  L-'  '--'   / /|   \n"
+                    + "               \\':.:.:.:'#########.===. ~ |.'-.   . '''.. :         LL\\/   ,' '--'-'-----'  \\  (              | ,     ||  h    |  (                        |,---.:  :,-'`;                            |   ,      |  \\|   \n"
+                    + "                \\    .'  ########## \\ \\ _.' '. '-.       '''.       ||     ;      |          |  >             | ;     | \\ J    j   |                       : __  )  ;__,'\\                            |   |      |   \")  \n"
+                    + "                :\\  :     ########   \\ \\      '.  '-.        :      JJ     |      |\\         |,/              | L__   | |  L_.'    |                       \\' ,`/   \\__  :                            L   ;|     |   /|  \n"
+                    + "               :  \\'    '   #### :    \\ \\      :.    '-.      :      LL    |      ||       ' |                |   |'-.| L.'h  |  : |                       :. |,:   :  `./                           /|    ;     |  / |  \n"
+                    + "              :  .'\\   :'  :     :     \\ \\       :      '-.    :     ||    |      ||       . |                |;  \\     |  J ; : : |                       | `| |   |   |:                          | |    ;     |  ) |  \n"
+                    + "             : .'  .\\  '  :      :     :\\ \\       :        '.   :    JJ    /_     ||       ;_|                | :  (    \\  'L| : : |                       |  | |   |   ||                         |  |    ;|    | /  |  \n"
+                    + "             ::   :  \\'  :.      :     : \\ \\      :          '. :     LL   L \"==='|i======='_|                | ;   \\'.--|    \\  : |                       |  | |   |   ||                         | ;|    ||    | |  |  \n"
+                    + "             ::. :    \\  : :      :    ;  \\ \\     :           '.:     ||    i----' '-------';                 | | : \\    \\-, /`\\ : |                       |  | |   '   ||                         L-'|____||    )/   |  \n"
+                    + "              : ':    '\\\\ :  :     :     :  \\:\\     :        ..'      JJ    ';-----.------,-'                 L-'-;__\\   \\\\ '  | | |                       |  : |    \\  ||                             % %/ '-,- /    /  \n"
+                    + "                 :    ' \\ :        :     ;  \\|      :   .'''           LL     L_.__J,'---;'                           ;   \\\\   |'L_j                       |  ; :    :  ||                     snd     |% |   \\%/_    |  \n"
+                    + "                 '.   '  \\:                         :.''               ||      |   ,|    (                            _>  _|   |                           | / ,;    |\\,'`.                         ___%  (   )% |'-; |  \n"
+                    + "                  .:..... \\:       :            ..''                   JJ     .'=  (|  ,_|                           <___/ /-  \\                           ;-.(,'    '-._,-`.                     C;.---..'   >%,(   \"'  \n"
+                    + "                 '._____|'.\\......'''''''.:..'''                        LL   /    .'L_    \\                               /    /                         ,'-.//          `--'                                /%% /       \n"
+                    + "                            \\                                           ||   '---'    '.___>                              '---'                          `---'                                              Cccc'        ");
             System.out.println("                          === Mago(0)===                                 ===Guerrero(1)===                     ===Picaro(2)===                            ===Tanque(3)===                            ===Clerigo(4)=== ");
-        System.out.println("Introduce tu clase: ");
-        numeroClase = teclado.nextInt();
-        }while(numeroClase < 0 && numeroClase > 4);
-        
+            System.out.println("Introduce tu clase: ");
+            numeroClase = teclado.nextInt();
+        } while (numeroClase < 0 && numeroClase > 4);
+
         Jugador j1 = new Jugador(nombreJ, nombreClase[numeroClase]);
         j1.iniciarClase();
         JefeFinal d = new JefeFinal();
@@ -144,13 +144,15 @@ public class Videojuegorpg {
                     + "|___|_|  |_____|__,|_|_|_|  \n"
                     + "                            ");
 
-            int enemigoRandom = (int) (Math.random() * 7);
-            Enemigo e = new Enemigo(nombresE[enemigoRandom], 1);
             opcion = teclado.nextInt();
 
             switch (opcion) {
 
+                // La primera opcion es luchar contra un enemigo
                 case 1:
+                    int enemigoRandom = (int) (Math.random() * 7); //Escojo uno de los 7 nombre al azar
+                    Enemigo e = new Enemigo(nombresE[enemigoRandom], 1); //Creo el objeto enemigo
+
                     System.out.println();
                     System.out.println("--------------------------------------------");
                     System.out.println("Has iniciado un nuevo combate contra " + e.getNombre());
@@ -159,10 +161,12 @@ public class Videojuegorpg {
 
                     e.calcularEstadisticasEnemigo(j1);
 
+                    //Despues de calcular sus estadisticas de manera aleatoria se mostrara el combate
                     do {
                         mostrarCombate(j1, e);
                         Thread.sleep(1500);
 
+                        // Depende de la velocidad el jugador o el enemigo atacara primero
                         if (j1.getVel() > e.getVel()) {
 
                             // --- JUGADOR ATACA PRIMERO ---
@@ -251,7 +255,7 @@ public class Videojuegorpg {
 
                         } else {
 
-                            // Igual velocidad → aleatorio
+                            // --- IGUAL VELOCIDAD --- entonces genero un boleano aleatorio para ver quien empieza antes
                             if (new java.util.Random().nextBoolean()) {
 
                                 // --- JUGADOR PRIMERO ---
@@ -342,7 +346,7 @@ public class Videojuegorpg {
 
                     } while (j1.getPS() > 0 && e.getPS() > 0 && !escapar);
 
-                    // ================= FIN DEL COMBATE =================
+                    //Aqui se acaba el combate, depende de si se le ha quitado toda la vida al enemigo o te han derrotado saldra una pantalla u otra
                     if (j1.getPS() <= 0) {
                         mostrarCombate(j1, e);
                         Thread.sleep(1500);
@@ -351,7 +355,7 @@ public class Videojuegorpg {
                         mostrarCombateDerrotaEnemigo(j1, e);
                         Thread.sleep(1500);
                         e.dropGold(j1);
-                        if (contadorCombates % 2 == 0) {
+                        if (contadorCombates % 2 == 0) { //Aqui calculamos que cada dos combates se subira de nivel
                             j1.lvlUP(j1);
                         }
                         contadorCombates++;
@@ -360,10 +364,12 @@ public class Videojuegorpg {
 
                     break;
 
-                case 2:
+                case 2: // En la opcion dos solo puedes mirar tus estadisticas
                     System.out.println(j1);
                     break;
-                case 3:
+                case 3: // En la opcion tres se te muestra una tienda con objetos que te suben las estadisticas
+                        // cuantos mas objetos de la misma categoria tengas mas estadisticas te daran pero estos aumentan
+                        // de precio cada nivel que subas
                     System.out.println("===================================================================================");
                     System.out.println("  _____ _                _             _       __   __ _    ____  _____ ____  \n"
                             + " |_   _(_) ___ _ __   __| | __ _    __| | ___  \\ \\ / // \\  / ___|| ____|  _ \\ \n"
@@ -413,9 +419,9 @@ public class Videojuegorpg {
 
                     j1.usarObjeto();
                     break;
-                case 5:
-                    
-                    if (j1.getNivel() < 1) {
+                case 5: // Aqui se repite lo mismo que con el enemigo pero no puedes enfrentarte al jefe hasta alcanzar cierto nivel
+
+                    if (j1.getNivel() < 10) {
                         System.out.println("==== NO TIENES NIVEL PARA ENFRENTARTE AL JEFE(te destruiria con un solo tetraedro del fuego) ====");
                         break;
                     } else {
@@ -624,6 +630,8 @@ public class Videojuegorpg {
         } while (j1.getPS() > 0 && opcion != 6 && d.getPS() > 0);
     }
 
+    // TODO ESTO SON FUNCIONES PARA LLAMAR AL APARTADO VISUAL
+    
     public static void mostrarCombate(Jugador jugador, Enemigo enemigo) {
 
         System.out.println();

@@ -196,14 +196,15 @@ public class Jugador {
             PMMax = 40;
             int PArandom = (int) (Math.random() * 7) + 3;
             int velrandom = (int) (Math.random() * 7) + 3;
-            int armorrandom = (int) (Math.random() * 7) + 3;
+            int armorrandom = (int) (Math.random() * 7);
             PA = PArandom;
             vel = velrandom;
             armor = armorrandom;
 
         } else if ("Guerrero".equals(clases)) {
-            PA = 20;
-            int PArandom = (int) (Math.random() * 7) + 3;
+            PM = 15;
+            PMMax = 15;
+            int PArandom = (int) (Math.random() * 7) + 6;
             int velrandom = (int) (Math.random() * 7) + 3;
             int armorrandom = (int) (Math.random() * 7) + 3;
             PA = PArandom;
@@ -211,27 +212,27 @@ public class Jugador {
             armor = armorrandom;
 
         } else if ("Picaro".equals(clases)) {
-            vel = 100;
-            PMMax = 30;
-            PM = 30;
-            int PArandom = (int) (Math.random() * 7) + 3;
-            int velrandom = (int) (Math.random() * 7) + 3;
+            PMMax = 20;
+            PM = 20;
+            int PArandom = (int) (Math.random() * 7) + 5;
+            int velrandom = (int) (Math.random() * 7) + 10;
             int armorrandom = (int) (Math.random() * 7) + 3;
             PA = PArandom;
             vel = velrandom;
             armor = armorrandom;
         } else if ("Tanque".equals(clases)) {
-            armor = 15;
-            int PArandom = (int) (Math.random() * 7) + 3;
+            PM = 15;
+            PMMax = 15;
+            int PArandom = (int) (Math.random() * 7) + 4;
             int velrandom = (int) (Math.random() * 7) + 3;
-            int armorrandom = (int) (Math.random() * 7) + 3;
+            int armorrandom = (int) (Math.random() * 7) + 9;
             PA = PArandom;
             vel = velrandom;
             armor = armorrandom;
         } else if ("Clerigo".equals(clases)) {
-            armor = 10;
-            PM = 10;
-            int PArandom = (int) (Math.random() * 7) + 3;
+            PMMax = 20;
+            PM = 20;
+            int PArandom = (int) (Math.random() * 7) + 4;
             int velrandom = (int) (Math.random() * 7) + 3;
             int armorrandom = (int) (Math.random() * 7) + 3;
             PA = PArandom;
@@ -249,7 +250,10 @@ public class Jugador {
         switch (clases) {
 
             case "Mago":
-                if (a1) {
+                if (a1 || PM < 15) {
+                    if(a1 == false){
+                        System.out.println("No tienes suficiente mana");
+                    }
                     System.out.println("Has usado MISIL MAGICO BASICO");
                     System.out.println("Has sacado un " + PARandom);
                     psEnemigo -= PARandom - armorEnemigo;
@@ -265,20 +269,14 @@ public class Jugador {
 
                         psEnemigo -= 20 * nivel / 2;
                         e1.setPS(psEnemigo);
-                    } else {
-                        System.out.println("No tienes PM necesarios para usar el ataque especial, has usado misil magico basico");
-                        System.out.println("Has sacado un " + PARandom);
-                        psEnemigo -= PARandom - armorEnemigo;
-                        if (psEnemigo > psMaxEnemigo) {
-                            psEnemigo = psMaxEnemigo;
-                        }
-                        e1.setPS(psEnemigo);
-
                     }
                 }
                 break;
             case "Guerrero":
-                if (a1) {
+                if (a1 || PM < 10) {
+                    if(a1 == false){
+                        System.out.println("No tienes suficiente mana");
+                    }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
                     psEnemigo -= PARandom - armorEnemigo;
@@ -296,21 +294,16 @@ public class Jugador {
                             psEnemigo = psMaxEnemigo;
                         }
                         e1.setPS(psEnemigo);
-                    } else {
-                        System.out.println("No tienes PM para realizar el ataque especial, has usado ATAQUE BASICO");
-                        System.out.println("Has sacado un " + PARandom);
-                        psEnemigo -= PARandom - armorEnemigo;
-                        if (psEnemigo > psMaxEnemigo) {
-                            psEnemigo = psMaxEnemigo;
-                        }
-                        e1.setPS(psEnemigo);
                     }
 
                 }
                 break;
 
             case "Tanque":
-                if (a1) {
+                if (a1 || PM < 10) {
+                    if(a1 == false){
+                        System.out.println("No tienes suficiente mana");
+                    }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
                     psEnemigo -= PARandom - armorEnemigo;
@@ -325,19 +318,14 @@ public class Jugador {
                         PM -= 10;
 
                         armor += 3;
-                    } else {
-                        System.out.println("No tienes PM para usar el ataque especial has usado ATAQUE BASICO");
-                        System.out.println("Has sacado un " + PARandom);
-                        psEnemigo -= PARandom - armorEnemigo;
-                        if (psEnemigo > psMaxEnemigo) {
-                            psEnemigo = psMaxEnemigo;
-                        }
-                        e1.setPS(psEnemigo);
-                    }
+                    } 
                 }
                 break;
             case "Picaro":
-                if (a1) {
+                if (a1 || PM < 30) {
+                    if(a1 == false){
+                        System.out.println("No tienes suficiente mana");
+                    }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
                     psEnemigo -= PARandom - armorEnemigo;
@@ -357,19 +345,15 @@ public class Jugador {
                             psEnemigo = psMaxEnemigo;
                         }
                         e1.setPS(psEnemigo);
-                    } else {
-
-                        System.out.println("Has usado ATAQUE BASICO");
-                        System.out.println("Has sacado un " + PARandom);
-                        psEnemigo -= PARandom - armorEnemigo;
-                        if (psEnemigo > psMaxEnemigo) {
-                            psEnemigo = psMaxEnemigo;
-                        }
-                        e1.setPS(psEnemigo);
-                    }
+                    } 
                 }
+                break;
+                
             case "Clerigo":
-                if (a1) {
+                if (a1 || PM < 10) {
+                    if(a1 == false){
+                        System.out.println("No tienes suficiente mana");
+                    }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
                     psEnemigo -= PARandom - armorEnemigo;
@@ -388,14 +372,6 @@ public class Jugador {
                         } else {
                             PS += 10;
                         }
-                    } else {
-                        System.out.println("Has usado ATAQUE BASICO");
-                        System.out.println("Has sacado un " + PARandom);
-                        psEnemigo -= PARandom - armorEnemigo;
-                        if (psEnemigo > psMaxEnemigo) {
-                            psEnemigo = psMaxEnemigo;
-                        }
-                        e1.setPS(psEnemigo);
                     }
                 }
                 break;
@@ -619,7 +595,7 @@ public class Jugador {
                         PS = PSMax;
                         subidaStats--;
 
-                        System.out.println(j1 + "\n");;
+                        System.out.println(j1 + "\n");
                         break;
                     } else {
                         System.out.println("No tienes suficientes puntos de estadistica");
@@ -630,17 +606,17 @@ public class Jugador {
                         PMMax += 5;
                         PM = PMMax;
                         subidaStats--;
-                        System.out.println(j1 + "\n");;
+                        System.out.println(j1 + "\n");
                         break;
                     } else {
                         System.out.println("No tienes suficientes puntos de estadistica");
                         break;
                     }
                 case 3:
-                    if (subidaStats >= 1) {
+                    if (subidaStats >= 2) {
                         PA += 1;
-                        subidaStats--;
-                        System.out.println(j1 + "\n");;
+                        subidaStats-= 2;
+                        System.out.println(j1 + "\n");
                         break;
                     } else {
                         System.out.println("No tienes suficientes puntos de estadistica");
@@ -650,7 +626,7 @@ public class Jugador {
                     if (subidaStats >= 2) {
                         armor += 1;
                         subidaStats -= 2;
-                        System.out.println(j1 + "\n");;
+                        System.out.println(j1 + "\n");
                         break;
                     } else {
                         System.out.println("No tienes suficientes puntos de estadistica");
@@ -658,10 +634,10 @@ public class Jugador {
                     }
 
                 case 5:
-                    if (subidaStats >= 2) {
+                    if (subidaStats >= 1) {
                         vel += 2;
-                        subidaStats -= 2;
-                        System.out.println(j1 + "\n");;
+                        subidaStats --;
+                        System.out.println(j1 + "\n");
                         break;
                     } else {
                         System.out.println("No tienes suficientes puntos de estadistica");
