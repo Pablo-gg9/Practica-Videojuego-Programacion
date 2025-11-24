@@ -179,6 +179,7 @@ public class Jugador {
         texto += "ATK: " + PA
                 + "   ARMOR: " + armor
                 + "   VEL: " + vel
+                + "   QUEMADO: " + quemado
                 + "   GOLD: " + gold + "\n";
 
         texto += "POTIONS:   VIDA: x" + inventario[0]
@@ -251,16 +252,17 @@ public class Jugador {
 
             case "Mago":
                 if (a1 || PM < 15) {
-                    if(a1 == false){
+                    if (a1 == false) {
                         System.out.println("No tienes suficiente mana");
                     }
                     System.out.println("Has usado MISIL MAGICO BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psEnemigo -= PARandom - armorEnemigo;
-                    if (psEnemigo > psMaxEnemigo) {
-                        psEnemigo = psMaxEnemigo;
+                    if (armorEnemigo < PARandom) {
+                        psEnemigo -= PARandom - armorEnemigo;
+                        e1.setPS(psEnemigo);
+                    } else {
+                        e1.setPS(psEnemigo);
                     }
-                    e1.setPS(psEnemigo);
 
                 } else {
                     if (PM >= 15) {
@@ -274,13 +276,17 @@ public class Jugador {
                 break;
             case "Guerrero":
                 if (a1 || PM < 10) {
-                    if(a1 == false){
+                    if (a1 == false) {
                         System.out.println("No tienes suficiente mana");
                     }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psEnemigo -= PARandom - armorEnemigo;
-                    e1.setPS(psEnemigo);
+                    if (armorEnemigo < PARandom) {
+                        psEnemigo -= PARandom - armorEnemigo;
+                        e1.setPS(psEnemigo);
+                    } else {
+                        e1.setPS(psEnemigo);
+                    }
 
                 } else {
                     if (PM >= 10) {
@@ -289,11 +295,12 @@ public class Jugador {
                         int tirada = (int) (Math.random() * 6) + PA;
 
                         System.out.println("Has sacado un " + PARandom + " (+ un " + tirada + ")");
-                        psEnemigo -= PARandom + tirada - armorEnemigo;
-                        if (psEnemigo > psMaxEnemigo) {
-                            psEnemigo = psMaxEnemigo;
+                        if (armorEnemigo < PARandom) {
+                            psEnemigo -= PARandom + tirada - armorEnemigo;
+                            e1.setPS(psEnemigo);
+                        } else {
+                            e1.setPS(psEnemigo);
                         }
-                        e1.setPS(psEnemigo);
                     }
 
                 }
@@ -301,16 +308,17 @@ public class Jugador {
 
             case "Tanque":
                 if (a1 || PM < 10) {
-                    if(a1 == false){
+                    if (a1 == false) {
                         System.out.println("No tienes suficiente mana");
                     }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psEnemigo -= PARandom - armorEnemigo;
-                    if (psEnemigo > psMaxEnemigo) {
-                        psEnemigo = psMaxEnemigo;
+                    if (armorEnemigo < PARandom) {
+                        psEnemigo -= PARandom - armorEnemigo;
+                        e1.setPS(psEnemigo);
+                    } else {
+                        e1.setPS(psEnemigo);
                     }
-                    e1.setPS(psEnemigo);
 
                 } else {
                     if (PM >= 10) {
@@ -318,21 +326,22 @@ public class Jugador {
                         PM -= 10;
 
                         armor += 3;
-                    } 
+                    }
                 }
                 break;
             case "Picaro":
                 if (a1 || PM < 30) {
-                    if(a1 == false){
+                    if (a1 == false) {
                         System.out.println("No tienes suficiente mana");
                     }
                     System.out.println("Has usado ATAQUE BASICO");
                     System.out.println("Has sacado un " + PARandom);
-                    psEnemigo -= PARandom - armorEnemigo;
-                    if (psEnemigo > psMaxEnemigo) {
-                        psEnemigo = psMaxEnemigo;
+                    if (armorEnemigo < PARandom) {
+                        psEnemigo -= PARandom - armorEnemigo;
+                        e1.setPS(psEnemigo);
+                    } else {
+                        e1.setPS(psEnemigo);
                     }
-                    e1.setPS(psEnemigo);
 
                 } else {
                     if (PM >= 30) {
@@ -340,18 +349,19 @@ public class Jugador {
                         PM -= 30;
 
                         System.out.println("Has sacado un " + PARandom + " x 2");
+                        if (armorEnemigo < PARandom) {
                         psEnemigo -= (PARandom * 2) - armorEnemigo;
-                        if (psEnemigo > psMaxEnemigo) {
-                            psEnemigo = psMaxEnemigo;
-                        }
                         e1.setPS(psEnemigo);
-                    } 
+                    } else {
+                        e1.setPS(psEnemigo);
+                    }
+                    }
                 }
                 break;
-                
+
             case "Clerigo":
                 if (a1 || PM < 10) {
-                    if(a1 == false){
+                    if (a1 == false) {
                         System.out.println("No tienes suficiente mana");
                     }
                     System.out.println("Has usado ATAQUE BASICO");
@@ -615,7 +625,7 @@ public class Jugador {
                 case 3:
                     if (subidaStats >= 2) {
                         PA += 1;
-                        subidaStats-= 2;
+                        subidaStats -= 2;
                         System.out.println(j1 + "\n");
                         break;
                     } else {
@@ -636,7 +646,7 @@ public class Jugador {
                 case 5:
                     if (subidaStats >= 1) {
                         vel += 2;
-                        subidaStats --;
+                        subidaStats--;
                         System.out.println(j1 + "\n");
                         break;
                     } else {
@@ -664,7 +674,7 @@ public class Jugador {
                 + "                                                 ");
         System.out.println("===============================================\n");
         System.out.println(
-                " [1] POCION DE VIDA(" + inventario[0] + ")         [2] POCION DE MANA(" + inventario[1] + ")          [3] POCION ANTIQUEMADURAS(" + inventario[2] + ")\n"
+                " [0] POCION DE VIDA(" + inventario[0] + ")         [1] POCION DE MANA(" + inventario[1] + ")          [2] POCION ANTIQUEMADURAS(" + inventario[2] + ")\n"
                 + "       (~~)                         (~~)                           (~~)\n"
                 + "      (    )                       (    )                         (    )\n"
                 + "      ( VV )                       ( MM )                         ( FF )\n"
