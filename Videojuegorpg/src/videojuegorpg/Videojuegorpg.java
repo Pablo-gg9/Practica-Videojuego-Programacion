@@ -368,8 +368,8 @@ public class Videojuegorpg {
                     System.out.println(j1);
                     break;
                 case 3: // En la opcion tres se te muestra una tienda con objetos que te suben las estadisticas
-                        // cuantos mas objetos de la misma categoria tengas mas estadisticas te daran pero estos aumentan
-                        // de precio cada nivel que subas
+                    // cuantos mas objetos de la misma categoria tengas mas estadisticas te daran pero estos aumentan
+                    // de precio cada nivel que subas
                     System.out.println("===================================================================================");
                     System.out.println("  _____ _                _             _       __   __ _    ____  _____ ____  \n"
                             + " |_   _(_) ___ _ __   __| | __ _    __| | ___  \\ \\ / // \\  / ___|| ____|  _ \\ \n"
@@ -421,7 +421,7 @@ public class Videojuegorpg {
                     break;
                 case 5: // Aqui se repite lo mismo que con el enemigo pero no puedes enfrentarte al jefe hasta alcanzar cierto nivel
 
-                    if (j1.getNivel() < 2) {
+                    if (j1.getNivel() < 10) {
                         System.out.println("==== NO TIENES NIVEL PARA ENFRENTARTE AL JEFE(te destruiria con un solo tetraedro del fuego) ====");
                         break;
                     } else {
@@ -631,7 +631,6 @@ public class Videojuegorpg {
     }
 
     // TODO ESTO SON FUNCIONES PARA LLAMAR AL APARTADO VISUAL
-    
     public static void mostrarCombate(Jugador jugador, Enemigo enemigo) {
 
         System.out.println();
@@ -990,10 +989,5 @@ public class Videojuegorpg {
                 + "  \\___/ \\__,_| \\_/ |_|\\___|_|    /_/   \\_\\_|  |_/___\\__,_| |_|    \\__,_|_|_|\\__,_|\\___/   \\__, | |_|   \\__,_|_.__/|_|\\___/   \\____|\\___/|_|  \\__,_|\\___/   \\____|\\___/|_| |_/___\\__,_|_|\\___/___|\n"
                 + "                                                                                          |___/                                                                                                  ");
 
-        
-        
-        
-        
-        
     }
 }

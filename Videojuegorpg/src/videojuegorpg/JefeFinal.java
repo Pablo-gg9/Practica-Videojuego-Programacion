@@ -118,7 +118,8 @@ public class JefeFinal {
         int PARandom = (int) (Math.random() * 10) + 20;
         PA = PARandom;
 
-        return (int) (Math.random() * 3)+1; // Esto elegira que ataque va a hacer el jefe   
+       return (int) (Math.random() * 3)+1; // Esto elegira que ataque va a hacer el jefe   
+       
     }
 
     /**
@@ -147,7 +148,8 @@ public class JefeFinal {
                 j1.setPS(j1PS);
 
                 int quemadoRandom = (int) (Math.random() * 2)+1;
-                if (quemadoRandom == 3) {
+                 System.out.println(quemadoRandom);
+                if (quemadoRandom == 2) {
                     j1Quemado = true;
                     j1.setQuemado(j1Quemado);
                     System.out.println("Has sido quemado");
