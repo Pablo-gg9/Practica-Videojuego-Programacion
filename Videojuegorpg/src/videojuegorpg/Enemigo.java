@@ -126,9 +126,9 @@ public class Enemigo {
         nivel = nivelJugador;
         int PARandom = (int) (Math.random() * 5) + 2 * nivel;
         int PSMaxRandom = (int) (Math.random() * 5) + 10 * nivel / 2;
-        int velRandom = (int) (Math.random() * 10) * nivel;
+        int velRandom = (int) (Math.random() * 10) + nivel;
         int armorRandom = (int) (Math.random() * 4) + nivel;
-        int goldRandom = (int) (Math.random() * 4) + nivel;
+        int goldRandom = (int) (Math.random() * 6) + nivel;
 
         PA = PARandom;
         PSMax = PSMaxRandom;
