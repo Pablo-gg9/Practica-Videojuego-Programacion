@@ -19,6 +19,12 @@ public class Jugador {
     private boolean turno, quemado;
 
     // Atacar enemigo y jefe final y getter y setter de bolean, cuando ataca quemado quita daño
+
+    /**
+     *
+     * @param nombre
+     * @param clase
+     */
     public Jugador(String nombre, String clase) {
         this.nombre = nombre;
         this.nivel = 1;
@@ -32,118 +38,233 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     * @return
+     */
     public int[] getInvetario() {
         return inventario;
     }
 
+    /**
+     *
+     * @param invetario
+     */
     public void setInvetario(int[] invetario) {
         this.inventario = invetario;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPS() {
         return PS;
     }
 
+    /**
+     *
+     * @param PS
+     */
     public void setPS(int PS) {
         this.PS = PS;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPA() {
         return PA;
     }
 
+    /**
+     *
+     * @param PA
+     */
     public void setPA(int PA) {
         this.PA = PA;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPM() {
         return PM;
     }
 
+    /**
+     *
+     * @param PM
+     */
     public void setPM(int PM) {
         this.PM = PM;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getVel() {
         return vel;
     }
 
+    /**
+     *
+     * @param vel
+     */
     public void setVel(int vel) {
         this.vel = vel;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getGold() {
         return gold;
     }
 
+    /**
+     *
+     * @param gold
+     */
     public void setGold(int gold) {
         this.gold = gold;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getArmor() {
         return armor;
     }
 
+    /**
+     *
+     * @param armor
+     */
     public void setArmor(int armor) {
         this.armor = armor;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getClases() {
         return clases;
     }
 
+    /**
+     *
+     * @param clases
+     */
     public void setClases(String clases) {
         this.clases = clases;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPSMax() {
         return PSMax;
     }
 
+    /**
+     *
+     * @param PSMax
+     */
     public void setPSMax(int PSMax) {
         this.PSMax = PSMax;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPMMax() {
         return PMMax;
     }
 
+    /**
+     *
+     * @param PMMax
+     */
     public void setPMMax(int PMMax) {
         this.PMMax = PMMax;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNivel() {
         return nivel;
     }
 
+    /**
+     *
+     * @param nivel
+     */
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isTurno() {
         return turno;
     }
 
+    /**
+     *
+     * @param turno
+     */
     public void setTurno(boolean turno) {
         this.turno = turno;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isQuemado() {
         return quemado;
     }
 
+    /**
+     *
+     * @param quemado
+     */
     public void setQuemado(boolean quemado) {
         this.quemado = quemado;
     }
 
+    /**
+     *
+     */
     public static Scanner teclado = new Scanner(System.in);
 
     private String generarBarra(int actual, int max, int longitud) {
@@ -170,6 +291,10 @@ public class Jugador {
         return barra;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         String texto = "JUGADOR: " + nombre + " (" + clases + ")   Nv. " + nivel + "\n";
@@ -191,6 +316,9 @@ public class Jugador {
         return texto;
     }
 
+    /**
+     *
+     */
     public void iniciarClase() {
         if ("Mago".equals(clases)) {
             PM = 40;
@@ -243,6 +371,11 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     * @param e1
+     * @param a1
+     */
     public void atacarEnemigo(Enemigo e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
         int psEnemigo = e1.getPS();
@@ -390,6 +523,11 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     * @param e1
+     * @param a1
+     */
     public void atacarJefe(JefeFinal e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
         int psJefe = e1.getPS();
@@ -580,6 +718,10 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     * @param j1
+     */
     public void lvlUP(Jugador j1) {
         int subidaStats = (int) (Math.random() * 6) + nivel;
 
@@ -674,6 +816,9 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     */
     public void usarObjeto() {
 
         System.out.println("===============================================");
@@ -745,6 +890,9 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     */
     public void estarQuemado() {
         int dañoQuemado = (int) (Math.random() * 5) + PSMax / 5;
         if (quemado == true) {
@@ -754,6 +902,10 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     * @param opcion
+     */
     public void comprar(int opcion) {
         switch (opcion) {
             case 1:
@@ -861,6 +1013,11 @@ public class Jugador {
 
     }
 
+    /**
+     *
+     * @param e1
+     * @return
+     */
     public boolean escapar(Enemigo e1) {
 
         if (vel > e1.getVel()) {

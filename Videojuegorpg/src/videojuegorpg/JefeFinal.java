@@ -13,6 +13,9 @@ public class JefeFinal {
     private String nombre;
     private int PS, PSMax, PA, vel, armor, nivel;
 
+    /**
+     *
+     */
     public JefeFinal() {
         nombre = "JAVIER DUEÑAS";
         PS = 200;
@@ -22,58 +25,114 @@ public class JefeFinal {
         nivel = 10;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPSMax() {
         return PSMax;
     }
 
+    /**
+     *
+     * @param PSMax
+     */
     public void setPSMax(int PSMax) {
         this.PSMax = PSMax;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getNivel() {
         return nivel;
     }
 
+    /**
+     *
+     * @param nivel
+     */
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPS() {
         return PS;
     }
 
+    /**
+     *
+     * @param PS
+     */
     public void setPS(int PS) {
         this.PS = PS;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getPA() {
         return PA;
     }
 
+    /**
+     *
+     * @param PA
+     */
     public void setPA(int PA) {
         this.PA = PA;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getVel() {
         return vel;
     }
 
+    /**
+     *
+     * @param vel
+     */
     public void setVel(int vel) {
         this.vel = vel;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getArmor() {
         return armor;
     }
 
+    /**
+     *
+     * @param armor
+     */
     public void setArmor(int armor) {
         this.armor = armor;
     }
@@ -102,6 +161,10 @@ public class JefeFinal {
         return barra;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         String texto = "\n                        =================================================== JEFE FINAL ===================================================\n";
@@ -113,6 +176,10 @@ public class JefeFinal {
         return texto;
     }
 
+    /**
+     *
+     * @return
+     */
     public int Atacar() {
 
         int PARandom = (int) (Math.random() * 10) + 20;
