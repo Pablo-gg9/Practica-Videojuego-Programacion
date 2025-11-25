@@ -96,7 +96,11 @@ public class Videojuegorpg {
         j1.iniciarClase();
         JefeFinal d = new JefeFinal();
         do {
-            //musica1.reproducirMusicaFondo("Sonidos/Gracias_yasi.wav");
+            musica1.reproducirMusicaFondo("Sonidos/Basico_Mago.wav");
+            musica1.detenerMusicaFondo();
+            musica1.reproducirMusicaFondo("Sonidos/Fondo_Dueñas.wav");
+
+            
             System.out.println("==================================================================================");
             System.out.println("  __  __                        _                         _                       \n"
                     + " |  \\/  | ___ _ __  _   _    __| | ___    ___  _ __   ___(_) ___  _ __   ___  ___ \n"
@@ -430,6 +434,8 @@ public class Videojuegorpg {
                         System.out.println("--------------------------------------------");
                         System.out.println("Despues de muchas batallas, amigos perdidos, y mentores sacrificados, llegas al ultimo de ellos, el mas temido y poderoso rival, un genio en retorica y artes oscuras, \n"
                                 + "has llegado AL AULA DE " + d.getNombre());
+                        System.out.println("-Preparaos para enfrentaros a javi dueñas mejor morir que permanecer a medias");
+                            Thread.sleep(1500);
                         System.out.println("");
 
                         do {
@@ -464,7 +470,7 @@ public class Videojuegorpg {
                                             Thread.sleep(2000);
                                             break;
                                         default:
-                                            System.out.println("Esta opcion no esta disponible");
+                                            System.out.println(" ¿Srto/a " +j1.getNombre()+" estas viendo la caja tonta? (Esta opcion no esta disponible)");
                                             Thread.sleep(1200);
                                             break;
                                     }
@@ -516,7 +522,7 @@ public class Videojuegorpg {
                                             Thread.sleep(2000);
                                             break;
                                         default:
-                                            System.out.println("Esta opcion no esta disponible");
+                                             System.out.println(" ¿Srto/a " +j1.getNombre()+" estas viendo la caja tonta? (Esta opcion no esta disponible)");
                                             Thread.sleep(1200);
                                             break;
                                     }
@@ -553,7 +559,7 @@ public class Videojuegorpg {
                                                 Thread.sleep(2000);
                                                 break;
                                             default:
-                                                System.out.println("Esta opcion no esta disponible");
+                                                  System.out.println(" ¿Srto/a " +j1.getNombre()+" estas viendo la caja tonta? (Esta opcion no esta disponible)");
                                                 Thread.sleep(1200);
                                                 break;
                                         }

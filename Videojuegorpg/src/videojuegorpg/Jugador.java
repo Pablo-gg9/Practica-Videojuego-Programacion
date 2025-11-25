@@ -8,22 +8,25 @@ import java.lang.Math;
 import java.util.Scanner;
 
 /**
- *
- * @author Alumno
- */
+ *  Clase que define y gestiona las acciones del jugador y sus estadisticas 
+ *  version 1.0
+ * @author Pablo Gordo González
+ */   
+
+
+
 public class Jugador {
 
-    private String nombre, clases;
+    private String nombre, clases;      
     private int PS, PSMax, PA, PM, PMMax, vel, gold, armor, nivel;
     private int[] inventario;
     private boolean turno, quemado;
 
-    // Atacar enemigo y jefe final y getter y setter de bolean, cuando ataca quemado quita daño
 
     /**
-     *
-     * @param nombre
-     * @param clase
+     * Constructor por defecto que inicializa las estadisticas del jugador 
+     * @param nombre Define el valor del atributo nombre del jugador
+     * @param clase Define el valor del atributo clase del jugador
      */
     public Jugador(String nombre, String clase) {
         this.nombre = nombre;
@@ -39,234 +42,241 @@ public class Jugador {
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo inventario
+     * @return Devuelve el array del inventario 
      */
     public int[] getInvetario() {
         return inventario;
     }
 
     /**
-     *
-     * @param invetario
+     * Método Setter del inventario
+     * @param invetario Introduce un array para cambiar el atributo del jugador
      */
     public void setInvetario(int[] invetario) {
         this.inventario = invetario;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo nombre
+     * @return Devuelve el nombre del jugador
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     *
-     * @param nombre
+     * Método Setter del atributo nombre
+     * @param nombre Introduce un valor para poner al atributo nombre del jugador
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PS
+     * @return Devuelve el valor de los PS actuales del jugador
      */
     public int getPS() {
         return PS;
     }
 
     /**
-     *
-     * @param PS
+     * Método Setter del atributo PS 
+     * @param PS Introduce un valor para modificar los PS actuales del jugador
      */
     public void setPS(int PS) {
         this.PS = PS;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PA
+     * @return Devuelve el valor del atributo PA del jugador
      */
     public int getPA() {
         return PA;
     }
 
     /**
-     *
-     * @param PA
+     * Método Setter del atributo PA
+     * @param PA Introduce un valor para modificar el atributo PA del jugador
      */
     public void setPA(int PA) {
         this.PA = PA;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PM
+     * @return Devuelve valor de los PM actuales del jugador
      */
     public int getPM() {
         return PM;
     }
 
     /**
-     *
-     * @param PM
+     * Método Setter del atributo PM
+     * @param PM Introduce un valor para modificar los PM actuales del jugador
      */
     public void setPM(int PM) {
         this.PM = PM;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo vel 
+     * @return Devuelve el valor del atributo vel del jugador
      */
     public int getVel() {
         return vel;
     }
 
     /**
-     *
-     * @param vel
+     * Método Setter del atributo vel 
+     * @param vel Introduce un valor para modificar el atributo vel del jugador
      */
     public void setVel(int vel) {
         this.vel = vel;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo gold
+     * @return Devuelve el valor del atributo gold del jugador
      */
     public int getGold() {
         return gold;
     }
 
     /**
-     *
-     * @param gold
+     * Método Setter del atributo gold
+     * @param gold Introduce un valor para modificar el atributo gold del jugador
      */
     public void setGold(int gold) {
         this.gold = gold;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo armor
+     * @return Devuelve el valor del atributo gold del jugador
      */
     public int getArmor() {
         return armor;
     }
 
     /**
-     *
-     * @param armor
+     * Método Setter del atributo armor del jugador 
+     * @param armor Introduce un valor para modificar el atributo gold del jugador 
      */
     public void setArmor(int armor) {
         this.armor = armor;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo clases 
+     * @return Devuelve el valor del atributo clases del jugador
      */
     public String getClases() {
         return clases;
     }
 
     /**
-     *
-     * @param clases
+     * Método Setter del atributo clases
+     * @param clases Introduce un valor para modificar el atributo clases del jugador
      */
     public void setClases(String clases) {
         this.clases = clases;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PSMax
+     * @return Devuelve el valor del atributo PSMax del jugador
      */
     public int getPSMax() {
         return PSMax;
     }
 
     /**
-     *
-     * @param PSMax
+     * Método Setter del atributo PSMax
+     * @param PSMax Introduce un valor para modificar el atributo PSMax del jugador
      */
     public void setPSMax(int PSMax) {
         this.PSMax = PSMax;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PMMax
+     * @return Devuelve el valor del atributo PMMax del jugador
      */
     public int getPMMax() {
         return PMMax;
     }
 
     /**
-     *
-     * @param PMMax
+     * Método Setter del atributo PMMax
+     * @param PMMax Introduce un valor para modificar el atributo PMMax del jugador
      */
     public void setPMMax(int PMMax) {
         this.PMMax = PMMax;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo nivel
+     * @return Devuelve el valor del atributo nivel del jugador
      */
     public int getNivel() {
         return nivel;
     }
 
     /**
-     *
-     * @param nivel
+     * Método Setter del atributo nivel
+     * @param nivel Introduce un valor para modificar del atributo nivel del jugador
      */
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo turno 
+     * @return Develve el valor del atributo turno del jugador
      */
     public boolean isTurno() {
         return turno;
     }
 
     /**
-     *
-     * @param turno
+     * Método Setter del atributo turno 
+     * @param turno Introduce un valor para modificar el atributo turno del jugador
      */
     public void setTurno(boolean turno) {
         this.turno = turno;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo quemado
+     * @return Devuelve el valor del atributo quemado del jugador
      */
     public boolean isQuemado() {
         return quemado;
     }
 
     /**
-     *
-     * @param quemado
+     * Método Setter del atributo quemado
+     * @param quemado Introduce un valor para modificar el atributo quemado del jugador
      */
     public void setQuemado(boolean quemado) {
         this.quemado = quemado;
     }
 
     /**
-     *
+     * Declaracion de un Scanner para utilizar en varias funciones personalizadas
      */
     public static Scanner teclado = new Scanner(System.in);
 
+   /**
+    *  Método que calcula los espacios llenos y vacios dentro de una estadistica en funcion de su valor actual y el maximo
+    * @param actual  Valor del atributo actual 
+    * @param max Valor del atributo maximo
+    * @param longitud Valor de longitud de la barra de estadistica
+    * @return Devuelve un string con la barra actualizada 
+    */
     private String generarBarra(int actual, int max, int longitud) {
         if (max <= 0) {
             max = 1;  // evitar división por cero
@@ -292,8 +302,8 @@ public class Jugador {
     }
 
     /**
-     *
-     * @return
+     * Método toString del jugador
+     * @return Devuelve todos los valores del jugador ordenados por estadisticas e inventario de consumibles
      */
     @Override
     public String toString() {
@@ -317,7 +327,7 @@ public class Jugador {
     }
 
     /**
-     *
+     * Método que inicializa las estadisticas del jugador en funcion de la clase elegida
      */
     public void iniciarClase() {
         if ("Mago".equals(clases)) {
@@ -372,9 +382,9 @@ public class Jugador {
     }
 
     /**
-     *
-     * @param e1
-     * @param a1
+     * Método que permite utilizar un ataque basico o ataque especial en funcion de la clase para atacar a un enemigo
+     * @param e1 Objeto de la clase enemigo 
+     * @param a1 Valor para la opcion del ataque
      */
     public void atacarEnemigo(Enemigo e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
@@ -524,9 +534,9 @@ public class Jugador {
     }
 
     /**
-     *
-     * @param e1
-     * @param a1
+     * Método que permite utilizar un ataque basico o ataque especial en función de la clase para atacar a el jefe final
+     * @param e1 Objeto de la clase JefeFinal
+     * @param a1 Valor para elegir la opcion del ataque
      */
     public void atacarJefe(JefeFinal e1, boolean a1) {
         int PARandom = (int) (Math.random() * 6) + PA;
@@ -719,8 +729,8 @@ public class Jugador {
     }
 
     /**
-     *
-     * @param j1
+     * Método que permite al jugador subir sus estadisticas en funcion de su nivel 
+     * @param j1 Objeto de la clase Jugador para llamar al método toString
      */
     public void lvlUP(Jugador j1) {
         int subidaStats = (int) (Math.random() * 6) + nivel;
@@ -738,11 +748,12 @@ public class Jugador {
 
         System.out.println("                     LEVEL UP");
         System.out.println("===================================================");
-        System.out.println("   (1)  PS MAXIMOS      - Aumenta tu vida maxima");
-        System.out.println("   (2)  PM MAXIMOS      - Aumenta tu mana maxima");
-        System.out.println("   (3)  PODER DE ATAQUE - Incrementa tu dano");
-        System.out.println("   (4)  ARMADURA        - Incrementa la defensa");
-        System.out.println("   (5)  VELOCIDAD       - Te permite actuar antes");
+        System.out.println("                                                  COSTE:");
+        System.out.println("   (1)  PS MAXIMOS      - Aumenta tu vida maxima    -1");
+        System.out.println("   (2)  PM MAXIMOS      - Aumenta tu mana maxima    -1");
+        System.out.println("   (3)  PODER DE ATAQUE - Incrementa tu daño        -2");
+        System.out.println("   (4)  ARMADURA        - Incrementa la defensa     -2");
+        System.out.println("   (5)  VELOCIDAD       - Te permite actuar antes   -1");
         System.out.println("===================================================\n");
         System.out.println(j1 + "\n");
         do {
@@ -817,7 +828,7 @@ public class Jugador {
     }
 
     /**
-     *
+     * Método que permite
      */
     public void usarObjeto() {
 

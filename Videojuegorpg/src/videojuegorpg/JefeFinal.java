@@ -8,7 +8,7 @@ package videojuegorpg;
  *
  * @author Javier Ariza
  */
-public class JefeFinal {
+public class JefeFinal{
 
     private String nombre;
     private int PS, PSMax, PA, vel, armor, nivel;
