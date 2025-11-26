@@ -3,16 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package videojuegorpg;
-
-/**
- *
- * @author Alumno
- */
 import java.lang.Math;
 
 /**
- *
- * @author Alumno
+ * Clase que gestiona las acciones y caracteristicas de los enemigos
+ * @version 1.0
+ * @author Pablo Gordo González y Javier Ariza Pulido 
  */
 public class Enemigo {
 
@@ -20,9 +16,9 @@ public class Enemigo {
     private int PS, PSMax, armor, PA, vel, gold, nivel;
 
     /**
-     *
-     * @param nombre
-     * @param nivel
+     * Constructor por parametros de la clase Enemigo
+     * @param nombre Introduce un valor para inicializar el atributo nombre de la clase Enemigo
+     * @param nivel Introduce un valor para inicializar el atributo nivel de la clase Enemigo
      */
     public Enemigo(String nombre, int nivel) {
         this.nombre = nombre;
@@ -30,133 +26,140 @@ public class Enemigo {
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atriubto nombre de la clase Enemigo
+     * @return Devuelve el valor del atributo nombre de la clase Enemigo
      */
     public String getNombre() {
         return nombre;
     }
 
     /**
-     *
-     * @param nombre
+     * Método Setter del atributo nombre de la clase Enemigo
+     * @param nombre Introduce un valor para modificar el atributo nombre de la clase Enemigo
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PSMax de la clase Enemigo
+     * @return Devuelve el valor del atributo de la clase Enemigo
      */
     public int getPSMax() {
         return PSMax;
     }
 
     /**
-     *
-     * @param PSMax
+     * Método Setter del atributo PSMax de la clase Enemigo
+     * @param PSMax Introduce un valor para modificar el atributo de la clase Enemigo
      */
     public void setPSMax(int PSMax) {
         this.PSMax = PSMax;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo nivel de la clase Enemigo
+     * @return Devuelve el valor del atributo nivel de la clase Enemigo
      */
     public int getNivel() {
         return nivel;
     }
 
     /**
-     *
-     * @param nivel
+     * Método Setter del atributo nivel de la clase Enemigo
+     * @param nivel Introduce un valor para modificar el atributo nivel de la clase Enemigo
      */
     public void setNivel(int nivel) {
         this.nivel = nivel;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PS de la clase Enemigo
+     * @return Devuelve el valor del atributo PS de la clase Enemigo
      */
     public int getPS() {
         return PS;
     }
 
     /**
-     *
-     * @param PS
+     * Método Setter del atributo PS de la clase Enemigo
+     * @param PS Introduce un valor para modificar el atributo PS de la clase Enemigo
      */
     public void setPS(int PS) {
         this.PS = PS;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo armor de la clase Enemigo
+     * @return Deveulve el valor del atributo armor de la clase Enemigo
      */
     public int getArmor() {
         return armor;
     }
 
     /**
-     *
-     * @param armor
+     * Método Setter del atributo armor de la clase Enemigo 
+     * @param armor Introduce un valor para modificar el atributo armor de la clase Enemigo
      */
     public void setArmor(int armor) {
         this.armor = armor;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo PA de la clase Enemigo
+     * @return Devuelve el valor del atributo PA de la clase Enemigo
      */
     public int getPA() {
         return PA;
     }
 
     /**
-     *
-     * @param PA
+     * Método Setter del atributo PA de la clase Enemigo
+     * @param PA introduce un valor para modificar el atributo Pa de la clase Enemigo
      */
     public void setPA(int PA) {
         this.PA = PA;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo vel de la clase Enemigo
+     * @return Devuelve el valor del atributo vel de la clase Enemigo
      */
     public int getVel() {
         return vel;
     }
 
     /**
-     *
-     * @param vel
+     * Método Setter del atributo vel de la clase Enemigo
+     * @param vel Introduce un valor para modificar el atributo vel de la clase Enemigo
      */
     public void setVel(int vel) {
         this.vel = vel;
     }
 
     /**
-     *
-     * @return
+     * Método Getter del atributo gold de la clase Enemigo
+     * @return Deveuelve el valor del atributo gold de la clase Enemigo
      */
     public int getGold() {
         return gold;
     }
 
     /**
-     *
-     * @param gold
+     * Método Setter del atributo gold de la clase Enemigo
+     * @param gold Introduce un valor para modificar el atributo gold de la clase Enemigo
      */
     public void setGold(int gold) {
         this.gold = gold;
     }
-
+    
+    /**
+    *  Método que calcula los espacios llenos y vacios dentro de una estadistica en funcion de su valor actual y el maximo
+    * @param actual  Valor del atributo actual 
+    * @param max Valor del atributo maximo
+    * @param longitud Valor de longitud de la barra de estadistica
+    * @return Devuelve un string con la barra actualizada 
+    */
     private String generarBarra(int actual, int max, int longitud) {
         if (max <= 0) {
             max = 1;  // evitar división por cero
@@ -182,8 +185,8 @@ public class Enemigo {
     }
 
     /**
-     *
-     * @return
+     * Método toString de la clase Enemigo
+     * @return Devuelve un resumen de las caracteristicas del enemigo
      */
     @Override
     public String toString() {
@@ -198,8 +201,8 @@ public class Enemigo {
     }
 
     /**
-     *
-     * @param j1
+     * Método que calcula estadisticas del enemigo en funcion del nivel del jugador
+     * @param j1 Objeto de la clase Jugador para comparar su nivel 
      */
     public void calcularEstadisticasEnemigo(Jugador j1) {
 
@@ -220,8 +223,8 @@ public class Enemigo {
     }
 
     /**
-     *
-     * @param j1
+     * Método que permite al Enemigo realizar un ataque básico
+     * @param j1 Objeto de la clase Jugador para atacar
      */
     public void atacar(Jugador j1) {
 
@@ -242,8 +245,8 @@ public class Enemigo {
     }
 
     /**
-     *
-     * @param j1
+     * Método que establece que cantidad de oro suelta el enemigo al morir
+     * @param j1 Objeto de la clase Jugador que va a obtener el oro soltado del enemigo 
      */
     public void dropGold(Jugador j1) {
 

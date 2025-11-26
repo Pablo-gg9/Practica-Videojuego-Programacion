@@ -9,9 +9,18 @@ import javax.sound.sampled.*;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * Clase Musica que permite gestionar fragmentos de audio
+ * @version 1.0
+ * @author Pablo Gordo González y Javier Ariza Pulido 
+ */
 public class Musica {
     private Clip clipFondo;
 
+    /**
+     * Método que permite reproducir un clip permanentemente
+     * @param nombreArchivo Introduce la ruta del archivo a reproducir
+     */
     public void reproducirMusicaFondo(String nombreArchivo) {
         try {
             URL url = getClass().getResource(nombreArchivo);
@@ -25,20 +34,26 @@ public class Musica {
             clipFondo.open(audioStream);
             clipFondo.loop(Clip.LOOP_CONTINUOUSLY);
             clipFondo.start();
-            System.out.println("Reproduciendo música de fondo...");
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Método que detiene la musica que esta sonando 
+     */
     public void detenerMusicaFondo() {
         if (clipFondo != null && clipFondo.isRunning()) {
             clipFondo.stop();
             clipFondo.close();
-            System.out.println("Música detenida.");
+
         }
     }
 
+    /**
+     * Método que permite reproducir efectos de sonido 
+     * @param nombreArchivo
+     */
     public void reproducirEfecto(String nombreArchivo) {
         try {
             URL url = getClass().getResource(nombreArchivo);
@@ -51,7 +66,6 @@ public class Musica {
             Clip clip = AudioSystem.getClip();
             clip.open(audioStream);
             clip.start();
-            System.out.println("Reproduciendo efecto de sonido...");
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }

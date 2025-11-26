@@ -8,9 +8,9 @@ import java.lang.Math;
 import java.util.Scanner;
 
 /**
- *  Clase que define y gestiona las acciones del jugador y sus estadisticas 
- *  version 1.0
- * @author Pablo Gordo González
+ * Clase que define y gestiona las acciones del jugador y sus estadisticas 
+ * @version 1.0
+ * @author Pablo Gordo González y Javier Ariza Pulido
  */   
 
 
@@ -828,7 +828,7 @@ public class Jugador {
     }
 
     /**
-     * Método que permite
+     * Método que permite utilizar un objeto consumible dentro y fuera de combate
      */
     public void usarObjeto() {
 
@@ -902,7 +902,7 @@ public class Jugador {
     }
 
     /**
-     *
+     * Método que causa daño al jugador en funcion de su vida si esta quemado
      */
     public void estarQuemado() {
         int dañoQuemado = (int) (Math.random() * 5) + PSMax / 5;
@@ -914,8 +914,8 @@ public class Jugador {
     }
 
     /**
-     *
-     * @param opcion
+     * Método que permite que el jugador compre objetos y los almacene en su inventario 
+     * @param opcion Introduce la opcion asociada con la tienda para elegir un objeto de la misma
      */
     public void comprar(int opcion) {
         switch (opcion) {
@@ -928,7 +928,7 @@ public class Jugador {
                     System.out.println("ATK(" + PA + "+" + inventario[4] + ")\n");
 
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
                 break;
 
@@ -942,7 +942,7 @@ public class Jugador {
                     System.out.println("PSMax(" + PSMax + "+" + inventario[5] + ")\n");
 
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
                 break;
 
@@ -956,7 +956,7 @@ public class Jugador {
                     System.out.println("Armor(" + armor + "+" + inventario[6] + ")\n");
 
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
                 break;
 
@@ -970,7 +970,7 @@ public class Jugador {
                     System.out.println("VEL(" + vel + "+" + inventario[7] + ")\n");
 
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
                 break;
             case 5:
@@ -983,7 +983,7 @@ public class Jugador {
                     System.out.println("PMMax(" + PMMax + "+" + inventario[8] + ")\n");
 
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
                 break;
             case 6:
@@ -992,7 +992,7 @@ public class Jugador {
                     gold -= (8 + nivel);
                     System.out.println("Compraste una pocion de vida (Gold: " + gold + ")");
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
                 break;
             case 7:
@@ -1001,7 +1001,7 @@ public class Jugador {
                     gold -= (12 + nivel);
                     System.out.println("Compraste una pocion de mana (Gold: " + gold + ")");
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
                 break;
 
@@ -1012,12 +1012,12 @@ public class Jugador {
                     gold -= (15 + nivel);
                     System.out.println("Compraste una pocion de resistencia al fuego (Gold: " + gold + ")");
                 } else {
-                    System.out.println("Te fartan pollas de moneas \n");
+                    System.out.println("Te fartan muchas moneas \n");
                 }
 
                 break;
             default:
-                System.out.println("Tu ereh tonto amego o que te pasa? \n");
+                System.out.println("Illo compae no me ralles la cabeza \n");
                 break;
 
         }
@@ -1025,9 +1025,9 @@ public class Jugador {
     }
 
     /**
-     *
-     * @param e1
-     * @return
+     * Método que en combate permite huir de un enemigo en funcion de la velocidad de jugador y enemigo
+     * @param e1 Objeto de la clase enemigo para comparar su velocidad 
+     * @return Devuelve un booleano que varia en funcion de si escapas del enemigo o no 
      */
     public boolean escapar(Enemigo e1) {
 
