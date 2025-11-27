@@ -43,6 +43,29 @@ public class Videojuegorpg {
                 + "                                                                                                                                                                 \n"
                 + "                                                                                                                                                                 ");
 
+        System.out.println("                                             _______________________\n"
+                + "   _______________________-------------------                       `\\\n"
+                + " /:--__                                                              |\n"
+                + "||< > |                                   ___________________________/\n"
+                + "| \\__/_________________-------------------                         |\n"
+                + "|                                                                  |\n"
+                + " |                       THE LORD OF THE LAWS                       |\n"
+                + " |                                                                  |\n"
+                + " |    \"Hola viajero, sentimos informarle de que ha sido sentenciado |\n"
+                + "  |      a muerte por el poder y derecho del Señor Ausente, usted     |\n"
+                + "  |      al igual que otros muchos ha sido convocado al aula 2.1      |\n"
+                + "  |        donde le espera una larga y agonica disputa por su vida,   |\n"
+                + "  |         pero nuestro poderoso señor le ha concedido una pequeña  |\n"
+                + "   |       oportunidad para conservar la vida, tendra que pelear     |\n"
+                + "   |       contra sus hordas de monstruos de DAM, el los llama      |\n"
+                + "   |     'programadores', criaturas que no saben lo que es la luz.    |\n"
+                + "  |       Si sobrevive, tendra el placer de perecer ante el amo.     |\n"
+                + "  |        Buena suerte.                         ____________________|_\n"
+                + "  |  ___________________-------------------------                      `\\\n"
+                + "  |/`--_                                                                 |\n"
+                + "  ||[ ]||                                            ___________________/\n"
+                + "   \\===/___________________--------------------------\n");
+
         System.out.print("Introduce tu nombre: ");
         nombreJ = teclado.nextLine();
         do {
@@ -920,7 +943,7 @@ public class Videojuegorpg {
                     + "      LL   /    .'L_    \\\n"
                     + "      ||   '---'    '.___>");
         } else if (jugador.getClases().equals("Picaro")) {
-            System.out.println("          .;;,.\n"
+            System.out.println("                   .;;,.\n"
                     + "                  ; '\" ;\\ \\//\n"
                     + "                 \\|a (a|7 \\//\n"
                     + "                 j| ..  | ||/\n"
