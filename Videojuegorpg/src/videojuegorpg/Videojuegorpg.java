@@ -155,7 +155,7 @@ public class Videojuegorpg {
                 case 1:
                     Thread.sleep(500);
                     musica1.detenerMusicaFondo();
-                    musica1.reproducirMusicaFondo("Sonidos/Fondo_Enemigo");
+                    musica1.reproducirMusicaFondo("Sonidos/Fondo_Enemigo.wav");
                     int enemigoRandom = (int) (Math.random() * 7); //Escojo uno de los 7 nombre al azar
                     Enemigo e = new Enemigo(nombresE[enemigoRandom], 1); //Creo el objeto enemigo
 
@@ -186,7 +186,7 @@ public class Videojuegorpg {
 
                                 switch (ataque) {
                                         case 1:
-                                            musica1.reproducirEfecto("Sonidos/Basico.wav");
+                                            musica1.reproducirEfecto("Sonidos/Basico_Mago.wav");
                                             j1.atacarEnemigo(e, true);
                                             Thread.sleep(2000);
                                             break;
@@ -453,7 +453,7 @@ public class Videojuegorpg {
                     // de precio cada nivel que subas
                     musica1.detenerMusicaFondo();
                     musica1.reproducirMusicaFondo("Sonidos/Tienda.wav");
-                    musica1.reproducirEfecto("Sondios/Bienvenida_Yasi.wav");
+                    musica1.reproducirEfecto("Sondios/Bienvenida_yasi.wav");
                     System.out.println("===================================================================================");
                     System.out.println("  _____ _                _             _       __   __ _    ____  _____ ____  \n"
                             + " |_   _(_) ___ _ __   __| | __ _    __| | ___  \\ \\ / // \\  / ___|| ____|  _ \\ \n"
