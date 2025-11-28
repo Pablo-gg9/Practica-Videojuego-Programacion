@@ -211,26 +211,26 @@ public class Videojuegorpg {
 
                                 switch (ataque) {
                                     case 1:
-                                        musica1.reproducirEfecto("Sonidos/Basico_Mago.wav");
+                                        musica1.reproducirEfecto("Sonidos/Basico.wav");
                                         j1.atacarEnemigo(e, true);
                                         Thread.sleep(2000);
                                         break;
                                     case 2:
                                         switch (j1.getClases()) {
                                             case "Mago":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Mago.wav");
                                                 break;
                                             case "Guerrero":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Especial_Guerrero.wav");
                                                 break;
                                             case "Picaro":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Picaro.wav");
                                                 break;
                                             case "Tanque":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Tanque.wav");
                                                 break;
                                             case "Clerigo":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Clerigo.wav");
                                                 break;
 
                                         }
@@ -282,7 +282,7 @@ public class Videojuegorpg {
                                 System.out.println("    4. Huir");
                                 ataque = teclado.nextInt();
 
-                                switch (ataque) {
+                                 switch (ataque) {
                                     case 1:
                                         musica1.reproducirEfecto("Sonidos/Basico.wav");
                                         j1.atacarEnemigo(e, true);
@@ -291,19 +291,19 @@ public class Videojuegorpg {
                                     case 2:
                                         switch (j1.getClases()) {
                                             case "Mago":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Mago.wav");
                                                 break;
                                             case "Guerrero":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Especial_Guerrero.wav");
                                                 break;
                                             case "Picaro":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Picaro.wav");
                                                 break;
                                             case "Tanque":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Tanque.wav");
                                                 break;
                                             case "Clerigo":
-                                                musica1.reproducirEfecto("Sonidos/Mago");
+                                                musica1.reproducirEfecto("Sonidos/Clerigo.wav");
                                                 break;
 
                                         }
@@ -342,49 +342,49 @@ public class Videojuegorpg {
                                     System.out.println("    4. Huir");
                                     ataque = teclado.nextInt();
 
-                                    switch (ataque) {
-                                        case 1:
-                                            musica1.reproducirEfecto("Sonidos/Basico.wav");
-                                            j1.atacarEnemigo(e, true);
-                                            Thread.sleep(2000);
-                                            break;
-                                        case 2:
-                                            switch (j1.getClases()) {
-                                                case "Mago":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Guerrero":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Picaro":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Tanque":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Clerigo":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
+                                      switch (ataque) {
+                                    case 1:
+                                        musica1.reproducirEfecto("Sonidos/Basico.wav");
+                                        j1.atacarEnemigo(e, true);
+                                        Thread.sleep(2000);
+                                        break;
+                                    case 2:
+                                        switch (j1.getClases()) {
+                                            case "Mago":
+                                                musica1.reproducirEfecto("Sonidos/Mago.wav");
+                                                break;
+                                            case "Guerrero":
+                                                musica1.reproducirEfecto("Sonidos/Especial_Guerrero.wav");
+                                                break;
+                                            case "Picaro":
+                                                musica1.reproducirEfecto("Sonidos/Picaro.wav");
+                                                break;
+                                            case "Tanque":
+                                                musica1.reproducirEfecto("Sonidos/Tanque.wav");
+                                                break;
+                                            case "Clerigo":
+                                                musica1.reproducirEfecto("Sonidos/Clerigo.wav");
+                                                break;
 
-                                            }
-                                            j1.atacarEnemigo(e, false);
-                                            Thread.sleep(2000);
-                                            break;
-                                        case 3:
-                                            musica1.reproducirEfecto("Sonidos/Pocion.wav");
-                                            j1.usarObjeto();
-                                            Thread.sleep(2000);
-                                            break;
-                                        case 4:
-                                            musica1.reproducirEfecto("Sonidos/Huir.wav");
-                                            escapar = j1.escapar(e);
-                                            Thread.sleep(2000);
-                                            break;
-                                        default:
-                                            musica1.reproducirEfecto("Sonidos/Error.wav");
-                                            System.out.println("Esta opcion no esta disponible");
-                                            Thread.sleep(1200);
-                                            break;
+                                        }
+                                        j1.atacarEnemigo(e, false);
+                                        Thread.sleep(2000);
+                                        break;
+                                    case 3:
+                                        musica1.reproducirEfecto("Sonidos/Pocion.wav");
+                                        j1.usarObjeto();
+                                        Thread.sleep(2000);
+                                        break;
+                                    case 4:
+                                        musica1.reproducirEfecto("Sonidos/Huir.wav");
+                                        escapar = j1.escapar(e);
+                                        Thread.sleep(2000);
+                                        break;
+                                    default:
+                                        musica1.reproducirEfecto("Sonidos/Error.wav");
+                                        System.out.println("Esta opcion no esta disponible");
+                                        Thread.sleep(1200);
+                                        break;
                                     }
                                 }
 
@@ -415,49 +415,49 @@ public class Videojuegorpg {
                                     System.out.println("    4. Huir");
                                     ataque = teclado.nextInt();
 
-                                    switch (ataque) {
-                                        case 1:
-                                            musica1.reproducirEfecto("Sonidos/Basico.wav");
-                                            j1.atacarEnemigo(e, true);
-                                            Thread.sleep(2000);
-                                            break;
-                                        case 2:
-                                            switch (j1.getClases()) {
-                                                case "Mago":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Guerrero":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Picaro":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Tanque":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
-                                                case "Clerigo":
-                                                    musica1.reproducirEfecto("Sonidos/Mago");
-                                                    break;
+                                      switch (ataque) {
+                                    case 1:
+                                        musica1.reproducirEfecto("Sonidos/Basico.wav");
+                                        j1.atacarEnemigo(e, true);
+                                        Thread.sleep(2000);
+                                        break;
+                                    case 2:
+                                        switch (j1.getClases()) {
+                                            case "Mago":
+                                                musica1.reproducirEfecto("Sonidos/Mago.wav");
+                                                break;
+                                            case "Guerrero":
+                                                musica1.reproducirEfecto("Sonidos/Especial_Guerrero.wav");
+                                                break;
+                                            case "Picaro":
+                                                musica1.reproducirEfecto("Sonidos/Picaro.wav");
+                                                break;
+                                            case "Tanque":
+                                                musica1.reproducirEfecto("Sonidos/Tanque.wav");
+                                                break;
+                                            case "Clerigo":
+                                                musica1.reproducirEfecto("Sonidos/Clerigo.wav");
+                                                break;
 
-                                            }
-                                            j1.atacarEnemigo(e, false);
-                                            Thread.sleep(2000);
-                                            break;
-                                        case 3:
-                                            musica1.reproducirEfecto("Sonidos/Pocion.wav");
-                                            j1.usarObjeto();
-                                            Thread.sleep(2000);
-                                            break;
-                                        case 4:
-                                            musica1.reproducirEfecto("Sonidos/Huir.wav");
-                                            escapar = j1.escapar(e);
-                                            Thread.sleep(2000);
-                                            break;
-                                        default:
-                                            musica1.reproducirEfecto("Sonidos/Error.wav");
-                                            System.out.println("Esta opcion no esta disponible");
-                                            Thread.sleep(1200);
-                                            break;
+                                        }
+                                        j1.atacarEnemigo(e, false);
+                                        Thread.sleep(2000);
+                                        break;
+                                    case 3:
+                                        musica1.reproducirEfecto("Sonidos/Pocion.wav");
+                                        j1.usarObjeto();
+                                        Thread.sleep(2000);
+                                        break;
+                                    case 4:
+                                        musica1.reproducirEfecto("Sonidos/Huir.wav");
+                                        escapar = j1.escapar(e);
+                                        Thread.sleep(2000);
+                                        break;
+                                    default:
+                                        musica1.reproducirEfecto("Sonidos/Error.wav");
+                                        System.out.println("Esta opcion no esta disponible");
+                                        Thread.sleep(1200);
+                                        break;
                                     }
                                 }
                             }
