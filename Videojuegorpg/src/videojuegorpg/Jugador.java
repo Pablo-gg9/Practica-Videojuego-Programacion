@@ -432,7 +432,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 10) {
-                        System.out.println("Has usado TAJO GITANO");
+                        System.out.println("Has usado TAJO ESPARTANO");
                         PM -= 10;
                         int tirada = (int) (Math.random() * 6) + PA;
 
@@ -464,7 +464,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 10) {
-                        System.out.println("Has usado PERSE");
+                        System.out.println("Has usado REITERAR");
                         PM -= 10;
 
                         armor += 3;
@@ -487,7 +487,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 30) {
-                        System.out.println("Has usado GANG");
+                        System.out.println("Has usado tiro con arco");
                         PM -= 30;
 
                         System.out.println("Has sacado un " + PARandom + " x 2");
@@ -517,7 +517,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 10) {
-                        System.out.println("Has usado SIRI CURAME");
+                        System.out.println("Has usado Curasion");
                         PM -= 10;
 
                         if (PS + 10 > PSMax) {
@@ -592,7 +592,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 10) {
-                        System.out.println("Has usado TAJO GITANO");
+                        System.out.println("Has usado TAJO ESPARTANO");
                         PM -= 10;
                         int tirada = (int) (Math.random() * 6) + PA;
 
@@ -633,7 +633,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 10) {
-                        System.out.println("Has usado PERSE");
+                        System.out.println("Has usado REITERAR");
                         PM -= 10;
 
                         armor += 3;
@@ -664,7 +664,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 30) {
-                        System.out.println("Has usado GANG");
+                        System.out.println("Has usado tiro con arco");
                         PM -= 30;
                         if (armorJefe < PARandom) {
                             psJefe -= (PARandom * 2) - armorJefe;
@@ -700,7 +700,7 @@ public class Jugador {
 
                 } else {
                     if (PM >= 10) {
-                        System.out.println("Has usado SIRI CURAME");
+                        System.out.println("Has usado Curasion");
                         PM -= 10;
 
                         if (PS + 10 > PSMax) {
@@ -851,7 +851,7 @@ public class Jugador {
         int objeto = teclado.nextInt();
 
         switch (objeto) {
-            case 1:
+            case 0:
                 if (inventario[0] > 0) {
                     System.out.println("Te has bebido una pocion de vida \n");
                     if (PS + 10 > PSMax) {
@@ -865,7 +865,7 @@ public class Jugador {
                 }
 
                 break;
-            case 2:
+            case 1:
                 if (inventario[1] > 0) {
                     System.out.println("Te has bebido una pocion de mana \n");
                     if (PM + 15 > PMMax) {
@@ -876,12 +876,12 @@ public class Jugador {
                     }
                     inventario[1]--;
                 } else {
-                    System.out.println("No tienes pociones de vida \n");
+                    System.out.println("No tienes pociones de mana \n");
                 }
 
                 break;
 
-            case 3:
+            case 2:
                 if (inventario[2] > 0) {
                     System.out.println("Te has bebido una pocion antiquemaduras \n");
                     quemado = false;
