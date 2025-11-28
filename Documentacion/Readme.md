@@ -13,6 +13,7 @@ lo más ambicioso fue cuando se nos ocurrió que todo debería de tener progresi
 ## 2. Arquitectura del Software
 
 ### Diagrama de clases
+![imagen diagrama de casos de uso](img/Clases.drawio.png)
 
 ### Requisitos Funcionales
 
@@ -93,7 +94,9 @@ lo más ambicioso fue cuando se nos ocurrió que todo debería de tener progresi
 
 ### Diagrama de Casos de Uso
 
-![imagen diagrama de casos de uso](img/Diagrama_Casos_Uso.png)
+![imagen diagrama de casos de uso](img/Diagrama-Casos-Uso.png)
+
+
 
 ## 3. Diseño del Juego
 
