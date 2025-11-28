@@ -113,6 +113,9 @@ public class Videojuegorpg {
             System.out.println("                          === Mago(0)===                                 ===Guerrero(1)===                     ===Picaro(2)===                            ===Tanque(3)===                            ===Clerigo(4)=== ");
             System.out.println("Introduce tu clase: ");
             numeroClase = teclado.nextInt();
+            
+            System.out.println("");
+            if((numeroClase < 0 || numeroClase > 4)) System.out.println("Esta opcion no esta disponible");
         } while (numeroClase < 0 || numeroClase > 4);
 
         Jugador j1 = new Jugador(nombreJ, nombreClase[numeroClase]);
@@ -753,6 +756,12 @@ public class Videojuegorpg {
                         }
 
                     }
+                    break;
+                    
+                default:
+                    System.out.println("------------------------------");
+                    System.out.println("Esta opcion no esta disponible");
+                    System.out.println("------------------------------\n");
 
             }
         } while (j1.getPS() > 0 && opcion != 6 && d.getPS() > 0);
