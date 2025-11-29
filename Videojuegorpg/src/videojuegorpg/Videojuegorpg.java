@@ -42,7 +42,6 @@ public class Videojuegorpg {
                 + "                                                                                                                                                     \\|_________|\n"
                 + "                                                                                                                                                                 \n"
                 + "                                                                                                                                                                 ");
-        mostrarFinal();
 
         System.out.println("                                             _______________________\n"
                 + "   _______________________-------------------                       `\\\n"
