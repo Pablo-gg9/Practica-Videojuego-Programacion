@@ -42,6 +42,7 @@ public class Videojuegorpg {
                 + "                                                                                                                                                     \\|_________|\n"
                 + "                                                                                                                                                                 \n"
                 + "                                                                                                                                                                 ");
+        mostrarFinal();
 
         System.out.println("                                             _______________________\n"
                 + "   _______________________-------------------                       `\\\n"
@@ -111,6 +112,8 @@ public class Videojuegorpg {
                     + "                 '._____|'.\\......'''''''.:..'''                        LL   /    .'L_    \\                               /    /                         ,'-.//          `--'                                /%% /       \n"
                     + "                            \\                                           ||   '---'    '.___>                              '---'                          `---'                                              Cccc'        ");
             System.out.println("                          === Mago(0)===                                 ===Guerrero(1)===                     ===Picaro(2)===                            ===Tanque(3)===                            ===Clerigo(4)=== ");
+            System.out.println("                      Ataque Especial: 15 mana                        Ataque Especial: 10 mana              Ataque Especial: 20 mana                   Ataque Especial: 10 mana                  Ataque Especial: 10 mana");
+            System.out.println("                      Ignora armadura                                 Hacer doble tirada                    Hace doble de daño                         Sube su armadura                          Se cura");
             System.out.println("Introduce tu clase: ");
             numeroClase = teclado.nextInt();
 
@@ -540,6 +543,7 @@ public class Videojuegorpg {
                     );
 
                     do {
+                        System.out.println("Oro actual: " + j1.getGold());
                         compra = teclado.nextInt();
                         j1.comprar(compra);
                         musica1.reproducirEfecto("Sonidos/Comprar.wav");
@@ -556,7 +560,7 @@ public class Videojuegorpg {
                     break;
                 case 5: // Aqui se repite lo mismo que con el enemigo pero no puedes enfrentarte al jefe hasta alcanzar cierto nivel
 
-                    if (j1.getNivel() < 10) {
+                    if (j1.getNivel() < 1) {
                         musica1.reproducirEfecto("Sonidos/Error.wav");
                         System.out.println("==== NO TIENES NIVEL PARA ENFRENTARTE AL JEFE(te destruiria con un solo tetraedro del fuego) ====");
                         break;
@@ -905,11 +909,15 @@ public class Videojuegorpg {
                             musica1.detenerMusicaFondo();
                             mostrarCombateFinal(j1, d);
                             musica1.reproducirEfecto("Sonidos/Muerte.wav");
-                            Thread.sleep(7500);
+                            Thread.sleep(4500);
                             mostrarGameOver();
                         } else if (d.getPS() <= 0) {
+                            
+                            musica1.detenerMusicaFondo();
+                            mostrarCombateFinal(j1, d);
+                            musica1.reproducirEfecto("Sonidos/Duda,consulta,propina.wav");
+                            Thread.sleep(4500);
                             mostrarFinal();
-                            Thread.sleep(1500);
                         }
 
                     }
@@ -1222,33 +1230,33 @@ public class Videojuegorpg {
         System.out.println("                            .     @$* @$3\n"
                 + "                            '$Nueeed$$ed$$eeec$$\n"
                 + "         ,            4$Lze@*$C2$b* ed(he*rb$CC$*$bc@$r\n"
-                + "   /@ |~~            .e$$\"W$$B$B$**  ^$  e\"\"##d?$Bd$$$Nc. ..      @\\/~\\\n"
-                + "   \\==|         4$kd*Cr$6F#\"`  **   .*==      # '\"**F#$I$b$*       |   I\n"
-                + "      |         d$5N@$$\"   ....eu$$$$$$N$*$zbeuu     #$d$$$$b.     / @/\n"
-                + "     @/     . z$Ted*\"$P zue$*9d$$$@#       W$e@B$$L.    \"#@$E$b@N\n"
-                + "           #d$Id*P#  'Nd$$B$**\"       .*,     \"#*N$$b$c   $$$*$$c\n"
-                + "          .d#+C6J   @@$B$*\"          -***-        \"#$$$$c   *$$$#$u\n"
-                + "       ..u$l4@\"^\"zJ$7W*\"              '*`            ^*$@$$$r \"$$E$@B>\n"
-                + "       *@$l$P\"+Rd$$N#\"          *     /|\\     *        '\"$$$c.. ?E$*b\n"
-                + "       z$ \"*.  .Jz$\"           ***   / | \\   ***         '*@N$b   d**N\n"
-                + "     .z$JBR^bs@$$#          *   *   /  |  \\   *  *         \"$l*9N \"bN$Nee\n"
-                + "    4$$.C*   dB@\"          ***    _/  /^\\  \\_   ***         '$$$z> 3$b$$#\n"
-                + "     $\"$e$  @*$\"        *   *     \\\\^|   |^//    *   *        $$$u.^*$N$c\n"
-                + "    JPd$%  @@d\"        ***        ***********       ***       '$Ni$  $EP$\n"
-                + "  :e$\"*$  :et$          *         ***********        *         ^$$E  4$N$be\n"
-                + "  ')$ud\"  @6$                                                   9$$   $*@$\"\n"
-                + "   @F*$   *4P                       ./                          '$m#   .$$.\n"
-                + "u*\"\"\"\"\"\"\"\"\"\"\"\"h                     ##=====                    e#\"\"\"\"\"\"\"\"\"\"#\n"
-                + "E +e       ue. N                 ___##_______                 4F e=c     z*c\n"
-                + "#e$@e.. ..z6+6d\"                #*************/               ^*cBe$u.  .$$@\n"
-                + "   $ ^\"\"\"\" 4F\"  ze=eu              ********              z***hc ^\"$ \"\"*\"\" $\n"
-                + "   $       ^F :*    3r                                  @\"  e \"b  $       $\n"
-                + " .e$        N $  'be$L...                            ...?be@F  $F $       9F\n"
-                + "4\" $        $ $.  zm$*****h.                      ue\"\"\"\"*h6   J$\" $       4%\n"
-                + "$  $        $ $$u5e\" .     \"k                    d\"       #$bu$F  $       4F\n"
-                + "\"N $        $ ^d%P  dF      $  .            .e   $     -c  \"N$F  .$       4F\n"
-                + " #$$        $  $4*. \"N.    zP  3r ..    ..  $c   *u     $  u$K$  4F       4L\n"
-                + "  ^N$e.     3  F$k*. \"*C$$$# .z$\" '$    4L  \"$c. '#$eeedF  $$$9r JF       J$\n"
+                + "   /@ |~~            .e$$\"W$$B$B$**  ^$  e\"\"##d?$Bd$$$Nc. ..      @\\/~\\                                     Tras una ardua pelea y tras haber derrotado                              \n"
+                + "   \\==|         4$kd*Cr$6F#\"`  **   .*==      # '\"**F#$I$b$*       |   I                                    al Señor Ausente has logado salvar al reino                               \n"
+                + "      |         d$5N@$$\"   ....eu$$$$$$N$*$zbeuu     #$d$$$$b.     / @/                                     de DAM y has podido devolver la cordura a                                 \n"
+                + "     @/     . z$Ted*\"$P zue$*9d$$$@#       W$e@B$$L.    \"#@$E$b@N                                           los programadores (cosa que no hara que                                 \n"
+                + "           #d$Id*P#  'Nd$$B$**\"       .*,     \"#*N$$b$c   $$$*$$c                                           salgan de casa tampoco), todo el mundo te                                 \n"
+                + "          .d#+C6J   @@$B$*\"          -***-        \"#$$$$c   *$$$#$u                                         esta eternamente agradecido y seras recordado                                \n"
+                + "       ..u$l4@\"^\"zJ$7W*\"              '*`            ^*$@$$$r \"$$E$@B>                                      en todas las eras que quedan por venir                                \n"
+                + "       *@$l$P\"+Rd$$N#\"          *     /|\\     *        '\"$$$c.. ?E$*b                                       hasta que esta historia se convierta en leyenda                                \n"
+                + "       z$ \"*.  .Jz$\"           ***   / | \\   ***         '*@N$b   d**N                                      y esa leyenda se convierta en mito.                                \n"
+                + "     .z$JBR^bs@$$#          *   *   /  |  \\   *  *         \"$l*9N \"bN$Nee                                                                     \n"
+                + "    4$$.C*   dB@\"          ***    _/  /^\\  \\_   ***         '$$$z> 3$b$$#                                     THE END.                                \n"
+                + "     $\"$e$  @*$\"        *   *     \\\\^|   |^//    *   *        $$$u.^*$N$c                                                                    \n"
+                + "    JPd$%  @@d\"        ***        ***********       ***       '$Ni$  $EP$                                                                       \n"
+                + "  :e$\"*$  :et$          *         ***********        *         ^$$E  4$N$be                                                                     \n"
+                + "  ')$ud\"  @6$                                                   9$$   $*@$\"                                                                    \n"
+                + "   @F*$   *4P                       ./                          '$m#   .$$.                                                                      \n"
+                + "u*\"\"\"\"\"\"\"\"\"\"\"\"h                     ##=====                    e#\"\"\"\"\"\"\"\"\"\"#                                               \n"
+                + "E +e       ue. N                 ___##_______                 4F e=c     z*c                                                                     \n"
+                + "#e$@e.. ..z6+6d\"                #*************/               ^*cBe$u.  .$$@                                                                    \n"
+                + "   $ ^\"\"\"\" 4F\"  ze=eu              ********              z***hc ^\"$ \"\"*\"\" $                                                            \n"
+                + "   $       ^F :*    3r                                  @\"  e \"b  $       $                                                                    \n"
+                + " .e$        N $  'be$L...                            ...?be@F  $F $       9F                                                                     \n"
+                + "4\" $        $ $.  zm$*****h.                      ue\"\"\"\"*h6   J$\" $       4%                                                               \n"
+                + "$  $        $ $$u5e\" .     \"k                    d\"       #$bu$F  $       4F                                                                  \n"
+                + "\"N $        $ ^d%P  dF      $  .            .e   $     -c  \"N$F  .$       4F                                                                   \n"
+                + " #$$        $  $4*. \"N.    zP  3r ..    ..  $c   *u     $  u$K$  4F       4L                                                                    \n"
+                + "  ^N$e.     3  F$k*. \"*C$$$# .z$\" '$    4L  \"$c. '#$eeedF  $$$9r JF       J$                                                                  \n"
                 + "   $'\"$$eu. 4  F3\"K$ .e=*CB$$$$L .e$    '$bc.u$***hd6C\"\"  4kF$4F $F     u@$F\n"
                 + "   $   '\"*$*@u N'L$B*\"z*\"\"     \"$F\" 4k 4c '7$\"      \"*$eu 4'L$J\" $   .e$*\"4F\n"
                 + "   $      '\"hC*$ \"$#.P\"          $me$\"  #$*$       .  ^*INJL$\"$  $e$$*#   4F\n"

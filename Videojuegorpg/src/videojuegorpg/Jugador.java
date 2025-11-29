@@ -472,7 +472,7 @@ public class Jugador {
                 }
                 break;
             case "Picaro":
-                if (a1 || PM < 30) {
+                if (a1 || PM < 20) {
                     if (a1 == false) {
                         System.out.println("No tienes suficiente mana");
                     }
@@ -486,9 +486,9 @@ public class Jugador {
                     }
 
                 } else {
-                    if (PM >= 30) {
+                    if (PM >= 20) {
                         System.out.println("Has usado tiro con arco");
-                        PM -= 30;
+                        PM -= 20;
 
                         System.out.println("Has sacado un " + PARandom + " x 2");
                         if (armorEnemigo < PARandom) {
@@ -654,6 +654,7 @@ public class Jugador {
             case "Picaro":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
+                    System.out.println("Has sacado un " + PARandom);
                     if (armorJefe < PARandom) {
                         psJefe -= PARandom - armorJefe;
                         e1.setPS(psJefe);
@@ -663,9 +664,10 @@ public class Jugador {
                     estarQuemado();
 
                 } else {
-                    if (PM >= 30) {
+                    if (PM >= 20) {
                         System.out.println("Has usado tiro con arco");
-                        PM -= 30;
+                        System.out.println("Has sacado un " + PARandom + " x 2");
+                        PM -= 20;
                         if (armorJefe < PARandom) {
                             psJefe -= (PARandom * 2) - armorJefe;
                             e1.setPS(psJefe);
@@ -686,6 +688,7 @@ public class Jugador {
                         estarQuemado();
                     }
                 }
+                break;
             case "Clerigo":
                 if (a1) {
                     System.out.println("Has usado ATAQUE BASICO");
@@ -751,7 +754,7 @@ public class Jugador {
         System.out.println("                                                  COSTE:");
         System.out.println("   (1)  PS MAXIMOS      - Aumenta tu vida maxima    -1");
         System.out.println("   (2)  PM MAXIMOS      - Aumenta tu mana maxima    -1");
-        System.out.println("   (3)  PODER DE ATAQUE - Incrementa tu daño        -2");
+        System.out.println("   (3)  PODER DE ATAQUE - Incrementa tu daño       -2");
         System.out.println("   (4)  ARMADURA        - Incrementa la defensa     -2");
         System.out.println("   (5)  VELOCIDAD       - Te permite actuar antes   -1");
         System.out.println("===================================================\n");
@@ -920,7 +923,7 @@ public class Jugador {
     public void comprar(int opcion) {
         switch (opcion) {
             case 1:
-                if (gold > (5 + nivel)) {
+                if (gold >= (5 + nivel)) {
                     inventario[4]++;
                     PA += inventario[4];
                     gold -= (5 + nivel);
@@ -933,7 +936,7 @@ public class Jugador {
                 break;
 
             case 2:
-                if (gold > (7 + nivel)) {
+                if (gold >= (7 + nivel)) {
 
                     inventario[5]++;
                     PSMax += 3 + inventario[5];
@@ -947,7 +950,7 @@ public class Jugador {
                 break;
 
             case 3:
-                if (gold > (10 + nivel)) {
+                if (gold >= (10 + nivel)) {
 
                     inventario[6]++;
                     armor += inventario[6];
@@ -961,7 +964,7 @@ public class Jugador {
                 break;
 
             case 4:
-                if (gold > (6 + nivel)) {
+                if (gold >=(6 + nivel)) {
 
                     inventario[7]++;
                     vel += 2 + inventario[7];
@@ -974,7 +977,7 @@ public class Jugador {
                 }
                 break;
             case 5:
-                if (gold > (10 + nivel)) {
+                if (gold >= (10 + nivel)) {
 
                     inventario[8]++;
                     PMMax += 5 + inventario[8];
@@ -987,7 +990,7 @@ public class Jugador {
                 }
                 break;
             case 6:
-                if (gold > (8 + nivel)) {
+                if (gold >= (8 + nivel)) {
                     inventario[0]++;
                     gold -= (8 + nivel);
                     System.out.println("Compraste una pocion de vida (Gold: " + gold + ")");
@@ -996,7 +999,7 @@ public class Jugador {
                 }
                 break;
             case 7:
-                if (gold > (12 + nivel)) {
+                if (gold >= (12 + nivel)) {
                     inventario[1]++;
                     gold -= (12 + nivel);
                     System.out.println("Compraste una pocion de mana (Gold: " + gold + ")");
@@ -1006,7 +1009,7 @@ public class Jugador {
                 break;
 
             case 8:
-                if (gold > (15 + nivel)) {
+                if (gold >= (15 + nivel)) {
 
                     inventario[2]++;
                     gold -= (15 + nivel);
@@ -1015,6 +1018,9 @@ public class Jugador {
                     System.out.println("Te fartan muchas moneas \n");
                 }
 
+                break;
+            case 0: 
+                System.out.println("");
                 break;
             default:
                 System.out.println("Illo compae no me ralles la cabeza \n");

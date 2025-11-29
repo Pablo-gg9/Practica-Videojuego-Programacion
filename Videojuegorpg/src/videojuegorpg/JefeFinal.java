@@ -21,8 +21,8 @@ public class JefeFinal{
         nombre = "JAVIER DUEÑAS";
         PS = 200;
         PSMax = 200;
-        vel = 90;
-        armor = 10;
+        vel = 25;
+        armor = 14;
         nivel = 10;
     }
 
