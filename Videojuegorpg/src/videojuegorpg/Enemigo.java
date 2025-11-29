@@ -251,7 +251,7 @@ public class Enemigo {
     public void dropGold(Jugador j1) {
 
         int j1Gold = j1.getGold();
-        System.out.println(nombre + "ha soltado " + gold + " de oro");
+        System.out.println(nombre + " ha soltado " + gold + " de oro");
         j1Gold += gold;
         j1.setGold(j1Gold);
     }
