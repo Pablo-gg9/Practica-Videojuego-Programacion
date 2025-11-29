@@ -559,7 +559,7 @@ public class Videojuegorpg {
                     break;
                 case 5: // Aqui se repite lo mismo que con el enemigo pero no puedes enfrentarte al jefe hasta alcanzar cierto nivel
 
-                    if (j1.getNivel() < 1) {
+                    if (j1.getNivel() < 10) {
                         musica1.reproducirEfecto("Sonidos/Error.wav");
                         System.out.println("==== NO TIENES NIVEL PARA ENFRENTARTE AL JEFE(te destruiria con un solo tetraedro del fuego) ====");
                         break;
