@@ -13,7 +13,7 @@ lo más ambicioso fue cuando se nos ocurrió que todo debería de tener progresi
 ## 2. Arquitectura del Software
 
 ### Diagrama de clases
-![imagen diagrama de casos de uso](img/Clases.drawio.png)
+![imagen diagrama de clases](img/Clases.drawio.png)
 
 ### Requisitos Funcionales
 
