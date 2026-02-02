@@ -4,6 +4,9 @@
  */
 package videojuegorpg;
 
+import java.io.FileOutputStream;
+import java.io.*;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 /**
@@ -17,10 +20,10 @@ public class Videojuegorpg {
      */
     public static Scanner teclado = new Scanner(System.in);
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ClassNotFoundException {
         //Declaracion de variables, la mayoria son enteros para elegir opciones en los switches
         Musica musica1 = new Musica();
-        int opcion;
+        int opcion, opcion2;
         int compra;
         int ataque;
         int ataqueJefe;
@@ -29,6 +32,7 @@ public class Videojuegorpg {
         String[] nombreClase = {"Mago", "Guerrero", "Picaro", "Tanque", "Clerigo"}; //Esta variable me permite elegir clase seleccionando su pusicion para que el usuario no se equivque al escribirla
         boolean escapar = false;
         int contadorCombates = 1;
+        Jugador j1= null;
 
         String[] nombresE = {"Yasi", "Guille", "Cham", "Javi", "Pablo", "Katherine", "Tomas", "Fernando"}; //Este array me guarda los nombre de los enemigos
 
@@ -43,6 +47,17 @@ public class Videojuegorpg {
                 + "                                                                                                                                                                 \n"
                 + "                                                                                                                                                                 ");
 
+        do{
+        System.out.println("1.NUEVA PARTIDA");
+        System.out.println("2.CARGAR PARTIDA");
+        System.out.println("");
+        
+        opcion2 = teclado.nextInt();
+        }while(opcion2!=1 && opcion2!=2);
+        
+        if(opcion2==1){
+
+        
         System.out.println("                                             _______________________\n"
                 + "   _______________________-------------------                       `\\\n"
                 + " /:--__                                                              |\n"
@@ -122,8 +137,18 @@ public class Videojuegorpg {
             }
         } while (numeroClase < 0 || numeroClase > 4);
 
-        Jugador j1 = new Jugador(nombreJ, nombreClase[numeroClase]);
+         j1 = new Jugador(nombreJ, nombreClase[numeroClase]);
         j1.iniciarClase();
+        }
+        
+        else{
+            try {
+                ObjectInputStream cargar = new ObjectInputStream(new FileInputStream("partidaguardada.dat"));
+                j1 = (Jugador) cargar.readObject();
+            } catch (IOException e) {
+                System.err.println("Error al cargar la partida" + e.toString());
+            }
+        }
         JefeFinal d = new JefeFinal();
         do {
             musica1.detenerMusicaFondo();
@@ -177,6 +202,15 @@ public class Videojuegorpg {
                     + "                            ");
 
             opcion = teclado.nextInt();
+
+            try {
+                ObjectOutputStream guardar = new ObjectOutputStream(new FileOutputStream("partidaguardada.dat"));
+                guardar.writeObject(j1);
+            } catch (IOException e) {
+
+                System.err.println("Error al guardar" + e.toString());
+
+            }
 
             switch (opcion) {
 
@@ -862,7 +896,7 @@ public class Videojuegorpg {
                                                 Thread.sleep(2000);
                                                 break;
                                             case 2:
-                                              
+
                                                 switch (j1.getClases()) {
                                                     case "Mago":
                                                         musica1.reproducirEfecto("Sonidos/Mago.wav");
@@ -881,7 +915,7 @@ public class Videojuegorpg {
                                                         break;
 
                                                 }
-                                                  j1.atacarJefe(d, false);
+                                                j1.atacarJefe(d, false);
                                                 Thread.sleep(2000);
                                                 break;
                                             case 3:
@@ -911,7 +945,7 @@ public class Videojuegorpg {
                             Thread.sleep(4500);
                             mostrarGameOver();
                         } else if (d.getPS() <= 0) {
-                            
+
                             musica1.detenerMusicaFondo();
                             mostrarCombateFinal(j1, d);
                             musica1.reproducirEfecto("Sonidos/Duda,consulta,propina.wav");
@@ -921,11 +955,18 @@ public class Videojuegorpg {
 
                     }
                     break;
+                    
+                case 6:
+                    
+                    System.out.println("ABANDONASTE");
+                    
+                    break;
 
                 default:
                     System.out.println("------------------------------");
                     System.out.println("Esta opcion no esta disponible");
                     System.out.println("------------------------------\n");
+                    break;
 
             }
         } while (j1.getPS() > 0 && opcion != 6 && d.getPS() > 0);
