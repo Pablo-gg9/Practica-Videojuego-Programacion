@@ -9,7 +9,7 @@ package videojuegorpg;
  * @version 1.0
  * @author Pablo Gordo González y Javier Ariza Pulido
  */
-public class JefeFinal{
+public class JefeFinal implements HUD{
 
     private String nombre;
     private int PS, PSMax, PA, vel, armor, nivel;
@@ -255,6 +255,30 @@ public class JefeFinal{
                 break;
         }
 
+    }
+    
+    @Override
+    public void mostrarClases(){
+        System.out.println("                                                                    ,-.\n"
+                + "                                               ___,---.__          /'|`\\          __,---,___\n"
+                + "                                            ,-'    \\`    `-.____,-'  |  `-.____,-'    //    `-.\n"
+                + "                                          ,'        |           ~'\\     /`~           |        `.\n"
+                + "                                         /      ___//              `. ,'          ,  , \\___      \\\n"
+                + "                                        |    ,-'   `-.__   _         |        ,    __,-'   `-.    |\n"
+                + "                                        |   /          /\\_  `   .    |    ,      _/\\          \\   |\n"
+                + "                                        \\  |           \\ \\`-.___ \\   |   / ___,-'/ /           |  /\n"
+                + "                                         \\  \\           | `._   `\\\\  |  //'   _,' |           /  /\n"
+                + "                                          `-.\\         /'  _ `---'' , . ``---' _  `\\         /,-'\n"
+                + "                                             ``       /     \\    ,='/ \\`=.    /     \\       ''\n"
+                + "                                                     |__   /|\\_,--.,-.--,--._/|\\   __|\n"
+                + "                                                     /  `./  \\\\`\\ |  |  | /,//' \\,'  \\\n"
+                + "                                                    /   /     ||--+--|--+-/-|     \\   \\\n"
+                + "                                                   |   |     /'\\_\\_\\ | /_/_/`\\     |   |\n"
+                + "                                                    \\   \\__, \\_     `~'     _/ .__/   /\n"
+                + "                                                     `-._,-'   `-._______,-'   `-._,-'\n");
+
+        System.out.println();
+        
     }
 
 }

@@ -6,8 +6,9 @@ package videojuegorpg;
 
 /**
  *
- * @author Alumno
+ * @author Javier Ariza Pulido y Pablo Gordo González
  */
-public interface Barra_Stats {
+public interface HUD {
+    void mostrarClases();
     
 }

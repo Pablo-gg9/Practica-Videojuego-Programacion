@@ -10,7 +10,7 @@ import java.lang.Math;
  * @version 1.0
  * @author Pablo Gordo González y Javier Ariza Pulido 
  */
-public class Enemigo {
+public class Enemigo implements HUD{
 
     private String nombre;
     private int PS, PSMax, armor, PA, vel, gold, nivel;
@@ -254,6 +254,62 @@ public class Enemigo {
         System.out.println(nombre + " ha soltado " + gold + " de oro");
         j1Gold += gold;
         j1.setGold(j1Gold);
+    }
+    
+    @Override
+    public void mostrarClases(){
+        if(PS>0){
+        System.out.println("                    _..\n"
+                + "                    .'   `\",\n"
+                + "                   ;        \\\n"
+                + "            .---._; ^,       ;\n"
+                + "         .-'      ;{ :  .-. ._;\n"
+                + "    .--\"\"          \\*'   o/ o/\n"
+                + "   /   ,  /         :    _`\";\n"
+                + "  ;     \\;          `.   `\"+'\n"
+                + "  |      }    /    _.'T\"--\"\\\n"
+                + "  :     /   .'.--\"\"-,_ \\    ;\n"
+                + "   \\   /   /_         `,\\   ;\n"
+                + "    : /   /  `-.,_      \\`.  :\n"
+                + "    |;   {     .' `-     ; `, \\\n"
+                + "    : \\  `;   {  `-,__..-'   \\ `}+=,\n"
+                + "     : \\  ;    `.   `,        `-,\\\"\n"
+                + "     ! |\\ `;     \\}?\\|}\n"
+                + "  .-'  | \\ ;\n"
+                + ".'}/ i.'  \\ `,        fsc                   \n"
+                + "``''-'    /   \\\n"
+                + "         /J|/{/\n"
+                + "           `'");
+        }
+        else{
+            System.out.println("                                                        ,--.\n"
+                + "                                                       {    }\n"
+                + "                                                       K,   }\n"
+                + "                                                      /  ~Y`\n"
+                + "                                                 ,   /   /\n"
+                + "                                                {_'-K.__/\n"
+                + "                                                  `/-.__L._\n"
+                + "                                                  /  ' /`\\_}\n"
+                + "                                                 /  ' /\n"
+                + "                                         ____   /  ' /\n"
+                + "                                  ,-'~~~~    ~~/  ' /_\n"
+                + "                                ,'             ``~~~  ',\n"
+                + "                               (                        Y\n"
+                + "                              {                         I\n"
+                + "                             {      -                    `,\n"
+                + "                             |       ',                   )\n"
+                + "                             |        |   ,..__      __. Y\n"
+                + "                             |    .,_./  Y ' / ^Y   J   )|\n"
+                + "                             \\           |' /   |   |   ||\n"
+                + "                              \\          L_/    . _ (_,.'(\n"
+                + "                               \\,   ,      ^^\"\"' / |      )\n"
+                + "                                 \\_  \\          /,L]     /\n"
+                + "                                   '-_~-,       ` `   ./`\n"
+                + "                                      `'{_            )\n"
+                + "                                          ^^\\..___,.--`     ");
+        }
+
+        
     }
 
 }
