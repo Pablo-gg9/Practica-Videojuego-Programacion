@@ -888,6 +888,7 @@ public class Jugador implements Serializable, HUD{
      * Método que permite utilizar un objeto consumible dentro y fuera de
      * combate
      */
+    /*
     public void usarObjeto() {
         enum pociones {
             vida,
@@ -965,7 +966,7 @@ public class Jugador implements Serializable, HUD{
         }
 
     }
-
+*/
     /**
      * Método que causa daño al jugador en funcion de su vida si esta quemado
      */
