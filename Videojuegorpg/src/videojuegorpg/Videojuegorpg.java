@@ -25,8 +25,26 @@ public class Videojuegorpg {
         teclado.nextLine();
         System.out.println("Introduce una opcion de los objetos disponibles");
         opcion = teclado.nextLine();
-        opcion.toUpperCase();
+        opcion=opcion.toUpperCase();
+        System.out.println("La opcion es: " +opcion);
         return opcion;
+    }
+    
+    public static void comprar(String opcion,Inventario i1,Jugador j1){
+    if(opcion.equals("ESPADA")||opcion.equals("ARMADURA")||opcion.equals("BOTAS")){
+    
+        j1.setGold(j1.getGold()-7);
+        i1.agregarObjetoAtaque(opcion, 2);
+        i1.mostrarInventario();
+    }
+    else if(opcion.equals("COLLAR VIDA")||opcion.equals("ANILLO MAGICO")||opcion.equals("POCION VIDA")||opcion.equals("POCION MANA")||opcion.equals("POCION FUEGO")){
+    
+        j1.setGold(j1.getGold()-7);
+        i1.agregarObjetosVida(opcion, 2);
+    }
+        
+        
+        
     }
 
     public static void main(String[] args) throws InterruptedException, ClassNotFoundException {
@@ -577,7 +595,7 @@ public class Videojuegorpg {
 
                     System.out.println(
                             "    1.ESPADA            2.COLLAR VIDA              3.ARMADURA                  4.BOTAS\n"
-                            + "   (" + (5 + j1.getNivel()) + " de oro)            (" + (7 + j1.getNivel()) + " de oro)                (" + (10 + j1.getNivel()) + " de oro)                (" + (6 + j1.getNivel()) + " de oro)\n"
+                            + "   (" + (7) + " de oro)            (" + (7) + " de oro)                (" + (7) + " de oro)                (" + (6 + j1.getNivel()) + " de oro)\n"
                             + "     />                   __\\/__                    /========\\                ___     ___\n"
                             + " (===(============>      /      \\                  |  [____]  |              |   |   |   |\n"
                             + "     \\>                 |   <3   |                 |  |    |  |              |___|   |___|\n"
@@ -586,8 +604,8 @@ public class Videojuegorpg {
                     );
 
                     System.out.println(
-                            " 5.ANILLO MAGICO        6.POCION VIDA              7.POCION MANA               8.POCION RESIST. FUEGO\n"
-                            + "  (" + (10 + j1.getNivel()) + " de oro)            (" + (8 + j1.getNivel()) + " de oro)                 (" + (12 + j1.getNivel()) + " de oro)                (" + (15 + j1.getNivel()) + " de oro) \n"
+                            " 5.ANILLO MAGICO        6.POCION VIDA              7.POCION MANA               8.POCION  FUEGO\n"
+                            + "  (" + (7) + " de oro)            (" + (7) + " de oro)                 (" + (7) + " de oro)                (" + (15 + j1.getNivel()) + " de oro) \n"
                             + "     ____                   (~~)                      (~~)                         (~~)\n"
                             + "   /      \\                (    )                    (    )                       (    )\n"
                             + "  |  (  )  |               ( VV )                    ( MM )                       ( FF )\n"
@@ -598,9 +616,11 @@ public class Videojuegorpg {
                         System.out.println("Oro actual: " + j1.getGold());
                         System.out.println("Introduce la opcion escrita a mano:");
                         opcionInvent=opcionInventario();
-                        i1.agregarObjetoAtaque(opcionInvent, 2);
-                      
-                        musica1.reproducirEfecto("Sonidos/Comprar.wav");
+                        comprar(opcionInvent,i1,j1);
+                        
+                        
+                        
+                        
                     } while (opcionInvent.equals("salir"));
                     musica1.reproducirEfecto("Sonidos/Gracias_yasi.wav");
                     System.out.println("===============================================");

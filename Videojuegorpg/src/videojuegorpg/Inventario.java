@@ -30,9 +30,9 @@ public class Inventario implements Serializable {
     }
 
     public void agregarObjetoAtaque(String clave, int valor) {
-        int aux = cantidadObjetos.get(clave);
+        
         if (objetosAtaque.containsKey(clave)) {
-            cantidadObjetos.put(clave, (aux + 1));
+            cantidadObjetos.put(clave, (cantidadObjetos.get(clave) + 1));
         } else {
             cantidadObjetos.put(clave, (1));
             objetosAtaque.put(clave, valor);
@@ -41,9 +41,9 @@ public class Inventario implements Serializable {
     }
 
     public void agregarObjetosVida(String clave, int valor) {
-        int aux = cantidadObjetos.get(clave);
+
         if (objetosVida.containsKey(clave)) {
-            cantidadObjetos.put(clave, (aux + 1));
+            cantidadObjetos.put(clave, (cantidadObjetos.get(clave) + 1));
         } else {
             cantidadObjetos.put(clave, (1));
             objetosVida.put(clave, valor);
